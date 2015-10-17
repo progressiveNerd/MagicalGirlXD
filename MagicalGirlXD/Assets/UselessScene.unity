@@ -87,6 +87,10 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &485858431 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 433528, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+  m_PrefabInternal: {fileID: 1281788766}
 --- !u!1 &1148808245
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +103,7 @@ GameObject:
   - 92: {fileID: 1148808248}
   - 124: {fileID: 1148808247}
   - 81: {fileID: 1148808246}
+  - 114: {fileID: 1148808251}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -172,7 +177,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1001 &1789786991
+--- !u!114 &1148808251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148808245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ef05c2ce729464597441c327deaeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 485858431}
+  smoothing: 5
+--- !u!1001 &1281788766
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
