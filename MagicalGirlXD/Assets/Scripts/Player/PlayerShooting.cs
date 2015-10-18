@@ -52,10 +52,7 @@ public class PlayerShooting : MonoBehaviour {
             Enemy enemy = shootHit.collider.GetComponent<Enemy>();
             if (enemy != null)
                 enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerHit, shootHit.point);
-            gunLine.SetPosition(1, shootHit.point);
         }
-        else
-            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * meleeRange);
 
     }
 
