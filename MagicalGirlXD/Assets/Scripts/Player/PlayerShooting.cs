@@ -13,14 +13,16 @@ public class PlayerShooting : MonoBehaviour {
 	int shootableMask;
 	//ParticleSystem gunParticles;
 	LineRenderer gunLine;
-	//AudioSource gunAudio;
+	AudioSource Audio;
+    public AudioClip meleeSound, shootSound;
 	float effectsDisplayTime = 0.2f;
 
 	void Awake() {
 		shootableMask = LayerMask.GetMask("Shootable");
 		//gunParticles = GetComponent<ParticleSystem>();
-		gunLine = GetComponent<LineRenderer> ();
-		//gunAudio = GetComponent<AudioSource>();
+        gunLine = GetComponent<LineRenderer>();
+        Audio = GetComponent<AudioSource>();
+        Audio = GetComponent<AudioSource>();
 	}
 
 	void Update() {
@@ -36,9 +38,9 @@ public class PlayerShooting : MonoBehaviour {
     private void Melee()
     {
         timer = 0f;
-        //gunAudio.Play ();
-        //gunParticles.Stop ();
-        //gunParticles.Play ();
+        Audio.clip = meleeSound;
+        Audio.Play();
+        
 
         Vector3 mousePosVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 playerToMouse = mousePosVector - transform.position;
@@ -63,7 +65,8 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Shoot() {
 		timer = 0f;
-		//gunAudio.Play();
+        Audio.clip = shootSound;
+        Audio.Play();
 		//gunParticles.Stop();
 		//gunParticles.Play();
 		
