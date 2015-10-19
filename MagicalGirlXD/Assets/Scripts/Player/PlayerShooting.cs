@@ -26,13 +26,9 @@ public class PlayerShooting : MonoBehaviour {
 	void Update() {
 		timer += Time.deltaTime;
 		if(Input.GetButton("Fire1") && timer >= attackSpeed && Time.timeScale != 0)
-<<<<<<< HEAD
-			Shoot();
-=======
 			Shoot ();
         if (Input.GetButton("Fire2") && timer >= attackSpeed && Time.timeScale != 0)
             Melee();
->>>>>>> 6fad789e1166f34905b7459b5af3575623520691
 		if(timer >= attackSpeed * effectsDisplayTime)
 			DisableEffects();
 	}
