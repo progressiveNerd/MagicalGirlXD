@@ -22,7 +22,6 @@ public class PlayerShooting : MonoBehaviour {
 		//gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
         Audio = GetComponent<AudioSource>();
-        Audio = GetComponent<AudioSource>();
 	}
 
 	void Update() {
