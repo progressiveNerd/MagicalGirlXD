@@ -16,17 +16,17 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Awake() {
 		shootableMask = LayerMask.GetMask("Shootable");
-		//gunParticles = GetComponent<ParticleSystem> ();
+		//gunParticles = GetComponent<ParticleSystem>();
 		gunLine = GetComponent<LineRenderer> ();
-		//gunAudio = GetComponent<AudioSource> ();
+		//gunAudio = GetComponent<AudioSource>();
 	}
 
 	void Update() {
 		timer += Time.deltaTime;
 		if(Input.GetButton("Fire1") && timer >= attackSpeed && Time.timeScale != 0)
-			Shoot ();
+			Shoot();
 		if(timer >= attackSpeed * effectsDisplayTime)
-			DisableEffects ();
+			DisableEffects();
 	}
 
 	public void DisableEffects() {
@@ -36,9 +36,9 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Shoot() {
 		timer = 0f;
-		//gunAudio.Play ();
-		//gunParticles.Stop ();
-		//gunParticles.Play ();
+		//gunAudio.Play();
+		//gunParticles.Stop();
+		//gunParticles.Play();
 		
 		gunLine.enabled = true;
 		gunLine.SetPosition(0, transform.position);

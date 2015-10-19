@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
 	public enum FacingDirection {Front, Back, Left, Right};
 
     public float speed = 3f;
@@ -20,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate() {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-
         Move(h, v);
         Turning();
         Animating(h, v);
@@ -41,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
 		playerToMouse.z = 0f;
 		if(Mathf.Abs(playerToMouse.y) >= Mathf.Abs(playerToMouse.x)) {
 			if(playerToMouse.y <= 0)
-				direction = FacingDirection.Back;
-			else direction = FacingDirection.Front;
+				direction = FacingDirection.Front;
+			else direction = FacingDirection.Back;
 		} else {
 			if(playerToMouse.x <= 0)
 				direction = FacingDirection.Left;

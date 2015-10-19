@@ -17,17 +17,15 @@ public class PlayerHealth : MonoBehaviour {
 	PlayerShooting playerShooting;
 	bool isDead;
 	//bool damaged;
-	
-	
+
 	void Awake() {
 		//anim = GetComponent<Animator>();
 		//playerAudio = GetComponent<AudioSource>();
-		playerMovement = GetComponent <PlayerMovement>();
-		playerShooting = GetComponentInChildren <PlayerShooting>();
+		playerMovement = GetComponent<PlayerMovement>();
+		playerShooting = GetComponent<PlayerShooting>();
 		currentHealth = startingHealth;
 	}
-	
-	
+
 	void Update() {
 		//if(damaged)
 		//	damageImage.color = flashColour;
@@ -35,32 +33,27 @@ public class PlayerHealth : MonoBehaviour {
 		//	damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
 		//damaged = false;
 	}
-	
-	
+
 	public void TakeDamage(int amount) {
 		//damaged = true;
 		currentHealth -= amount;
 		healthSlider.value = currentHealth;
 		//playerAudio.Play();
 		if(currentHealth <= 0 && !isDead)
-			Death ();
+			Death();
 	}
-	
-	
-	void Death ()
-	{
+
+	void Death() {
 		isDead = true;
 		//playerShooting.DisableEffects();
 		//anim.SetTrigger("Die");
 		//playerAudio.clip = deathClip;
 		//playerAudio.Play();
 		playerMovement.enabled = false;
-		//playerShooting.enabled = false;
+		playerShooting.enabled = false;
 	}
-	
-	
-	public void RestartLevel ()
-	{
+
+	public void RestartLevel() {
 		Application.LoadLevel(Application.loadedLevel);
 	}
 }
