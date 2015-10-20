@@ -18,7 +18,7 @@ public class PlayerShooting : MonoBehaviour {
 	float effectsDisplayTime = 0.2f;
 
 	void Awake() {
-		shootableMask = LayerMask.GetMask("Shootable");
+		shootableMask = LayerMask.GetMask("Enemy");
 		//gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
         Audio = GetComponent<AudioSource>();
@@ -27,19 +27,17 @@ public class PlayerShooting : MonoBehaviour {
 	void Update() {
 		timer += Time.deltaTime;
 		if(Input.GetButton("Fire1") && timer >= attackSpeed && Time.timeScale != 0)
-			Shoot ();
+			Shoot();
         if (Input.GetButton("Fire2") && timer >= attackSpeed && Time.timeScale != 0)
             Melee();
 		if(timer >= attackSpeed * effectsDisplayTime)
 			DisableEffects();
 	}
 
-    private void Melee()
-    {
+    private void Melee() {
         timer = 0f;
         Audio.clip = meleeSound;
         Audio.Play();
-        
 
         Vector3 mousePosVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 playerToMouse = mousePosVector - transform.position;
@@ -48,13 +46,11 @@ public class PlayerShooting : MonoBehaviour {
         shootRay.origin = transform.position;
         shootRay.direction = playerToMouse.normalized;
 
-        if (Physics.Raycast(shootRay, out shootHit, meleeRange, shootableMask))
-        {
+        if (Physics.Raycast(shootRay, out shootHit, meleeRange, shootableMask)) {
             Enemy enemy = shootHit.collider.GetComponent<Enemy>();
             if (enemy != null)
                 enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerHit, shootHit.point);
         }
-
     }
 
 	public void DisableEffects() {
@@ -78,8 +74,11 @@ public class PlayerShooting : MonoBehaviour {
 		
 		shootRay.origin = transform.position;
 		shootRay.direction = playerToMouse.normalized;
+
+		Debug.Log(shootRay.origin.ToString());
 		
 		if(Physics.Raycast(shootRay, out shootHit, shootingRange, shootableMask)) {
+			Debug.Log("Shot");
 			Enemy enemy = shootHit.collider.GetComponent<Enemy>();
 			if(enemy != null)
 				enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerShot, shootHit.point);

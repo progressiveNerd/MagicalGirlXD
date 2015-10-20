@@ -8,11 +8,11 @@ public class PlayerMovement : MonoBehaviour {
 	public FacingDirection direction = FacingDirection.Front;
 
     Vector3 movement;
-    //Animator anim;
+    Animator anim;
     Rigidbody2D playerRigidBody;
 
     void Awake() {
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -51,5 +51,6 @@ public class PlayerMovement : MonoBehaviour {
     void Animating(float h, float v) {
         bool walking = h != 0f || v != 0f;
         //anim.SetBool("IsWalking", walking);
+		anim.SetInteger("Direction", (int)direction);
     }
 }
