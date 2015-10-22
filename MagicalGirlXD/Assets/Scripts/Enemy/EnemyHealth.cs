@@ -2,7 +2,7 @@
 
 public class EnemyHealth : MonoBehaviour
 {
-	public int startingHealth = 100;
+	public int startingHealth = 2;
 	public int currentHealth;
 	public float sinkSpeed = 2.5f;
 	//public int scoreValue = 10;
@@ -20,18 +20,16 @@ public class EnemyHealth : MonoBehaviour
 		//anim = GetComponent <Animator> ();
 		//enemyAudio = GetComponent <AudioSource> ();
 		//hitParticles = GetComponentInChildren <ParticleSystem> ();
-		capsuleCollider = GetComponent <CapsuleCollider> ();
+		capsuleCollider = GetComponent<CapsuleCollider> ();
 		currentHealth = startingHealth;
 	}
 	
-	void Update ()
-	{
+	void Update() {
 		if(isSinking)
 			transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
 	}
 	
-	public void TakeDamage (int amount, Vector3 hitPoint)
-	{
+	public void TakeDamage(int amount) {
         Debug.Log("stirng");
 		if(isDead)
 			return;
@@ -40,13 +38,10 @@ public class EnemyHealth : MonoBehaviour
 		//hitParticles.transform.position = hitPoint;
 		//hitParticles.Play();
 		if(currentHealth <= 0)
-		{
-			Death ();
-		}
+			Destroy(gameObject, 0f);
 	}
 	
-	void Death ()
-	{
+	void Death() {
 		isDead = true;
 		capsuleCollider.isTrigger = true;
 		//anim.SetTrigger ("Dead");
@@ -54,10 +49,9 @@ public class EnemyHealth : MonoBehaviour
 		//enemyAudio.Play ();
 	}
 	
-	public void StartSinking ()
-	{
-		GetComponent <NavMeshAgent> ().enabled = false;
-		GetComponent <Rigidbody> ().isKinematic = true;
+	public void StartSinking() {
+		GetComponent <NavMeshAgent>().enabled = false;
+		GetComponent <Rigidbody>().isKinematic = true;
 		isSinking = true;
 		//ScoreManager.score += scoreValue;
 		Destroy (gameObject, 2f);

@@ -124,18 +124,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468298, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 185910, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11483306, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
-    - {fileID: 11435748, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
-    - {fileID: 11430176, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
-    - {fileID: 11404004, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
-    - {fileID: 9510646, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &485858431 stripped

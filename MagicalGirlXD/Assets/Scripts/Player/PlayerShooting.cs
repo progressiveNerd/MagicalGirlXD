@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour {
-	public int damagePerShot = 20;
-    public int damagePerHit = 30;
+	public int damagePerShot = 1;
+    public int damagePerHit = 2;
 	public float attackSpeed = 0.15f;
 	public float shootingRange = 100f;
     public float meleeRange = 2f;
@@ -52,7 +52,7 @@ public class PlayerShooting : MonoBehaviour {
             if (enemy != null)
 			{
 				Debug.Log("i made it");
-                enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerHit, shootHit.point);
+                enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerHit);
 			}
         }
     }
