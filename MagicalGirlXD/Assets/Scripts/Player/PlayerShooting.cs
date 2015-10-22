@@ -6,6 +6,7 @@ public class PlayerShooting : MonoBehaviour {
 	public float attackSpeed = 0.15f;
 	public float shootingRange = 100f;
     public float meleeRange = 2f;
+	public Transform shotPrefab;
 
 	float timer;
 	Ray shootRay;
@@ -62,16 +63,22 @@ public class PlayerShooting : MonoBehaviour {
 		timer = 0f;
         Audio.clip = shootSound;
         Audio.Play();
+		var shotTransform = Instantiate(shotPrefab) as Transform;
+		shotTransform.position = transform.position;
+		ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
+		if(shot != null)
+			shot.isEnemyShot = false;
 		//gunParticles.Stop();
 		//gunParticles.Play();
-		
+
+		/*
 		gunLine.enabled = true;
 		gunLine.SetPosition(0, transform.position);
 
 		Vector3 mousePosVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 playerToMouse = mousePosVector - transform.position;
 		playerToMouse.z = 0f;
-		
+
 		shootRay.origin = transform.position;
 		shootRay.direction = playerToMouse.normalized;
 
@@ -86,5 +93,6 @@ public class PlayerShooting : MonoBehaviour {
 		}
 		else
 			gunLine.SetPosition(1, shootRay.origin + shootRay.direction * shootingRange);
+		*/
 	}
 }

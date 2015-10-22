@@ -181,6 +181,7 @@ MonoBehaviour:
   attackSpeed: .150000006
   shootingRange: 100
   meleeRange: 2
+  shotPrefab: {fileID: 406592, guid: 40f0006efe3b84bd184e557a71fb844b, type: 2}
   meleeSound: {fileID: 8300000, guid: d6834f275dce7034b9948db3f5d66fe2, type: 3}
   shootSound: {fileID: 8300000, guid: ce6ed5b0b153f44429a80eee8dbbbb07, type: 3}
 --- !u!114 &11481666
