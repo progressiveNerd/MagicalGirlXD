@@ -19,7 +19,7 @@ public class PlayerShooting : MonoBehaviour {
 	float effectsDisplayTime = 0.2f;
 
 	void Awake() {
-		shootableMask = LayerMask.GetMask("Enemy");
+		shootableMask = LayerMask.GetMask("Shootable");
 		//gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
         Audio = GetComponent<AudioSource>();
@@ -46,11 +46,14 @@ public class PlayerShooting : MonoBehaviour {
 
         shootRay.origin = transform.position;
         shootRay.direction = playerToMouse.normalized;
-
-        if (Physics.Raycast(shootRay, out shootHit, meleeRange, shootableMask)) {
-            Enemy enemy = shootHit.collider.GetComponent<Enemy>();
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, playerToMouse.normalized, meleeRange, shootableMask);
+        if (hit.collider != null) {
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
+			{
+				Debug.Log("i made it");
                 enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerHit, shootHit.point);
+			}
         }
     }
 
