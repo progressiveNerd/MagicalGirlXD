@@ -4,20 +4,21 @@ using System.Collections;
 public class EnemyMelee : EnemyAttack
 {
     Enemy manager;
-    void Awake()
-    {
+    void Awake() {
         manager = transform.parent.GetComponent<Enemy>();
     }
 
 
-    void OnTriggerEnter(Collider other)
-    {
-        manager.OnChildTriggerEnter(name, other);
+    void OnTriggerEnter2D(Collider2D other) {
+        manager.OnChildTriggerEnter("Attack", other);
     }
 
 
-    void OnTriggerExit(Collider other)
-    {
-        manager.OnChildTriggerExit(name, other);
+    void OnTriggerExit2D(Collider2D other) {
+        manager.OnChildTriggerExit("Attack", other);
+    }
+
+    public override void Attack(GameObject player) {
+        Debug.Log("Attacking!");
     }
 }

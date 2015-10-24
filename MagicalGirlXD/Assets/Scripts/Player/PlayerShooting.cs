@@ -6,37 +6,32 @@ public class PlayerShooting : MonoBehaviour {
 	public float attackSpeed = 0.15f;
 	public float shootingRange = 100f;
     public float meleeRange = 2f;
+    public AudioClip meleeSound, shootSound;
 	public Transform shotPrefab;
 
-	float timer;
-	Ray shootRay;
-	RaycastHit shootHit;
+	float attackTimer;
 	int shootableMask;
-	//ParticleSystem gunParticles;
+    AudioSource Audio;
 	LineRenderer gunLine;
-	AudioSource Audio;
-    public AudioClip meleeSound, shootSound;
-	float effectsDisplayTime = 0.2f;
+    Ray shootRay;
+    RaycastHit shootHit;
 
 	void Awake() {
 		shootableMask = LayerMask.GetMask("Shootable");
-		//gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
         Audio = GetComponent<AudioSource>();
 	}
 
 	void Update() {
-		timer += Time.deltaTime;
-		if(Input.GetButton("Fire1") && timer >= attackSpeed && Time.timeScale != 0)
+		attackTimer += Time.deltaTime;
+		if(Input.GetButton("Fire1") && attackTimer >= attackSpeed && Time.timeScale != 0)
 			Shoot();
-        if (Input.GetButton("Fire2") && timer >= attackSpeed && Time.timeScale != 0)
+        if (Input.GetButton("Fire2") && attackTimer >= attackSpeed && Time.timeScale != 0)
             Melee();
-		if(timer >= attackSpeed * effectsDisplayTime)
-			DisableEffects();
 	}
 
     private void Melee() {
-        timer = 0f;
+        attackTimer = 0f;
         Audio.clip = meleeSound;
         Audio.Play();
 
@@ -50,27 +45,24 @@ public class PlayerShooting : MonoBehaviour {
         if (hit.collider != null) {
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
-			{
-				Debug.Log("i made it");
-                enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerHit);
-			}
+                enemy.TakeDamage(damagePerHit);
         }
     }
 
-	public void DisableEffects() {
-		gunLine.enabled = false;
-		//gunLight.enabled = false;
-	}
-
 	void Shoot() {
-		timer = 0f;
+		attackTimer = 0f;
         Audio.clip = shootSound;
         Audio.Play();
 		var shotTransform = Instantiate(shotPrefab) as Transform;
 		shotTransform.position = transform.position;
 		ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
-		if(shot != null)
-			shot.isEnemyShot = false;
+        if (shot != null) {
+            Vector3 mousePosVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            shot.isEnemyShot = false;
+            shot.direction = mousePosVector - transform.position;
+            shot.direction.z = 0f;
+            shot.direction.Normalize();
+        }
 		//gunParticles.Stop();
 		//gunParticles.Play();
 

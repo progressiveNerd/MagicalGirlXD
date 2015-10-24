@@ -10,9 +10,10 @@ GameObject:
   - 4: {fileID: 464822}
   - 58: {fileID: 5883942}
   - 114: {fileID: 11473612}
-  m_Layer: 0
+  - 114: {fileID: 11463884}
+  m_Layer: 8
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,9 +28,9 @@ GameObject:
   - 4: {fileID: 416870}
   - 58: {fileID: 5810600}
   - 114: {fileID: 11498082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vision
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,13 +158,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216bcaa3125b90a4a9158006e4613a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInRange: 0
-  seen: 0
-  timeBetweenAttacks: .5
-  attackDamage: 10
-  poiNext: 0
-  destinationReached: 0
-  points: []
+  ranged: 0
+  timeBetweenAttacks: 1
+  attackDamage: 1
+  startingHealth: 2
+  walkSpeed: 6
+  chaseSpeed: 12
+  direction: 0
+--- !u!114 &11463884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ab617821f98bb4781de1b7e94c5323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotPrefab: {fileID: 406592, guid: 40f0006efe3b84bd184e557a71fb844b, type: 2}
 --- !u!114 &11473612
 MonoBehaviour:
   m_ObjectHideFlags: 1

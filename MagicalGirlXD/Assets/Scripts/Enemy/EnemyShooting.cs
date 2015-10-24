@@ -1,24 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyShooting : EnemyAttack
-{
+public class EnemyShooting : EnemyAttack {
+    public Transform shotPrefab;
     Enemy manager;
 
-    //public float timeBetweenAttacks = 0.5f;
-    //public int attackDamage = 10;
-
-
-    //Animator anim;
-    //GameObject player;
-    //PlayerHealth playerHealth;
-    //EnemyHealth enemyHealth;
-    //bool playerInRange;
-    //float timer;
-
-
-    void Awake()
-    {
+    void Awake() {
         //player = GameObject.FindGameObjectWithTag("Player");
         //playerHealth = player.GetComponent<PlayerHealth>();
         //enemyHealth = GetComponent<EnemyHealth>();
@@ -26,15 +13,23 @@ public class EnemyShooting : EnemyAttack
         manager = transform.parent.GetComponent<Enemy>();
     }
 
-
-    void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerEnter2D(Collider2D other) {
         manager.OnChildTriggerEnter(name, other);
     }
 
-
-    void OnTriggerExit(Collider other)
-    {
+    void OnTriggerExit2D(Collider2D other) {
         manager.OnChildTriggerEnter(name, other);
+    }
+
+    public override void Attack(GameObject player) {
+        var shotTransform = Instantiate(shotPrefab) as Transform;
+        shotTransform.position = transform.position;
+        ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
+        if (shot != null) {
+            shot.isEnemyShot = true;
+            shot.direction = player.transform.position - transform.position;
+            shot.direction.z = 0f;
+            shot.direction.Normalize();
+        }
     }
 }
