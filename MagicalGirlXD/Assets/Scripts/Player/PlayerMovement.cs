@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	public enum FacingDirection {Front, Back, Left, Right};
 
     public float speed = 3f;
 	public float runSpeed = 6f;

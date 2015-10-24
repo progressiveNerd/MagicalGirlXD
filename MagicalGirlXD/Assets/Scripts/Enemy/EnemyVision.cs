@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyVision : MonoBehaviour {
+public class EnemyVision : MonoBehaviour
+{
 
-    EnemyManager manager;
-    
+    Enemy manager;
+    bool seen;
+
     void Awake()
     {
-        manager = transform.parent.GetComponent<EnemyManager>();
+        manager = transform.parent.GetComponent<Enemy>();
     }
 
-    void OnTriggerEnter (Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        //if (other == playerCollider)
-        //    seen = true;
         manager.OnChildTriggerEnter(name, other);
     }
-    
-    void OnTriggerExit (Collider other)
+
+    void OnTriggerExit(Collider other)
     {
         manager.OnChildTriggerExit(name, other);
     }
