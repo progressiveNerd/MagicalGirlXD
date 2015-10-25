@@ -172,9 +172,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11417102, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
-      propertyPath: ranged
-      value: 1
+    - target: {fileID: 185910, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
+      propertyPath: m_Name
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}

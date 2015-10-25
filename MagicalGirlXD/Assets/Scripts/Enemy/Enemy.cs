@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour {
     int currentHealth;
     Animator anim;
     EnemyAttack attackScript;
+    LevelManager levelManager;
     
     //stealth vars
     bool alerted;
@@ -24,11 +25,11 @@ public class Enemy : MonoBehaviour {
     public float walkSpeed = 3f;
     public float chaseSpeed = 5f;
     public FacingDirection direction = FacingDirection.Front;
+    public PointOfInterest[] points;
 
     bool destinationReached;
     float poiTimer;
     float turnTimer;
-    PointOfInterest[] points;
     PointOfInterest current;
     Rigidbody2D enemyRigidbody;
     Vector2 movement;
@@ -54,6 +55,7 @@ public class Enemy : MonoBehaviour {
         else
             attackScript = GetComponentInChildren<EnemyMelee>();
         anim = GetComponent<Animator>();
+        levelManager = GetComponent<LevelManager>();
     }
 
     void FixedUpdate() {
@@ -131,6 +133,7 @@ public class Enemy : MonoBehaviour {
 
     void Death() {
         isDead = true;
+        levelManager.EnemyDead();
     }
 
     public void TakeDamage(int amount) {
