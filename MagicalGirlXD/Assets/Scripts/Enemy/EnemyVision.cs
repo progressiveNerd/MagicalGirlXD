@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class EnemyVision : MonoBehaviour {
-    bool seen;
     Enemy manager;
 
     void Awake() {

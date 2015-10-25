@@ -8,19 +8,17 @@ public class Player : MonoBehaviour {
     public int startingHealth = 5;
     public FacingDirection direction = FacingDirection.Front;
 
-    bool detected;
-    
     Animator anim;
-    PlayerShooting playerShooting;
+    CircleCollider2D detectionCollider;
+    PlayerAttack playerAttack;
     Rigidbody2D rigidBody;
     Vector3 movement;
 
 	void Awake() {
         currentHealth = startingHealth;
-        detected = false;
-
         anim = GetComponent<Animator>();
-        playerShooting = GetComponent<PlayerShooting>();
+        detectionCollider = GetComponentInChildren<CircleCollider2D>();
+        playerAttack = GetComponent<PlayerAttack>();
         rigidBody = GetComponent<Rigidbody2D>();
 	}
 	
@@ -77,7 +75,7 @@ public class Player : MonoBehaviour {
         //anim.SetTrigger("Die");
         //playerAudio.clip = deathClip;
         //playerAudio.Play();
-        playerShooting.enabled = false;
+        playerAttack.enabled = false;
         //Destroy(gameObject, 1f);
     }
 

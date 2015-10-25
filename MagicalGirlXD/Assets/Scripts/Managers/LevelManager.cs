@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour {
     GameObject player;
 
 	void Start () {
+        poi = new PointOfInterest[3];
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Enemy");
         enemies = new Enemy[temp.Length];
         for (int i = 0; i < temp.Length; i++)
@@ -32,19 +33,23 @@ public class LevelManager : MonoBehaviour {
        
     }
 
+    void CreatePOIs()
+    {
+        poi[0].left = true;
+        poi[0].right = true;
+        poi[0].restTime = 2;
+        poi[0].rotationSpeed = 1;
+    }
+
     void AssignEnemies()
     {
-        for(int i = 0; i < enemies.Length; i++)
-        {
-            if(poi.Length % 2 == 0)
-            {
+        enemies[0].points.Add(poi[0]);
+        enemies[0].points.Add(poi[1]);
 
-            }
-            else
-            {
+        enemies[1].points.Add(poi[2]);
+        enemies[1].points.Add(poi[1]);
 
-            }
-        }
+        enemies[2].points.Add(poi[1]);
     }
 
     public void EnemyDead()

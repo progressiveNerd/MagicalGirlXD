@@ -10,6 +10,7 @@ public class EnemyShooting : EnemyAttack {
         //playerHealth = player.GetComponent<PlayerHealth>();
         //enemyHealth = GetComponent<EnemyHealth>();
         //anim = GetComponent<Animator>();
+        range = 100f;
         manager = transform.parent.GetComponent<Enemy>();
     }
 

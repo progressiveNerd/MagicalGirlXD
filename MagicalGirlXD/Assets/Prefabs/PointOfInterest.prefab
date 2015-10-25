@@ -12,7 +12,7 @@ GameObject:
   - 58: {fileID: 5899608}
   m_Layer: 2
   m_Name: PointOfInterest
-  m_TagString: Untagged
+  m_TagString: POI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   restTime: 0
   rotationSpeed: 0
   waitUntilNextEnemy: 0
+  directionPattern: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

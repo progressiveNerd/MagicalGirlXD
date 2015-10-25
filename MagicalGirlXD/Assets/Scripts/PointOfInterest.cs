@@ -14,21 +14,30 @@ public class PointOfInterest : MonoBehaviour {
 
     public bool waitUntilNextEnemy = false;
 
-    public FacingDirection[] directionPattern;
+    public List<FacingDirection> directionPattern;
 
     void Awake()
     {
         //initialize the direction pattern
-        Queue<FacingDirection> temp = new Queue<FacingDirection>();
         if (front)
-            temp.Enqueue(FacingDirection.Front);
+            directionPattern.Add(FacingDirection.Front);
         if (right)
-            temp.Enqueue(FacingDirection.Right);
+            directionPattern.Add(FacingDirection.Right);
         if (back)
-            temp.Enqueue(FacingDirection.Back);
+            directionPattern.Add(FacingDirection.Back);
         if (left)
-            temp.Enqueue(FacingDirection.Left);
+            directionPattern.Add(FacingDirection.Left);
+    }
 
-        directionPattern = temp.ToArray();
+    /// <summary>
+    /// When an enemy enters the poi, tell the enemy they reached their destination
+    /// </summary>
+    /// <param name="other"></param>
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.name == "Enemy")
+        {
+            other.gameObject.GetComponent<Enemy>().DestinationReached();
+        }
     }
 }
