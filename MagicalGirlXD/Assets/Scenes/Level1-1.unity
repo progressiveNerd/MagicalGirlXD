@@ -666,7 +666,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5865822, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6175618, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
       propertyPath: m_Size.x
@@ -687,7 +687,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11491046, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
       propertyPath: minimumRadius
-      value: .100000001
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}

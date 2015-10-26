@@ -88,8 +88,10 @@ public class Player : MonoBehaviour {
     }
 	void OnTriggerEnter2D(Collider2D col)
 	{
-			Debug.Log("I am here ");
-			Application.LoadLevel(1);     
+		if (col.gameObject.name == "AreaSwitch(Clone)") {
+			Debug.Log ("I am here ");
+			Application.LoadLevel (1); 
+		}
 	}
 	void OnCollisionEnter2D(Collision2D coll) {
 		Debug.Log (coll.gameObject.name);
