@@ -28,9 +28,9 @@ public class Enemy : MonoBehaviour {
     public FacingDirection direction = FacingDirection.Front;
     public List<PointOfInterest> points;
 
-    bool destinationReached;
-    float poiTimer;
-    float turnTimer;
+    public bool destinationReached;
+    public float poiTimer;
+    public float turnTimer;
     CircleCollider2D attackRangeCollider;
     List<PointOfInterest>.Enumerator currentPOI;
     List<FacingDirection>.Enumerator currentRotation;
@@ -61,62 +61,81 @@ public class Enemy : MonoBehaviour {
         attackRangeCollider.radius = attackScript.range;
         anim = GetComponent<Animator>();
         levelManager = GetComponent<LevelManager>();
-        //points = new List<PointOfInterest>(GameObject.FindGameObjectsWithTag("POI"));
-        currentPOI = points.GetEnumerator();
-        currentPOI.MoveNext(); //set the enumerator to the first element (Why microsoft?)
-        currentRotation = currentPOI.Current.directionPattern.GetEnumerator();
-        currentRotation.MoveNext(); //why
-
+        points = new List<PointOfInterest>();
     }
 
-    void FixedUpdate() 
-    {
+    void FixedUpdate() {
+        // if we haven't set up the enumerator, do so
+        if(currentPOI.Current == null) {
+            currentPOI = points.GetEnumerator();
+            currentPOI.MoveNext(); //set the enumerator to the first element (Why microsoft?)
+            Debug.Log(currentPOI.Current);
+            currentRotation = currentPOI.Current.directionPattern.GetEnumerator();
+            currentRotation.MoveNext(); //why
+        }
+
         attackTimer += Time.deltaTime;
 
         //attack update
-        if (playerScript.currentHealth <= 0) 
-        {
+        if (playerScript.currentHealth <= 0) {
             alerted = false;
             playerInRange = false;
             //anim.SetTrigger("PlayerDead");
         }
-        if (attackTimer >= timeBetweenAttacks && playerInRange && alerted && currentHealth > 0) 
-        {
+        if (attackTimer >= timeBetweenAttacks && playerInRange && alerted && currentHealth > 0) {
             attackTimer = 0f;
             attackScript.Attack(player);
         }
 
         //movement update
-        if (!alerted) 
+        if (!alerted)
         {
-            if (destinationReached) //if you are waiting at a POI
-            {
+            if (destinationReached)
+            { //if you are waiting at a POI
                 poiTimer += Time.deltaTime;
                 turnTimer += Time.deltaTime;
-                if(turnTimer == currentPOI.Current.rotationSpeed)
-                {
+                if (turnTimer >= currentPOI.Current.rotationSpeed)
                     Turn();
-                }
-                if(poiTimer == currentPOI.Current.restTime)
+                if (poiTimer >= currentPOI.Current.restTime)
                 {
+                    if (!currentPOI.MoveNext())
+                    { //if you reached the end of the list, restart.
+                        currentPOI = points.GetEnumerator();
+                        currentPOI.MoveNext(); // y
+                        currentRotation = currentPOI.Current.directionPattern.GetEnumerator();
+                        currentRotation.MoveNext(); // whyyy
+                    }
                     Patrol();
                 }
             }
             else //or travelling to a new POI
-            {
                 Patrol();
-            }
-        } 
-        else if(!ranged) //chase player
+        }
+        else
         {
-            Move (player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
+            if (!ranged) //chase player
+                Move(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
+
+            Vector3 facing = player.transform.position - transform.position;
+            facing.z = 0f;
+            if (Mathf.Abs(facing.y) >= Mathf.Abs(facing.x))
+            {
+                if (facing.y <= 0)
+                    direction = FacingDirection.Front;
+                else direction = FacingDirection.Back;
+            }
+            else
+            {
+                if (facing.x <= 0)
+                    direction = FacingDirection.Left;
+                else direction = FacingDirection.Right;
+            }
         }
     }
 
     public void OnChildTriggerEnter(string aName, Collider2D aOther) {
         if(aName == "Vision") {
-            if (aOther.name == "Detection" && aOther.gameObject.tag == "Player")
-            {
+            if (aOther.name == "Detection" && aOther.gameObject.tag == "Player") {
                 Debug.Log("Player detected");
                 alerted = true;
                 player.GetComponentInChildren<PlayerDetection>().Detect();
@@ -129,8 +148,7 @@ public class Enemy : MonoBehaviour {
 
     public void OnChildTriggerExit(string aName, Collider2D aOther) {
         if (aName == "Vision") {
-            if (aOther is CircleCollider2D && aOther.gameObject.tag == "Player")
-            {
+            if (aOther is CircleCollider2D && aOther.gameObject.tag == "Player") {
                 alerted = false;
                 player.GetComponentInChildren<PlayerDetection>().Undetect();
             }
@@ -148,17 +166,28 @@ public class Enemy : MonoBehaviour {
 
     public void Patrol() {
         poiTimer = 0f;
-        destinationReached = false;
+        if(!ranged)
+            destinationReached = false;
+
         float h = currentPOI.Current.gameObject.transform.position.x;
-        float v = currentPOI.Current.gameObject.transform.position.z;
+        float v = currentPOI.Current.gameObject.transform.position.y;
+        Move(h - transform.position.x, v - transform.position.y);
 
-        Move(h - transform.position.x, v - transform.position.z);
-
-        if (!currentPOI.MoveNext()) //if you reached the end of the list, restart.
+        Vector3 facing = currentPOI.Current.gameObject.transform.position - transform.position;
+        facing.z = 0f;
+        if (Mathf.Abs(facing.y) >= Mathf.Abs(facing.x))
         {
-            currentPOI = points.GetEnumerator();
-            currentPOI.MoveNext();
+            if (facing.y <= 0)
+                direction = FacingDirection.Front;
+            else direction = FacingDirection.Back;
         }
+        else
+        {
+            if (facing.x <= 0)
+                direction = FacingDirection.Left;
+            else direction = FacingDirection.Right;
+        }
+
         //if (destinationReached)
         //{
         //    if (poiNext < 9)
@@ -192,16 +221,14 @@ public class Enemy : MonoBehaviour {
 
     void Turn() {
         direction = currentRotation.Current;
-        if(!currentRotation.MoveNext())
-        {
+        if(!currentRotation.MoveNext()) {
             currentRotation = currentPOI.Current.directionPattern.GetEnumerator();
             currentRotation.MoveNext();
         }
         turnTimer = 0f;
     }
 
-    public void DestinationReached()
-    {
+    public void DestinationReached() {
         destinationReached = true;
     }
 }

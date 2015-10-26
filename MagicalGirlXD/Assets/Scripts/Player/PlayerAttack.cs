@@ -12,13 +12,11 @@ public class PlayerAttack : MonoBehaviour {
 	float attackTimer;
 	int shootableMask;
     AudioSource Audio;
-	LineRenderer gunLine;
     Ray shootRay;
     RaycastHit shootHit;
 
 	void Awake() {
 		shootableMask = LayerMask.GetMask("Shootable");
-        gunLine = GetComponent<LineRenderer>();
         Audio = GetComponent<AudioSource>();
 	}
 
@@ -62,6 +60,7 @@ public class PlayerAttack : MonoBehaviour {
             shot.direction = mousePosVector - transform.position;
             shot.direction.z = 0f;
             shot.direction.Normalize();
+            shot.enabled = true;
         }
 		//gunParticles.Stop();
 		//gunParticles.Play();

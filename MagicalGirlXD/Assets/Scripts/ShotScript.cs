@@ -14,7 +14,6 @@ public class ShotScript : MonoBehaviour {
 	Rigidbody2D body;
 
 	void Start() {
-		Destroy(gameObject, 5);
 		body = GetComponent<Rigidbody2D>();
 		elapsedDistance = 0;
 	}
@@ -30,8 +29,9 @@ public class ShotScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-	    if (!isEnemyShot && other.name == "Enemy") {
-            Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
+        Debug.Log("Something something shot " + other.name);
+	    if (!isEnemyShot && (other.name == "MeleeEnemy(Clone)" || other.name == "RangedEnemy(Clone)")) {
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
 			enemy.TakeDamage(damage);
 			Destroy(gameObject, 0.1f);
 		}

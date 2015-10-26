@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 452420}
   - 58: {fileID: 5865822}
   - 114: {fileID: 11491046}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Detection
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -27,7 +27,6 @@ GameObject:
   - 4: {fileID: 461796}
   - 212: {fileID: 21231126}
   - 95: {fileID: 9583432}
-  - 120: {fileID: 12072194}
   - 61: {fileID: 6175618}
   - 50: {fileID: 5050480}
   - 82: {fileID: 8275104}
@@ -201,14 +200,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 198338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9ce0f1a83850d43b4283f04fb0b914, type: 3}
+  m_Script: {fileID: 11500000, guid: 244c054e01e4dfd4896758eb5a800e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerShot: 1
   damagePerHit: 2
   attackSpeed: .25
   shootingRange: 100
-  meleeRange: 2
+  meleeRange: 5
   meleeSound: {fileID: 8300000, guid: d6834f275dce7034b9948db3f5d66fe2, type: 3}
   shootSound: {fileID: 8300000, guid: ce6ed5b0b153f44429a80eee8dbbbb07, type: 3}
   shotPrefab: {fileID: 406592, guid: 40f0006efe3b84bd184e557a71fb844b, type: 2}
@@ -242,43 +241,6 @@ MonoBehaviour:
   minimumRadius: 2
   growthRate: 1
   decayRate: .5
---- !u!120 &12072194
-LineRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198338}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  m_Parameters:
-    startWidth: 1
-    endWidth: 1
-    m_StartColor:
-      serializedVersion: 2
-      rgba: 4294967295
-    m_EndColor:
-      serializedVersion: 2
-      rgba: 4294967295
-  m_UseWorldSpace: 1
 --- !u!212 &21231126
 SpriteRenderer:
   m_ObjectHideFlags: 1

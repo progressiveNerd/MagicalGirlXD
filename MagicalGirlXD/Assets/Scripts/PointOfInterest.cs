@@ -4,10 +4,10 @@ using System.Collections.Generic;
 public class PointOfInterest : MonoBehaviour {
 
 	// Use this for initialization
-    public bool front = false;
-    public bool back = false;
-    public bool left = false;
-    public bool right = false;
+    //public bool front = false;
+    //public bool back = false;
+    //public bool left = false;
+    //public bool right = false;
 
     public float restTime = 0f;
     public float rotationSpeed = 0f;
@@ -18,6 +18,7 @@ public class PointOfInterest : MonoBehaviour {
 
     void Awake()
     {
+        /*
         //initialize the direction pattern
         if (front)
             directionPattern.Add(FacingDirection.Front);
@@ -27,17 +28,15 @@ public class PointOfInterest : MonoBehaviour {
             directionPattern.Add(FacingDirection.Back);
         if (left)
             directionPattern.Add(FacingDirection.Left);
+         */
     }
 
     /// <summary>
     /// When an enemy enters the poi, tell the enemy they reached their destination
     /// </summary>
     /// <param name="other"></param>
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.name == "Enemy")
-        {
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.name == "MeleeEnemy(Clone)" || other.name == "RangedEnemy(Clone)")
             other.gameObject.GetComponent<Enemy>().DestinationReached();
-        }
     }
 }
