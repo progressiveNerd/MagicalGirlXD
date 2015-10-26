@@ -58,11 +58,12 @@ public class TextureLoad : MonoBehaviour {
 	public Color soccerLinesColor;
 
 	public Color spawnColor;
+	public Color enemyColor; 
+	public Color rangedColor;
 	
 	public Texture2D levelTexture;
-	
 
-	
+
 	void Start () {
 		levelWidth = levelTexture.width;
 		levelHeight = levelTexture.height;
@@ -146,7 +147,6 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == soccersGrassColor)
 				{
-					Debug.Log("Hi");
 					Instantiate(soccerGrass,new Vector3(x,y), Quaternion.identity);
 				}
 
@@ -160,6 +160,15 @@ public class TextureLoad : MonoBehaviour {
 					Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
 					Vector2 pos = new Vector2(x,y);
 					player.transform.position = pos;
+				}
+				else if(tileColors[x+y*levelWidth] == enemyColor || tileColors[x+y*levelWidth] == rangedColor)
+				{
+					Instantiate(grassTile, new Vector3(x,y), Quaternion.identity);
+					//place Point of Interest, Yield return
+
+					//for() {
+					//	yield return POI;
+					//}
 				}
 			}
 			
