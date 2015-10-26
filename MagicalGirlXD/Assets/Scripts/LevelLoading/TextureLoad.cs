@@ -6,6 +6,7 @@ public class TextureLoad : MonoBehaviour {
 	private int levelWidth;
 	private int levelHeight;
 	public Player player;
+	public GameObject keyy;
 
 	//General
 	public Transform stonePath;
@@ -53,7 +54,7 @@ public class TextureLoad : MonoBehaviour {
 	public Color schoolDoorColor;
 	
 
-	public Color soccerGrassColor;
+	public Color soccersGrassColor;
 	public Color soccerLinesColor;
 
 	public Color spawnColor;
@@ -103,7 +104,6 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == stairsColor)
 				{
-					Debug.Log("Cough");
 					Instantiate(stairs,new Vector3(x,y), Quaternion.identity);
 				}
 
@@ -119,7 +119,9 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == keyColor)
 				{
-					Instantiate(key,new Vector3(x,y), Quaternion.identity);
+					Instantiate(waterTile,new Vector3(x,y), Quaternion.identity);
+					Vector2 pos = new Vector2(x,y);
+					keyy.transform.position = pos;
 				}
 
 				else if(tileColors[x+y*levelWidth] == waterColor)
@@ -142,8 +144,9 @@ public class TextureLoad : MonoBehaviour {
 					Instantiate(schoolDoor,new Vector3(x,y), Quaternion.identity);
 				}
 
-				else if(tileColors[x+y*levelWidth] == soccerGrassColor)
+				else if(tileColors[x+y*levelWidth] == soccersGrassColor)
 				{
+					Debug.Log("Hi");
 					Instantiate(soccerGrass,new Vector3(x,y), Quaternion.identity);
 				}
 

@@ -3,7 +3,9 @@ using System.Collections;
 
 public class SwitchScene : MonoBehaviour {
 	
-	public void changeScene (string sceneToChangeTo) {
+	public void changeScene (int sceneToChangeTo, Player player) {
+		DontDestroyOnLoad (player);
 		Application.LoadLevel(sceneToChangeTo);
+
 	}
 }

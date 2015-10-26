@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class Player : MonoBehaviour {
     public float walkSpeed = 3f;
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour {
     public int startingHealth = 5;
     public FacingDirection direction = FacingDirection.Front;
 	public Slider healthSlider;
+	public bool waterKey = false;
 
     Animator anim;
     PlayerAttack playerAttack;
@@ -86,14 +88,24 @@ public class Player : MonoBehaviour {
     {
         Application.LoadLevel(Application.loadedLevel);
     }
+
+
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.gameObject.name == "AreaSwitch(Clone)") {
-			Debug.Log ("I am here ");
-			Application.LoadLevel (1); 
+			if(waterKey) {
+				if(EditorApplication.currentScene == "Assets/Scenes/Level1-1.unity")
+				{
+					Application.LoadLevel(2);
+				}
+			//	SwitchScene a;
+			//	a.changeScene(1, this);
+			}
 		}
-	}
-	void OnCollisionEnter2D(Collision2D coll) {
-		Debug.Log (coll.gameObject.name);
+		if (col.gameObject.name == "WaterKey") {
+			waterKey = true;
+			Destroy(col.gameObject);
+
+		}
 	}
 }
