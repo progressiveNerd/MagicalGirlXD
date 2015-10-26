@@ -54,7 +54,10 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyShooting.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyVision.cs" />
      <Compile Include="Assets\Scripts\Entity.cs" />
+     <Compile Include="Assets\Scripts\ExampleClass.cs" />
      <Compile Include="Assets\Scripts\FacingDirection.cs" />
+     <Compile Include="Assets\Scripts\LevelLoading\AreaSwitch.cs" />
+     <Compile Include="Assets\Scripts\LevelLoading\Key.cs" />
      <Compile Include="Assets\Scripts\LevelLoading\SwitchScene.cs" />
      <Compile Include="Assets\Scripts\LevelLoading\TextureLoad.cs" />
      <Compile Include="Assets\Scripts\Managers\GameOverManager.cs" />

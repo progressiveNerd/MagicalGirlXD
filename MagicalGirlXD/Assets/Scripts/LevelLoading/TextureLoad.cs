@@ -5,33 +5,62 @@ public class TextureLoad : MonoBehaviour {
 	
 	private int levelWidth;
 	private int levelHeight;
-	
-	public Transform grassTile;
+	public Player player;
+
+	//General
 	public Transform stonePath;
+	public Transform grassTile;
+	public Transform stairs;
+	public Transform door;
 	public Transform key;
+	public Transform areaSwitch;
+
+	//Fountain
+	public Transform waterTile; 
+	//use school for brick
+
+
+
+	//School
 	public Transform school;
+	public Transform schoolSwitch;
+	public Transform schoolDoor;
+
+	//Soccer
 	public Transform soccerGrass;
 	public Transform soccerLine;
-	public Transform waterTile; 
-//	public Transform stairs;
-//	public Transform door;
+
+
 
 	private Color[] tileColors;
-	
-	public Color grassColor;
-	public Color schoolColor;
+
+	//General
+
 	public Color walkwayColor;
-	public Color waterColor;
-	public Color keyColor;
+	public Color grassColor;
 	public Color areaSwitchColor;
-//	public Color doorColor;
+	public Color stairsColor;
+	public Color doorColor;
+	public Color keyColor;
+
+	//Fountain
+	public Color waterColor;
+	public Color stoneColor;
+
+	//School
+	public Color schoolColor;
+	public Color schoolArea;
+	public Color schoolDoorColor;
+	
+
 	public Color soccerGrassColor;
 	public Color soccerLinesColor;
-//	public Color stairColor;
+
+	public Color spawnColor;
 	
 	public Texture2D levelTexture;
 	
-	//public Entity player;
+
 	
 	void Start () {
 		levelWidth = levelTexture.width;
@@ -64,35 +93,54 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == walkwayColor)
 				{
-					Debug.Log("Hi");
 					Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
 				}
 
-				else if(tileColors[x+y*levelWidth] == waterColor)
+				else if(tileColors[x+y*levelWidth] == areaSwitchColor)
 				{
-
-					Instantiate(waterTile,new Vector3(x,y), Quaternion.identity);
+					Instantiate(areaSwitch,new Vector3(x,y), Quaternion.identity);
 				}
 
-//				else if(tileColors[x+y*levelWidth] == stairColor)
-//				{
-//					Instantiate(stairs,new Vector3(x,y), Quaternion.identity);
-//				}
+				else if(tileColors[x+y*levelWidth] == stairsColor)
+				{
+					Debug.Log("Cough");
+					Instantiate(stairs,new Vector3(x,y), Quaternion.identity);
+				}
+
+				else if(tileColors[x+y*levelWidth] == stoneColor)
+				{
+					Instantiate(school,new Vector3(x,y), Quaternion.identity);
+				}
+
+				else if(tileColors[x+y*levelWidth] == doorColor)
+				{
+					Instantiate(door,new Vector3(x,y), Quaternion.identity);
+				}
 
 				else if(tileColors[x+y*levelWidth] == keyColor)
 				{
 					Instantiate(key,new Vector3(x,y), Quaternion.identity);
 				}
 
-				else if(tileColors[x+y*levelWidth] == areaSwitchColor)
+				else if(tileColors[x+y*levelWidth] == waterColor)
 				{
-					Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
+					Instantiate(waterTile,new Vector3(x,y), Quaternion.identity);
 				}
 
-//				else if(tileColors[x+y*levelWidth] == doorColor)
-//				{
-//					Instantiate(door,new Vector3(x,y), Quaternion.identity);
-//				}
+				else if(tileColors[x+y*levelWidth] == areaSwitchColor)
+				{
+					Instantiate(areaSwitch,new Vector3(x,y), Quaternion.identity);
+				}
+
+				else if(tileColors[x+y*levelWidth] == schoolArea)
+				{
+					Instantiate(schoolSwitch,new Vector3(x,y), Quaternion.identity);
+				}
+
+				else if(tileColors[x+y*levelWidth] == schoolDoorColor)
+				{
+					Instantiate(schoolDoor,new Vector3(x,y), Quaternion.identity);
+				}
 
 				else if(tileColors[x+y*levelWidth] == soccerGrassColor)
 				{
@@ -104,6 +152,12 @@ public class TextureLoad : MonoBehaviour {
 					Instantiate(soccerLine,new Vector3(x,y), Quaternion.identity);
 				}
 
+				else if(tileColors[x+y*levelWidth] == spawnColor)
+				{
+					Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
+					Vector2 pos = new Vector2(x,y);
+					player.transform.position = pos;
+				}
 			}
 			
 		}

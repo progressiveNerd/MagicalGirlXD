@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerDetection : MonoBehaviour {
-    public float minimumRadius = 2f;
+    public float minimumRadius = 1f;
     public float growthRate = 1f;
     public float decayRate = 0.5f;
     bool detected;

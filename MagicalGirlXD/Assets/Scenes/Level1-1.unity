@@ -363,6 +363,48 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 129532, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
   m_PrefabInternal: {fileID: 2026663076}
+--- !u!1001 &1538889371
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1554764366
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +415,7 @@ GameObject:
   - 4: {fileID: 1554764368}
   - 114: {fileID: 1554764367}
   - 114: {fileID: 1554764369}
+  - 114: {fileID: 1554764370}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -391,22 +434,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2962bb92f624796b7970642c841941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1829877706}
+  stonePath: {fileID: 431178, guid: f1d25bec028ab415d93d8c283a44ec42, type: 2}
   grassTile: {fileID: 491504, guid: 80de8ed2b526c40448cf3ed91e8d40a0, type: 2}
-  stonePath: {fileID: 490184, guid: dad68468634124ab0add3e7b51f71691, type: 2}
-  key: {fileID: 485412, guid: 8170d984f6d514b66ac38a044b8ac8fa, type: 2}
+  stairs: {fileID: 490184, guid: dad68468634124ab0add3e7b51f71691, type: 2}
+  door: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+  key: {fileID: 404224, guid: 01ec76e95866a484094e081d15270a95, type: 2}
+  areaSwitch: {fileID: 493708, guid: d3b5b68990ea3474caa329678683a9bd, type: 2}
+  waterTile: {fileID: 400496, guid: 05c82eb98474544328cc89d7ae45f5c3, type: 2}
   school: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+  schoolSwitch: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+  schoolDoor: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   soccerGrass: {fileID: 429616, guid: 1ffa9658555aa4d78b4c2aa3d6f1991c, type: 2}
   soccerLine: {fileID: 402608, guid: 6f9ec234442a845edb93e33dcc121704, type: 2}
-  waterTile: {fileID: 400496, guid: 05c82eb98474544328cc89d7ae45f5c3, type: 2}
-  grassColor: {r: 0, g: 1, b: .0470588244, a: 1}
-  schoolColor: {r: 0, g: 1, b: .917647064, a: 1}
   walkwayColor: {r: 1, g: .70588237, b: 0, a: 1}
-  waterColor: {r: 0, g: .164705887, b: 1, a: 1}
-  keyColor: {r: 1, g: 0, b: 0, a: 1}
+  grassColor: {r: 0, g: 1, b: .0470588244, a: 1}
   areaSwitchColor: {r: .964705884, g: 0, b: 1, a: 1}
+  stairsColor: {r: .345098048, g: 0, b: 0, a: 1}
+  doorColor: {r: 1, g: .352941185, b: 0, a: 1}
+  keyColor: {r: 1, g: 0, b: 0, a: 1}
+  waterColor: {r: 0, g: .164705887, b: 1, a: 1}
+  stoneColor: {r: .498039216, g: .498039216, b: .498039216, a: 1}
+  schoolColor: {r: 0, g: 1, b: .917647064, a: 1}
+  schoolArea: {r: .521568656, g: .00784313772, b: .541176498, a: 1}
+  schoolDoorColor: {r: .717647076, g: .258823544, b: .0117647061, a: 1}
   soccerGrassColor: {r: .0196078438, g: .403921574, b: 0, a: 1}
   soccerLinesColor: {r: .384313732, g: .384313732, b: .384313732, a: 1}
-  levelTexture: {fileID: 2800000, guid: 282508cc82c9d4a6d9bf5428c1f2ebb5, type: 3}
+  spawnColor: {r: .964705884, g: 1, b: 0, a: 1}
+  levelTexture: {fileID: 2800000, guid: d3cdafc3560a046d08badd70e9a83f52, type: 3}
 --- !u!4 &1554764368
 Transform:
   m_ObjectHideFlags: 0
@@ -431,6 +486,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 1378933313}
+--- !u!114 &1554764370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1554764366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3af8c73e86ee40cfbe77b4cd67b6e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1627882635
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +587,12 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &1829877706 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11472230, guid: 1830ba313aa0b1b4cbea55eb82048353,
+    type: 2}
+  m_PrefabInternal: {fileID: 1945314281}
+  m_Script: {fileID: 11500000, guid: 30c9dc6e2d1241f4fa4066c1d2f8cf67, type: 3}
 --- !u!1001 &1945314281
 Prefab:
   m_ObjectHideFlags: 0
@@ -568,6 +640,55 @@ Prefab:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 2064876984}
+    - target: {fileID: 6175618, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050480, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050480, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275104, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: MinDistance
+      value: .0802383423
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865822, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_Radius
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175618, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_Offset.y
+      value: -.495810032
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865822, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175618, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_Size.x
+      value: .995212793
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175618, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_Size.y
+      value: 1.0027976
+      objectReference: {fileID: 0}
+    - target: {fileID: 21231126, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3407a601b6f6fc47a0e43bdbd2f0e62,
+        type: 3}
+    - target: {fileID: 6175618, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_Offset.x
+      value: -.00475311279
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491046, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: minimumRadius
+      value: .100000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
   m_IsPrefabParent: 0

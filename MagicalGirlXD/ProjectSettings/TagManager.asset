@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Projectile
   - POI
+  - WaterKey
+  - AreaSwitch
   layers:
   - Default
   - TransparentFX

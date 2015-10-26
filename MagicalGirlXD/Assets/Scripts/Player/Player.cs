@@ -86,4 +86,12 @@ public class Player : MonoBehaviour {
     {
         Application.LoadLevel(Application.loadedLevel);
     }
+	void OnTriggerEnter2D(Collider2D col)
+	{
+			Debug.Log("I am here ");
+			Application.LoadLevel(1);     
+	}
+	void OnCollisionEnter2D(Collision2D coll) {
+		Debug.Log (coll.gameObject.name);
+	}
 }
