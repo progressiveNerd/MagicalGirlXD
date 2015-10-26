@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
     public float walkSpeed = 3f;
@@ -7,6 +8,7 @@ public class Player : MonoBehaviour {
     public int currentHealth;
     public int startingHealth = 5;
     public FacingDirection direction = FacingDirection.Front;
+	public Slider healthSlider;
 
     Animator anim;
     PlayerAttack playerAttack;
@@ -62,6 +64,9 @@ public class Player : MonoBehaviour {
     {
         //damaged = true;
         currentHealth -= amount;
+
+		healthSlider.value = currentHealth;
+
         //playerAudio.Play();
         if (currentHealth <= 0)
             Death();

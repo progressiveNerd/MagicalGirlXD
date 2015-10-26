@@ -60,8 +60,6 @@ public class TextureLoad : MonoBehaviour {
 				else if(tileColors[x+y*levelWidth] == schoolColor)
 				{
 					Instantiate(school,new Vector3(x,y), Quaternion.identity);
-					Debug.Log("Hi");
-					Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
 				}
 
 				else if(tileColors[x+y*levelWidth] == walkwayColor)
