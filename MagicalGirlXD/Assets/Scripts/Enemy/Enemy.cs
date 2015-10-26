@@ -31,7 +31,9 @@ public class Enemy : MonoBehaviour {
     public bool destinationReached;
     public float poiTimer;
     public float turnTimer;
+    FacingDirection playerDirection;
     CircleCollider2D attackRangeCollider;
+    EnemyIndicator directionIndicator;
     List<PointOfInterest>.Enumerator currentPOI;
     List<FacingDirection>.Enumerator currentRotation;
     Rigidbody2D enemyRigidbody;
@@ -62,6 +64,7 @@ public class Enemy : MonoBehaviour {
         anim = GetComponent<Animator>();
         levelManager = GetComponent<LevelManager>();
         points = new List<PointOfInterest>();
+        directionIndicator = GetComponentInChildren<EnemyIndicator>();
     }
 
     void FixedUpdate() {
@@ -74,6 +77,25 @@ public class Enemy : MonoBehaviour {
             currentRotation.MoveNext(); //why
         }
 
+        // get the player's direction relative to the enemy if they're within range
+        if (alerted) {
+            Vector3 playerVector = player.transform.position - transform.position;
+            playerVector.z = 0f;
+            if (Mathf.Abs(playerVector.y) >= Mathf.Abs(playerVector.x)) {
+                if (playerVector.y <= 0)
+                    playerDirection = FacingDirection.Front;
+                else playerDirection = FacingDirection.Back;
+            }
+            else {
+                if (playerVector.x <= 0)
+                    playerDirection = FacingDirection.Left;
+                else playerDirection = FacingDirection.Right;
+            }
+        }
+
+        if(playerDirection == direction && alerted)
+            player.GetComponentInChildren<PlayerDetection>().Detect();
+
         attackTimer += Time.deltaTime;
 
         //attack update
@@ -82,7 +104,7 @@ public class Enemy : MonoBehaviour {
             playerInRange = false;
             //anim.SetTrigger("PlayerDead");
         }
-        if (attackTimer >= timeBetweenAttacks && playerInRange && alerted && currentHealth > 0) {
+        if (attackTimer >= timeBetweenAttacks && playerInRange && alerted && playerDirection == direction && currentHealth > 0) {
             attackTimer = 0f;
             attackScript.Attack(player);
         }
@@ -113,7 +135,7 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
-            if (!ranged) //chase player
+            if (!ranged && direction == playerDirection) //chase player
                 Move(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
 
             Vector3 facing = player.transform.position - transform.position;
@@ -131,14 +153,13 @@ public class Enemy : MonoBehaviour {
                 else direction = FacingDirection.Right;
             }
         }
+        directionIndicator.SetDirection(direction);
     }
 
     public void OnChildTriggerEnter(string aName, Collider2D aOther) {
         if(aName == "Vision") {
             if (aOther.name == "Detection" && aOther.gameObject.tag == "Player") {
-                Debug.Log("Player detected");
                 alerted = true;
-                player.GetComponentInChildren<PlayerDetection>().Detect();
             }
         } else if (aName == "Attack") {
             if (aOther.name == "Player")
@@ -175,32 +196,16 @@ public class Enemy : MonoBehaviour {
 
         Vector3 facing = currentPOI.Current.gameObject.transform.position - transform.position;
         facing.z = 0f;
-        if (Mathf.Abs(facing.y) >= Mathf.Abs(facing.x))
-        {
+        if (Mathf.Abs(facing.y) >= Mathf.Abs(facing.x)) {
             if (facing.y <= 0)
                 direction = FacingDirection.Front;
             else direction = FacingDirection.Back;
         }
-        else
-        {
+        else {
             if (facing.x <= 0)
                 direction = FacingDirection.Left;
             else direction = FacingDirection.Right;
         }
-
-        //if (destinationReached)
-        //{
-        //    if (poiNext < 9)
-        //    {
-        //        poiNext++;
-        //        destinationReached = false;
-        //    }
-        //    else
-        //    {
-        //        poiNext = 0;
-        //        destinationReached = false;
-        //    }
-        //}
     }
 
     void Death() {

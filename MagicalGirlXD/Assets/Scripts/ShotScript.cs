@@ -10,11 +10,13 @@ public class ShotScript : MonoBehaviour {
     public Vector3 direction;
 
 	float elapsedDistance;
+    BoxCollider2D shotCollider;
+    Rigidbody2D body;
 	Vector3 movement;
-	Rigidbody2D body;
 
 	void Start() {
 		body = GetComponent<Rigidbody2D>();
+        shotCollider = GetComponent<BoxCollider2D>();
 		elapsedDistance = 0;
 	}
 
@@ -33,12 +35,16 @@ public class ShotScript : MonoBehaviour {
 	    if (!isEnemyShot && (other.name == "MeleeEnemy(Clone)" || other.name == "RangedEnemy(Clone)")) {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
 			enemy.TakeDamage(damage);
+            if (shotCollider != null)
+                shotCollider.enabled = false;
 			Destroy(gameObject, 0.1f);
 		}
 
         if (isEnemyShot && other.name == "Player") {
             Player player = other.gameObject.GetComponent<Player>();
             player.TakeDamage(damage);
+            if(shotCollider != null)
+                shotCollider.enabled = false;
             Destroy(gameObject, 0.1f);
         }
 	}

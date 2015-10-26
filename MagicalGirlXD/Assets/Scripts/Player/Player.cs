@@ -9,7 +9,6 @@ public class Player : MonoBehaviour {
     public FacingDirection direction = FacingDirection.Front;
 
     Animator anim;
-    CircleCollider2D detectionCollider;
     PlayerAttack playerAttack;
     Rigidbody2D rigidBody;
     Vector3 movement;
@@ -17,7 +16,6 @@ public class Player : MonoBehaviour {
 	void Awake() {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
-        detectionCollider = GetComponentInChildren<CircleCollider2D>();
         playerAttack = GetComponent<PlayerAttack>();
         rigidBody = GetComponent<Rigidbody2D>();
 	}

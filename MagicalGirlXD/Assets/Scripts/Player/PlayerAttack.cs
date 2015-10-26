@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour {
 		attackTimer += Time.deltaTime;
 		if(Input.GetButton("Fire1") && attackTimer >= attackSpeed && Time.timeScale != 0)
 			Shoot();
-        if (Input.GetButton("Fire2") && attackTimer >= attackSpeed && Time.timeScale != 0)
+        if (Input.GetButtonDown("Fire2") && attackTimer >= attackSpeed && Time.timeScale != 0)
             Melee();
 	}
 

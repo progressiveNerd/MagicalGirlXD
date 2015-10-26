@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyIndicator.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyMelee.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyShooting.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyVision.cs" />
