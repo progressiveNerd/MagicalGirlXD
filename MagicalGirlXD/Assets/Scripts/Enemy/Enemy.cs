@@ -6,11 +6,10 @@ public class Enemy : MonoBehaviour {
     //player vars
     GameObject player;
     Player playerScript;
-
+	
     //enemy info vars
     public bool ranged;
     public float timeBetweenAttacks = 0.5f;
-    public int attackDamage = 1;
     public int startingHealth = 2;
 
     bool isDead;
@@ -20,7 +19,7 @@ public class Enemy : MonoBehaviour {
     LevelManager levelManager;
     
     //stealth vars
-    bool alerted;
+    public bool alerted;
 
     //enemy movement vars
     public float walkSpeed = 2f;
@@ -40,7 +39,7 @@ public class Enemy : MonoBehaviour {
     Vector3 movement;
 
     //attack vars
-    bool playerInRange;
+    public bool playerInRange;
     float attackTimer;
 
     void Awake() {
@@ -51,6 +50,8 @@ public class Enemy : MonoBehaviour {
         destinationReached = false;
         alerted = false;
         playerInRange = false;
+        direction = FacingDirection.Front;
+
 
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
@@ -60,7 +61,7 @@ public class Enemy : MonoBehaviour {
         else
             attackScript = GetComponentInChildren<EnemyMelee>();
         attackRangeCollider = attackScript.gameObject.GetComponent<CircleCollider2D>();
-        attackRangeCollider.radius = attackScript.range;
+        attackRangeCollider.radius = attackScript.GetRange();
         anim = GetComponent<Animator>();
         levelManager = GetComponent<LevelManager>();
         points = new List<PointOfInterest>();
@@ -72,7 +73,6 @@ public class Enemy : MonoBehaviour {
         if(currentPOI.Current == null) {
             currentPOI = points.GetEnumerator();
             currentPOI.MoveNext(); //set the enumerator to the first element (Why microsoft?)
-            Debug.Log(currentPOI.Current);
             currentRotation = currentPOI.Current.directionPattern.GetEnumerator();
             currentRotation.MoveNext(); //why
         }
@@ -104,6 +104,7 @@ public class Enemy : MonoBehaviour {
             playerInRange = false;
             //anim.SetTrigger("PlayerDead");
         }
+
         if (attackTimer >= timeBetweenAttacks && playerInRange && alerted && playerDirection == direction && currentHealth > 0) {
             attackTimer = 0f;
             attackScript.Attack(player);
@@ -158,23 +159,26 @@ public class Enemy : MonoBehaviour {
 
     public void OnChildTriggerEnter(string aName, Collider2D aOther) {
         if(aName == "Vision") {
-            if (aOther.name == "Detection" && aOther.gameObject.tag == "Player") {
+            if (aOther.tag == "Detection") {
                 alerted = true;
             }
         } else if (aName == "Attack") {
-            if (aOther.name == "Player")
+            if (aOther.tag == "Player" && aOther is BoxCollider2D)
+			{
+				Debug.Log ("hehehe, " + name);
                 playerInRange = true;
+			}
         }
     }
 
     public void OnChildTriggerExit(string aName, Collider2D aOther) {
         if (aName == "Vision") {
-            if (aOther is CircleCollider2D && aOther.gameObject.tag == "Player") {
+            if (aOther.tag == "Detection") {
                 alerted = false;
                 player.GetComponentInChildren<PlayerDetection>().Undetect();
             }
         } else if (aName == "Attack") {
-            if (aOther.name == "Player")
+            if (aOther.tag == "Player")
                 playerInRange = false;
         }
     }
@@ -210,7 +214,7 @@ public class Enemy : MonoBehaviour {
 
     void Death() {
         isDead = true;
-        //levelManager.EnemyDead();
+		playerScript.deathCounter++;
         if(alerted)
             player.GetComponentInChildren<PlayerDetection>().Undetect();
         Destroy(gameObject, 0f);

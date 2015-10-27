@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TextureLoad : MonoBehaviour {
 	
@@ -7,6 +8,7 @@ public class TextureLoad : MonoBehaviour {
 	private int levelHeight;
 	public Player player;
 	public GameObject keyy;
+	public Camera maincam;
 
 	//General
 	public Transform stonePath;
@@ -31,7 +33,12 @@ public class TextureLoad : MonoBehaviour {
 	public Transform soccerGrass;
 	public Transform soccerLine;
 
-
+	private Transform tempPOI;
+	private Transform tempEnemy;
+	private List<Transform> poiList;
+	private List<Transform> enemyList;
+	private int enemyCounter = 0;
+	private int poiCounter = 0;
 
 	private Color[] tileColors;
 
@@ -63,22 +70,34 @@ public class TextureLoad : MonoBehaviour {
 	
 	public Texture2D levelTexture;
 
+	LevelManager lm;
+
 
 	void Start () {
 		levelWidth = levelTexture.width;
 		levelHeight = levelTexture.height;
+		lm = GetComponent<LevelManager> ();
+		lm.AssignPOIs ();
+		lm.AssignEnemies ();
+		poiList = new List<Transform>(lm.poiTransforms);
+		enemyList = new List<Transform> (lm.enemyTransforms);
 		loadLevel ();
+
 	}
 	
 	void Update () {
 		
 	}
-	
+
+
+
 	void loadLevel()
 	{
 		tileColors = new Color [levelWidth * levelHeight];
 		tileColors = levelTexture.GetPixels ();
-		
+
+
+
 		for (int y = 0; y < levelHeight; y++) 
 		{
 			for (int x = 0; x < levelWidth; x++)
@@ -159,16 +178,28 @@ public class TextureLoad : MonoBehaviour {
 				{
 					Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
 					Vector2 pos = new Vector2(x,y);
+					Vector3 posCam = new Vector3(x,y,-10);
 					player.transform.position = pos;
+					maincam.transform.position = posCam;
+
+
 				}
 				else if(tileColors[x+y*levelWidth] == enemyColor || tileColors[x+y*levelWidth] == rangedColor)
 				{
 					Instantiate(grassTile, new Vector3(x,y), Quaternion.identity);
-					//place Point of Interest, Yield return
+					Vector2 pos = new Vector2(x,y);
 
-					//for() {
-					//	yield return POI;
-					//}
+
+					tempPOI = poiList[poiCounter];
+					poiCounter++;
+					tempPOI.transform.position = pos;
+
+					if(enemyCounter < 14) {
+						tempEnemy = enemyList[enemyCounter];
+						enemyCounter++;
+						tempEnemy.transform.position = pos;
+					}
+
 				}
 			}
 			

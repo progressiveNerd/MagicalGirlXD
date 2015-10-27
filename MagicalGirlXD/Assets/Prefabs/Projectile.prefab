@@ -72,9 +72,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemyShot: 0
-  speed: 10
-  range: 5
+  speed: 20
+  playerRange: 10
+  enemyRange: 100
   damage: 1
+  direction: {x: 0, y: 0, z: 0}
 --- !u!212 &21290352
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,7 +101,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 733657962f34eb84b94a2e23c95fa4d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88daf2eec376e3a42af3bc9e748485c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -111,6 +113,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: range
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 88daf2eec376e3a42af3bc9e748485c3,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

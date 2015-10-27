@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyIndicator : MonoBehaviour {
     SpriteRenderer directionSprite;
 	
-	void Start() {
+	void Awake() {
 	    directionSprite = GetComponent<SpriteRenderer>();
 	}
 

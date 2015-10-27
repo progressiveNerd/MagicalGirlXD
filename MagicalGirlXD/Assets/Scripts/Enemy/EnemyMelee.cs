@@ -2,13 +2,15 @@
 using System.Collections;
 
 public class EnemyMelee : EnemyAttack {
+    public float range = 2f;
+    public int damage = 1;
     Enemy manager;
     void Awake() {
-        range = 1f;
         manager = transform.parent.GetComponent<Enemy>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+		if(other.tag == "Player")
         manager.OnChildTriggerEnter("Attack", other);
     }
 
@@ -17,6 +19,12 @@ public class EnemyMelee : EnemyAttack {
     }
 
     public override void Attack(GameObject player) {
-        Debug.Log("Attacking!");
+        Player playerScript = player.GetComponent<Player>();
+        if (playerScript != null)
+            playerScript.TakeDamage(damage);
+    }
+
+    public override float GetRange() {
+        return range;
     }
 }
