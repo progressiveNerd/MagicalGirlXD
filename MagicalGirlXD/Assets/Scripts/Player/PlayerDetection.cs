@@ -2,38 +2,40 @@
 using System.Collections;
 
 public class PlayerDetection : MonoBehaviour {
-    public float minimumRadius = 1f;
     public float growthRate = 1f;
     public float decayRate = 0.5f;
+    public float minimumRadius = 1f;
+    public float maximumRadius = 75;
+    public AudioClip detectionSound;
+
     bool detected;
     float radius;
     int detectionCounter;
+    AudioSource audioSource;
     CircleCollider2D detectionCollider;
 
-    void Awake()
-    {
+    void Awake() {
         radius = minimumRadius;
         detectionCounter = 0;
+        audioSource = GetComponentInParent<AudioSource>();
         detectionCollider = GetComponent<CircleCollider2D>();
-        //manager = transform.parent.GetComponent<Player>();
     }
 
-    void FixedUpdate()
-    {
-        if (detectionCounter > 0)
+    void FixedUpdate() {
+        if (detectionCounter > 0 && radius < maximumRadius)
             radius += growthRate * Time.deltaTime;
         else if(radius > minimumRadius)
             radius -= decayRate * Time.deltaTime;
         detectionCollider.radius = radius;
     }
 
-    public void Detect()
-    {
+    public void Detect() {
         detectionCounter++;
+        if(detectionCounter == 1)
+            audioSource.clip = detectionSound;
     }
 
-    public void Undetect()
-    {
+    public void Undetect() {
         detectionCounter--;
     }
 }

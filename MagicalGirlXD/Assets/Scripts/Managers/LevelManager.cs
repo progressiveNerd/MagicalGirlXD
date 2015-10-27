@@ -13,18 +13,10 @@ public class LevelManager : MonoBehaviour {
     Transform[] poiTransforms;
 
 	void Start () {
-        poi = new PointOfInterest[3];
-        /*
-        GameObject[] temp = GameObject.FindGameObjectsWithTag("Enemy");
-        enemies = new Enemy[temp.Length];
-        for (int i = 0; i < temp.Length; i++)
-        {
-            enemies[i] = temp[i].GetComponent<Enemy>();
-        }
-        */
-        enemies = new Enemy[3];
-        enemyTransforms = new Transform[3];
-        poiTransforms = new Transform[3];
+        poi = new PointOfInterest[18];
+        poiTransforms = new Transform[18];
+        enemies = new Enemy[14];
+        enemyTransforms = new Transform[14];
         player = GameObject.FindGameObjectWithTag("Player");
         deadEnemies = 0;
         LoadLevel();
@@ -43,74 +35,170 @@ public class LevelManager : MonoBehaviour {
 
     void AssignPOIs()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 18; i++)
         {
             poiTransforms[i] = Instantiate(poiPrefab) as Transform;
-            poiTransforms[i].position = new Vector2(-5+5*i, 5);
             poi[i] = poiTransforms[i].gameObject.GetComponent<PointOfInterest>();
             poi[i].enabled = true;
         }
 
         poi[0].directionPattern.Add(FacingDirection.Left);
         poi[0].directionPattern.Add(FacingDirection.Right);
+        poi[0].directionPattern.Add(FacingDirection.Front);
+        poi[0].directionPattern.Add(FacingDirection.Back);
         poi[0].restTime = 2;
-        poi[0].rotationSpeed = 1;
+        poi[0].rotationSpeed = 0.5f;
 
-        poi[1].directionPattern.Add(FacingDirection.Front);
-        poi[1].directionPattern.Add(FacingDirection.Back);
         poi[1].directionPattern.Add(FacingDirection.Left);
         poi[1].directionPattern.Add(FacingDirection.Right);
-        poi[1].restTime = 4;
+        poi[1].directionPattern.Add(FacingDirection.Front);
+        poi[1].directionPattern.Add(FacingDirection.Back);
+        poi[1].restTime = 2;
         poi[1].rotationSpeed = 0.5f;
 
+        poi[2].directionPattern.Add(FacingDirection.Left);
+        poi[2].directionPattern.Add(FacingDirection.Right);
         poi[2].directionPattern.Add(FacingDirection.Front);
         poi[2].directionPattern.Add(FacingDirection.Back);
         poi[2].restTime = 2;
-        poi[2].rotationSpeed = 1;
+        poi[2].rotationSpeed = 0.5f;
+
+        poi[3].directionPattern.Add(FacingDirection.Left);
+        poi[3].directionPattern.Add(FacingDirection.Right);
+        poi[3].directionPattern.Add(FacingDirection.Front);
+        poi[3].directionPattern.Add(FacingDirection.Back);
+        poi[3].restTime = 2;
+        poi[3].rotationSpeed = 0.5f;
+
+        poi[4].directionPattern.Add(FacingDirection.Left);
+        poi[4].directionPattern.Add(FacingDirection.Right);
+        poi[4].directionPattern.Add(FacingDirection.Front);
+        poi[4].directionPattern.Add(FacingDirection.Back);
+        poi[4].restTime = 2;
+        poi[4].rotationSpeed = 0.5f;
+
+        poi[5].directionPattern.Add(FacingDirection.Left);
+        poi[5].directionPattern.Add(FacingDirection.Right);
+        poi[5].directionPattern.Add(FacingDirection.Front);
+        poi[5].directionPattern.Add(FacingDirection.Back);
+        poi[5].restTime = 2;
+        poi[5].rotationSpeed = 0.5f;
+
+        poi[6].directionPattern.Add(FacingDirection.Left);
+        poi[6].directionPattern.Add(FacingDirection.Right);
+        poi[6].directionPattern.Add(FacingDirection.Front);
+        poi[6].directionPattern.Add(FacingDirection.Back);
+        poi[6].restTime = 2;
+        poi[6].rotationSpeed = 0.5f;
+
+        poi[7].directionPattern.Add(FacingDirection.Left);
+        poi[7].directionPattern.Add(FacingDirection.Right);
+        poi[7].directionPattern.Add(FacingDirection.Front);
+        poi[7].directionPattern.Add(FacingDirection.Back);
+        poi[7].restTime = 2;
+        poi[7].rotationSpeed = 0.5f;
+
+        poi[8].directionPattern.Add(FacingDirection.Left);
+        poi[8].directionPattern.Add(FacingDirection.Right);
+        poi[8].directionPattern.Add(FacingDirection.Front);
+        poi[8].directionPattern.Add(FacingDirection.Back);
+        poi[8].restTime = 2;
+        poi[8].rotationSpeed = 0.5f;
+
+        poi[9].directionPattern.Add(FacingDirection.Left);
+        poi[9].directionPattern.Add(FacingDirection.Right);
+        poi[9].directionPattern.Add(FacingDirection.Front);
+        poi[9].directionPattern.Add(FacingDirection.Back);
+        poi[9].restTime = 2;
+        poi[9].rotationSpeed = 0.5f;
+
+        poi[10].directionPattern.Add(FacingDirection.Left);
+        poi[10].directionPattern.Add(FacingDirection.Right);
+        poi[10].directionPattern.Add(FacingDirection.Front);
+        poi[10].directionPattern.Add(FacingDirection.Back);
+        poi[10].restTime = 2;
+        poi[10].rotationSpeed = 0.5f;
+
+        poi[11].directionPattern.Add(FacingDirection.Left);
+        poi[11].directionPattern.Add(FacingDirection.Right);
+        poi[11].directionPattern.Add(FacingDirection.Front);
+        poi[11].directionPattern.Add(FacingDirection.Back);
+        poi[11].restTime = 2;
+        poi[11].rotationSpeed = 0.5f;
+
+        poi[12].directionPattern.Add(FacingDirection.Left);
+        poi[12].directionPattern.Add(FacingDirection.Right);
+        poi[12].directionPattern.Add(FacingDirection.Front);
+        poi[12].directionPattern.Add(FacingDirection.Back);
+        poi[12].restTime = 2;
+        poi[12].rotationSpeed = 0.5f;
+
+        poi[13].directionPattern.Add(FacingDirection.Left);
+        poi[13].directionPattern.Add(FacingDirection.Right);
+        poi[13].directionPattern.Add(FacingDirection.Front);
+        poi[13].directionPattern.Add(FacingDirection.Back);
+        poi[13].restTime = 2;
+        poi[13].rotationSpeed = 0.5f;
+
+        poi[14].directionPattern.Add(FacingDirection.Left);
+        poi[14].directionPattern.Add(FacingDirection.Right);
+        poi[14].directionPattern.Add(FacingDirection.Front);
+        poi[14].directionPattern.Add(FacingDirection.Back);
+        poi[14].restTime = 2;
+        poi[14].rotationSpeed = 0.5f;
+
+        poi[15].directionPattern.Add(FacingDirection.Left);
+        poi[15].directionPattern.Add(FacingDirection.Right);
+        poi[15].directionPattern.Add(FacingDirection.Front);
+        poi[15].directionPattern.Add(FacingDirection.Back);
+        poi[15].restTime = 2;
+        poi[15].rotationSpeed = 0.5f;
+
+        poi[16].directionPattern.Add(FacingDirection.Left);
+        poi[16].directionPattern.Add(FacingDirection.Right);
+        poi[16].directionPattern.Add(FacingDirection.Front);
+        poi[16].directionPattern.Add(FacingDirection.Back);
+        poi[16].restTime = 2;
+        poi[16].rotationSpeed = 0.5f;
+
+        poi[17].directionPattern.Add(FacingDirection.Left);
+        poi[17].directionPattern.Add(FacingDirection.Right);
+        poi[17].directionPattern.Add(FacingDirection.Front);
+        poi[17].directionPattern.Add(FacingDirection.Back);
+        poi[17].restTime = 2;
+        poi[17].rotationSpeed = 0.5f;
+
     }
 
-    void AssignEnemies()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            enemyTransforms[i] = Instantiate(meleeEnemyPrefab) as Transform;
-            enemies[i] = enemyTransforms[i].gameObject.GetComponent<Enemy>();
-            enemies[i].enabled = true;
+    void AssignEnemies() {
+        System.Random rng = new System.Random();
+        for (int i = 0; i < 14; i++) {
+            if (rng.NextDouble() > 0.5)
+            {
+                enemyTransforms[i] = Instantiate(meleeEnemyPrefab) as Transform;
+                enemies[i] = enemyTransforms[i].gameObject.GetComponent<Enemy>();
+                enemies[i].enabled = true;
+                enemies[i].points.Add(poi[rng.Next(18)]);
+                enemies[i].points.Add(poi[rng.Next(18)]);
+            }
+            else
+            {
+                enemyTransforms[i] = Instantiate(rangedEnemyPrefab) as Transform;
+                enemies[i] = enemyTransforms[i].gameObject.GetComponent<Enemy>();
+                enemies[i].enabled = true;
+                enemies[i].points.Add(poi[rng.Next(18)]);
+                enemies[i].ranged = true;
+            }
         }
-
-        for (int i = 2; i < 3; i++)
-        {
-            enemyTransforms[i] = Instantiate(rangedEnemyPrefab) as Transform;
-            enemies[i] = enemyTransforms[i].gameObject.GetComponent<Enemy>();
-            enemies[i].enabled = true;
-        }
-
-        enemyTransforms[0].position = poiTransforms[0].position;
-        enemies[0].points.Add(poi[0]);
-        enemies[0].points.Add(poi[1]);
-
-        enemyTransforms[1].position = poiTransforms[2].position;
-        enemies[1].points.Add(poi[2]);
-        enemies[1].points.Add(poi[1]);
-
-        enemyTransforms[2].position = poiTransforms[1].position;
-        enemies[2].points.Add(poi[1]);
     }
 
-    void ClearArrays()
-    {
+    void ClearArrays() {
 
     }
 
-    public void EnemyDead()
-    {
+    public void EnemyDead() {
         deadEnemies++;
-        if (deadEnemies == enemies.Length)
-            SpawnBoss();
-    }
-
-    void SpawnBoss()
-    {
-
+        //if (deadEnemies == enemies.Length)
+        //    SpawnBoss();
     }
 }

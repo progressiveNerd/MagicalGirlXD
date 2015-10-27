@@ -6,13 +6,16 @@ using UnityEditor;
 public class Player : MonoBehaviour {
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
+    public FacingDirection direction = FacingDirection.Front;
     public int currentHealth;
     public int startingHealth = 5;
-    public FacingDirection direction = FacingDirection.Front;
 	public Slider healthSlider;
-	public bool waterKey = false;
+    public AudioClip pickupSound;
+	public bool hasWaterKey = false;
+
 
     Animator anim;
+    AudioSource audioSource;
     PlayerAttack playerAttack;
     Rigidbody2D rigidBody;
     Vector3 movement;
@@ -20,6 +23,7 @@ public class Player : MonoBehaviour {
 	void Awake() {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         playerAttack = GetComponent<PlayerAttack>();
         rigidBody = GetComponent<Rigidbody2D>();
 	}
@@ -62,20 +66,20 @@ public class Player : MonoBehaviour {
         anim.SetInteger("Direction", (int)direction);
     }
 
-    public void TakeDamage(int amount)
-    {
-        //damaged = true;
+    public void TakeDamage(int amount) {
+        Debug.Log("OUCH");
         currentHealth -= amount;
-
 		healthSlider.value = currentHealth;
 
         //playerAudio.Play();
         if (currentHealth <= 0)
+        {
             Death();
+            
+        }
     }
 
-    void Death()
-    {
+    void Death() {
         //playerShooting.DisableEffects();
         //anim.SetTrigger("Die");
         //playerAudio.clip = deathClip;
@@ -84,28 +88,25 @@ public class Player : MonoBehaviour {
         //Destroy(gameObject, 1f);
     }
 
-    public void RestartLevel()
-    {
+    public void RestartLevel() {
         Application.LoadLevel(Application.loadedLevel);
     }
 
 
-	void OnTriggerEnter2D(Collider2D col)
-	{
+	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.name == "AreaSwitch(Clone)") {
-			if(waterKey) {
-				if(EditorApplication.currentScene == "Assets/Scenes/Level1-1.unity")
-				{
-					Application.LoadLevel(2);
-				}
-			//	SwitchScene a;
-			//	a.changeScene(1, this);
+			if(hasWaterKey) {
+                if (Application.loadedLevel == 1)
+                    Application.LoadLevel(2);
+                else if (Application.loadedLevel == 2)
+                    Application.LoadLevel(1);
 			}
 		}
 		if (col.gameObject.name == "WaterKey") {
-			waterKey = true;
+			hasWaterKey = true;
 			Destroy(col.gameObject);
-
+            audioSource.clip = pickupSound;
+            audioSource.Play();
 		}
 	}
 }

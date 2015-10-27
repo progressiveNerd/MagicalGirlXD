@@ -1,26 +1,30 @@
 ﻿using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
-	public int damagePerShot = 1;
-    public int damagePerHit = 2;
+    public Transform shotPrefab;
+    public int meleeDamage = 2;
 	public float attackSpeed = 0.15f;
 	public float shootingRange = 100f;
     public float meleeRange = 2f;
     public AudioClip meleeSound, shootSound;
-	public Transform shotPrefab;
 
 	float attackTimer;
+    float indicatorTimer;
+    float indicatorLength;
 	int shootableMask;
-    AudioSource Audio;
+    AudioSource audioSource;
+    PlayerMeleeIndicator indicator;
     Ray shootRay;
     RaycastHit shootHit;
 
 	void Awake() {
 		shootableMask = LayerMask.GetMask("Shootable");
-        Audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        indicator = GameObject.FindWithTag("Indicator").GetComponent<PlayerMeleeIndicator>();
+        indicatorLength = 0.5f;
 	}
 
-	void Update() {
+	void FixedUpdate() {
 		attackTimer += Time.deltaTime;
 		if(Input.GetButton("Fire1") && attackTimer >= attackSpeed && Time.timeScale != 0)
 			Shoot();
@@ -30,12 +34,13 @@ public class PlayerAttack : MonoBehaviour {
 
     private void Melee() {
         attackTimer = 0f;
-        Audio.clip = meleeSound;
-        Audio.Play();
+        audioSource.clip = meleeSound;
+        audioSource.Play();
 
         Vector3 mousePosVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 playerToMouse = mousePosVector - transform.position;
         playerToMouse.z = 0f;
+        indicator.SetRotation(playerToMouse.normalized);
 
         shootRay.origin = transform.position;
         shootRay.direction = playerToMouse.normalized;
@@ -43,14 +48,14 @@ public class PlayerAttack : MonoBehaviour {
         if (hit.collider != null) {
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
-                enemy.TakeDamage(damagePerHit);
+                enemy.TakeDamage(meleeDamage);
         }
     }
 
 	void Shoot() {
 		attackTimer = 0f;
-        Audio.clip = shootSound;
-        Audio.Play();
+        audioSource.clip = shootSound;
+        audioSource.Play();
 		var shotTransform = Instantiate(shotPrefab) as Transform;
 		shotTransform.position = transform.position;
 		ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
@@ -62,31 +67,5 @@ public class PlayerAttack : MonoBehaviour {
             shot.direction.Normalize();
             shot.enabled = true;
         }
-		//gunParticles.Stop();
-		//gunParticles.Play();
-
-		/*
-		gunLine.enabled = true;
-		gunLine.SetPosition(0, transform.position);
-
-		Vector3 mousePosVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Vector3 playerToMouse = mousePosVector - transform.position;
-		playerToMouse.z = 0f;
-
-		shootRay.origin = transform.position;
-		shootRay.direction = playerToMouse.normalized;
-
-		Debug.Log(shootRay.origin.ToString());
-		
-		if(Physics.Raycast(shootRay, out shootHit, shootingRange, shootableMask)) {
-			Debug.Log("Shot");
-			Enemy enemy = shootHit.collider.GetComponent<Enemy>();
-			if(enemy != null)
-				enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerShot, shootHit.point);
-			gunLine.SetPosition(1, shootHit.point);
-		}
-		else
-			gunLine.SetPosition(1, shootRay.origin + shootRay.direction * shootingRange);
-		*/
 	}
 }

@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour {
 	private Color temp;
 
 	void Update() {
-		if (player.waterKey) {
+		if (player.hasWaterKey) {
 			temp = keyImage.color;
 			temp.a = 1.0f;
 			keyImage.color = temp;

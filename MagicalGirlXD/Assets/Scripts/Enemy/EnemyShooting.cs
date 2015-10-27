@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class EnemyShooting : EnemyAttack {
+    public float range = 150f;
     public Transform shotPrefab;
     Enemy manager;
 
@@ -10,7 +11,6 @@ public class EnemyShooting : EnemyAttack {
         //playerHealth = player.GetComponent<PlayerHealth>();
         //enemyHealth = GetComponent<EnemyHealth>();
         //anim = GetComponent<Animator>();
-        range = 100f;
         manager = transform.parent.GetComponent<Enemy>();
     }
 
@@ -32,5 +32,10 @@ public class EnemyShooting : EnemyAttack {
             shot.direction.z = 0f;
             shot.direction.Normalize();
         }
+    }
+
+    public override float GetRange()
+    {
+        return range;
     }
 }

@@ -2,6 +2,6 @@
 using System.Collections;
 
 public abstract class EnemyAttack : MonoBehaviour {
-    public float range;
+    public abstract float GetRange();
     public abstract void Attack(GameObject player);
 }

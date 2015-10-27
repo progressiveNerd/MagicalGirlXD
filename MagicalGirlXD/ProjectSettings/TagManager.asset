@@ -10,6 +10,7 @@ TagManager:
   - POI
   - WaterKey
   - AreaSwitch
+  - Indicator
   layers:
   - Default
   - TransparentFX
