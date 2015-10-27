@@ -1295,6 +1295,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1554764371}
+    - target: {fileID: 11410792, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
+      propertyPath: m_Text
+      value: "Controls: \nAim and Click to shoot\nWASD and Arrow Keys to move\n\nObjective:\nGrab
+        keys to proceed to other areas, kill 10 enemies to win."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
   m_IsPrefabParent: 0
