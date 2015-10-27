@@ -9,22 +9,32 @@ public class LevelManager : MonoBehaviour {
     int deadEnemies;
     Enemy[] enemies;
     GameObject player;
-    Transform[] enemyTransforms;
-    Transform[] poiTransforms;
+    public Transform[] enemyTransforms;
+    public Transform[] poiTransforms;
+	public int deathCounter = 0;
+	public GameObject menu;
+	private bool isShowing = false;
+	private bool hasWon = false;
 
-	void Start () {
+	void Awake () {
         poi = new PointOfInterest[18];
         poiTransforms = new Transform[18];
         enemies = new Enemy[14];
         enemyTransforms = new Transform[14];
         player = GameObject.FindGameObjectWithTag("Player");
         deadEnemies = 0;
-        LoadLevel();
+       // LoadLevel();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (!hasWon) {
+			if (player.GetComponent<Player>().deathCounter > 10) {
+				isShowing = !isShowing;
+				menu.SetActive (isShowing);
+				hasWon = true;
+			}
+		}
 	}
     
     void LoadLevel()
@@ -33,7 +43,7 @@ public class LevelManager : MonoBehaviour {
         AssignEnemies();
     }
 
-    void AssignPOIs()
+    public void AssignPOIs()
     {
         for (int i = 0; i < 18; i++)
         {
@@ -153,6 +163,7 @@ public class LevelManager : MonoBehaviour {
         poi[15].directionPattern.Add(FacingDirection.Back);
         poi[15].restTime = 2;
         poi[15].rotationSpeed = 0.5f;
+		poi[15].transform.position = new Vector3 (20, 30);
 
         poi[16].directionPattern.Add(FacingDirection.Left);
         poi[16].directionPattern.Add(FacingDirection.Right);
@@ -160,6 +171,7 @@ public class LevelManager : MonoBehaviour {
         poi[16].directionPattern.Add(FacingDirection.Back);
         poi[16].restTime = 2;
         poi[16].rotationSpeed = 0.5f;
+		poi[16].transform.position = new Vector3 (30, 20);
 
         poi[17].directionPattern.Add(FacingDirection.Left);
         poi[17].directionPattern.Add(FacingDirection.Right);
@@ -167,10 +179,11 @@ public class LevelManager : MonoBehaviour {
         poi[17].directionPattern.Add(FacingDirection.Back);
         poi[17].restTime = 2;
         poi[17].rotationSpeed = 0.5f;
+		poi[17].transform.position = new Vector3 (40, 40);
 
     }
 
-    void AssignEnemies() {
+    public void AssignEnemies() {
         System.Random rng = new System.Random();
         for (int i = 0; i < 14; i++) {
             if (rng.NextDouble() > 0.5)
@@ -197,7 +210,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void EnemyDead() {
-        deadEnemies++;
+        deathCounter++;
         //if (deadEnemies == enemies.Length)
         //    SpawnBoss();
     }

@@ -11,6 +11,7 @@ TagManager:
   - WaterKey
   - AreaSwitch
   - Indicator
+  - Detection
   layers:
   - Default
   - TransparentFX

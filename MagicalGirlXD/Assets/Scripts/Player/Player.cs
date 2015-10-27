@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 	public Slider healthSlider;
     public AudioClip pickupSound;
 	public bool hasWaterKey = false;
-
+	public int deathCounter = 0;
 
     Animator anim;
     AudioSource audioSource;
@@ -67,7 +67,6 @@ public class Player : MonoBehaviour {
     }
 
     public void TakeDamage(int amount) {
-        Debug.Log("OUCH");
         currentHealth -= amount;
 		healthSlider.value = currentHealth;
 
