@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class Player : MonoBehaviour {
     public float walkSpeed = 3f;
@@ -93,6 +92,7 @@ public class Player : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D col) {
+		/*
 		if (col.gameObject.name == "AreaSwitch(Clone)") {
 			if(hasWaterKey) {
                 if (Application.loadedLevel == 1)
@@ -107,5 +107,6 @@ public class Player : MonoBehaviour {
             audioSource.clip = pickupSound;
             audioSource.Play();
 		}
+		*/
 	}
 }

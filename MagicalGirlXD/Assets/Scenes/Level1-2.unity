@@ -204,10 +204,6 @@ Prefab:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1476407233}
-    - target: {fileID: 152216, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
-      propertyPath: m_TagString
-      value: Detection
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
   m_IsPrefabParent: 0

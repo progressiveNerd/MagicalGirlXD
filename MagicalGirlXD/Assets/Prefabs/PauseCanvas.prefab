@@ -186,8 +186,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Controls: \nAim and Click to shoot\nWASD and Arrow Keys to move\n\nObjective:\nLiberate
-    the students that have been transformed into monsters!"
+  m_Text: "Controls: \nLeft click to shoot\nRight click to melee attack\nWASD or arrow
+    keys to move, shift to run\n\nObjective:\nGrab keys to proceed to other areas,
+    kill 10 enemies to win."
 --- !u!114 &11413682
 MonoBehaviour:
   m_ObjectHideFlags: 1

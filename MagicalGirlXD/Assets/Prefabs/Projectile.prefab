@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemyShot: 0
-  speed: 10
+  speed: 20
   playerRange: 10
   enemyRange: 100
   damage: 1
@@ -119,6 +119,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 88daf2eec376e3a42af3bc9e748485c3,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150334}
