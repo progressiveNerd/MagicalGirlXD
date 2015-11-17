@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+SceneSettings:
+  m_ObjectHideFlags: 0
+  m_PVSData: 
+  m_PVSObjectsArray: []
+  m_PVSPortalsArray: []
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: .25
+    backfaceThreshold: 100
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Fog: 0
+  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: .00999999978
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
+  m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
+  m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: .5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
+--- !u!157 &4
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_GIWorkflowMode: 1
+  m_LightmapsMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_TemporalCoherenceThreshold: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 3
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
+    m_AOMaxDistance: 1
+    m_Padding: 2
+    m_CompAOExponent: 0
+    m_LightmapParameters: {fileID: 0}
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherRayCount: 1024
+  m_LightmapSnapshot: {fileID: 0}
+  m_RuntimeCPUUsage: 25
+--- !u!196 &5
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentRadius: .5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: .400000006
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    accuratePlacement: 0
+    minRegionArea: 2
+    cellSize: .166666672
+    manualCellSize: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1001 &74902257
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &74902258 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
+  m_PrefabInternal: {fileID: 74902257}
+--- !u!114 &74902259 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11419560, guid: c977ecce0a869486a9d6d1ecb1f9b914,
+    type: 2}
+  m_PrefabInternal: {fileID: 74902257}
+  m_Script: {fileID: 11500000, guid: 30c9dc6e2d1241f4fa4066c1d2f8cf67, type: 3}
+--- !u!1001 &356564633
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 469254, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469254, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469254, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 469254, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469254, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469254, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469254, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469254, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428544, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 74902258}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
+  m_IsPrefabParent: 0
+--- !u!20 &356564634 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2044458, guid: b33e2a2ddb8344a2384762b95ec43f33,
+    type: 2}
+  m_PrefabInternal: {fileID: 356564633}
+--- !u!1 &1939495308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1939495309}
+  - 114: {fileID: 1939495310}
+  m_Layer: 0
+  m_Name: LevelSelectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1939495309
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1939495308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &1939495310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1939495308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776b7fa856d7f4949b38ba1b041a0834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 74902259}
+  maincam: {fileID: 356564634}
+  npc: {fileID: 0}
+  sidewalk: {fileID: 493430, guid: 519bc98465f724e34883861d438ba9c1, type: 2}
+  sidewalkBlock: {fileID: 428414, guid: d4da855da6db0482f87a8e33ec45feaf, type: 2}
+  grassTile: {fileID: 491504, guid: 80de8ed2b526c40448cf3ed91e8d40a0, type: 2}
+  areaSwitch1: {fileID: 497316, guid: a65bd71cb754d4f7f9ac817b372116f0, type: 2}
+  brick: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+  schoolSwitch: {fileID: 466896, guid: 85999e0161beb4f35a1c8dd6d5dbb7f2, type: 2}
+  level2Switch: {fileID: 466896, guid: 85999e0161beb4f35a1c8dd6d5dbb7f2, type: 2}
+  road: {fileID: 416070, guid: 31cb092372d7b4a9da3b50664e8222aa, type: 2}
+  roadLines: {fileID: 420864, guid: 61b6fd0a66f7f40adb0f6ffcc2e7d2c5, type: 2}
+  roadBlock: {fileID: 430496, guid: b0bc763050189448eb22ef7ff7a2ce76, type: 2}
+  playerColor: {r: 1, g: .941176474, b: 0, a: 1}
+  npcColor: {r: 0, g: 1, b: .117647059, a: 1}
+  sidewalkColor: {r: .00784313772, g: 1, b: .356862754, a: 1}
+  sidewalkBlockColor: {r: .223529413, g: .533333361, b: .329411775, a: 1}
+  grassTileColor: {r: 0, g: 1, b: .823529422, a: 1}
+  areaSwitch1Color: {r: .596078455, g: 0, b: 0, a: 1}
+  brickColor: {r: 0, g: .125490203, b: .101960786, a: 1}
+  schoolSwitchColor: {r: 0, g: .494117647, b: 1, a: 1}
+  level2SwitchColor: {r: .639215708, g: .0274509806, b: .619607866, a: 1}
+  roadColor: {r: .0627451017, g: 0, b: .65882355, a: 1}
+  roadLinesColor: {r: .101960786, g: .00784313772, b: 1, a: 1}
+  roadBlockColor: {r: .505882382, g: 0, b: .631372571, a: 1}
+  levelTexture: {fileID: 2800000, guid: 739c08bb54e844c1c93a1a3d330fcaeb, type: 3}
