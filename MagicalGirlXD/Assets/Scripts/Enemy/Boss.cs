@@ -34,7 +34,7 @@ public class Boss : Entity {
 
 	Rigidbody2D bossRigidBody;
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		//attackscript = GetComponentInChildren<BossAttack> ();
 		player = GameObject.FindWithTag("Player");
 		playerScript = player.GetComponent<Player>();
@@ -43,34 +43,24 @@ public class Boss : Entity {
 		phase = 1;
 	}
 
+	void Update () {
+		if (!cutsceneEnd)
+			Cutscene();
+		else if (cutsceneEnd && phase == 1)
+			MovePhase(phase);
+		else if (phase == 2)
+			MovePhase(phase);
+		else if (phase == 3)
+			MovePhase(phase);
+		else if (phase == 4)
+			MovePhase(phase);
+	}
+
 	void Move(float h, float v) {
 		movement.Set(h, v, 0f);
 		movement = movement.normalized * 6.0f * Time.deltaTime;
 		bossRigidBody.MovePosition(this.gameObject.transform.position + movement);
 	}
-	// Update is called once per frame
-	void Update () {
-
-		if (!cutsceneEnd) {
-			Cutscene();
-		}
-		else if (cutsceneEnd && phase == 1) {
-			MovePhase (phase);
-		} 
-
-		else if (phase == 2) {
-			MovePhase (phase);
-		} 
-
-		else if (phase == 3) {
-			MovePhase (phase);
-		} 
-
-		else if (phase == 4) {
-			MovePhase (phase);
-		} 
-	}
-
 
 	void MovePhase(int baseNum) {
 		if (baseNum == 2) {
@@ -115,22 +105,14 @@ public class Boss : Entity {
 	}
 
 	void AttackPhase(int baseNum){
-		if (baseNum == 1) {
+		if (baseNum == 1)
 			attackscript.Attack(player);
-		}
-
-		if (baseNum == 2) {
+		if (baseNum == 2)
 			attackscript.Attack(player);
-		}
-
-		if (baseNum == 3) {
+		if (baseNum == 3)
 			attackscript.Attack(player);
-		}
-
-		if (baseNum == 4) { 
+		if (baseNum == 4)
 			attackscript.Attack(player);
-		}
-
 		baseReached = false;
 	}
 
@@ -149,8 +131,7 @@ public class Boss : Entity {
 				gymText.SetActive(false);
 				studentText.SetActive(true);
 			}
-			else if(counter == 1)
-			{
+			else if(counter == 1) {
 				counter++;
 				studentText.SetActive(false);
 				playerScript.enabled = true;

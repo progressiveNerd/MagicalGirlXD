@@ -7,6 +7,7 @@ public class PlayerDetection : MonoBehaviour {
     public float minimumRadius = 1f;
     public float maximumRadius = 75;
     public AudioClip detectionSound;
+	public AudioClip stealthedSound;
 
     bool detected;
     float radius;
@@ -31,11 +32,15 @@ public class PlayerDetection : MonoBehaviour {
 
     public void Detect() {
         detectionCounter++;
-        if(detectionCounter == 1)
-            audioSource.clip = detectionSound;
+        //if(detectionCounter == 1)
+            //audioSource.clip = detectionSound;
+			//audioSource.Play();
     }
 
     public void Undetect() {
         detectionCounter--;
+		//if(detectionCounter == 0)
+			//audioSource.clip = stealthedSound;
+			//audioSource.Play();
     }
 }

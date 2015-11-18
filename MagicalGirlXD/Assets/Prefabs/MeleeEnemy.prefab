@@ -202,6 +202,7 @@ MonoBehaviour:
   ranged: 0
   timeBetweenAttacks: 1
   startingHealth: 5
+  alerted: 0
   walkSpeed: 2
   chaseSpeed: 3.5
   direction: 0
@@ -209,6 +210,7 @@ MonoBehaviour:
   destinationReached: 0
   poiTimer: 0
   turnTimer: 0
+  playerInRange: 0
 --- !u!114 &11463884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,8 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ab617821f98bb4781de1b7e94c5323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 150
-  shotPrefab: {fileID: 406592, guid: 40f0006efe3b84bd184e557a71fb844b, type: 2}
+  range: 0
+  shotPrefab: {fileID: 406524, guid: 7f1f2ff1361a2524a8aedff70a83557c, type: 2}
 --- !u!114 &11473612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,8 +337,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: range
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shotPrefab
+      value: 
+      objectReference: {fileID: 406524, guid: 7f1f2ff1361a2524a8aedff70a83557c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185910}

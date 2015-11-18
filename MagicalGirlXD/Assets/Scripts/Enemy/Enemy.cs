@@ -30,7 +30,9 @@ public class Enemy : Entity {
     public bool destinationReached;
     public float poiTimer;
     public float turnTimer;
+
     FacingDirection playerDirection;
+	PlayerDetection detection;
     CircleCollider2D attackRangeCollider;
     EnemyIndicator directionIndicator;
     List<PointOfInterest>.Enumerator currentPOI;
@@ -55,6 +57,7 @@ public class Enemy : Entity {
 
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
+		detection = player.GetComponentInChildren<PlayerDetection>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
         if (ranged)
             attackScript = GetComponentInChildren<EnemyShooting>();
@@ -93,8 +96,10 @@ public class Enemy : Entity {
             }
         }
 
-        if(playerDirection == direction && alerted)
-            player.GetComponentInChildren<PlayerDetection>().Detect();
+		// causing the massive frame rate issue most likely
+		// RESOLVE THIS IMMEDIATELY
+        //if(playerDirection == direction && alerted)
+            //detection.Detect();
 
         attackTimer += Time.deltaTime;
 
@@ -175,7 +180,7 @@ public class Enemy : Entity {
         if (aName == "Vision") {
             if (aOther.tag == "Detection") {
                 alerted = false;
-                player.GetComponentInChildren<PlayerDetection>().Undetect();
+                detection.Undetect();
             }
         } else if (aName == "Attack") {
             if (aOther.tag == "Player")
@@ -214,7 +219,6 @@ public class Enemy : Entity {
 
     protected override void Death() {
         isDead = true;
-		playerScript.deathCounter++;
         if(alerted)
             player.GetComponentInChildren<PlayerDetection>().Undetect();
         Destroy(gameObject, 0f);

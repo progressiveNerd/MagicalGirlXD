@@ -1,20 +1,22 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : Entity {
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
-    public FacingDirection direction = FacingDirection.Front;
-    public int currentHealth;
     public int startingHealth = 5;
+	public int currentHealth;
+	public bool hasWaterKey = false;
+
 	public Slider healthSlider;
     public AudioClip pickupSound;
-	public bool hasWaterKey = false;
-	public int deathCounter = 0;
-
+	public AudioClip damageSound;
+	public AudioClip deathSound;
+	
     Animator anim;
     AudioSource audioSource;
+	FacingDirection direction = FacingDirection.Front;
     PlayerAttack playerAttack;
     Rigidbody2D rigidBody;
     Vector3 movement;

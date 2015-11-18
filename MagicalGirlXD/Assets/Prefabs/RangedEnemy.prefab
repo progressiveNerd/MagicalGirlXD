@@ -188,8 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ab617821f98bb4781de1b7e94c5323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 150
-  shotPrefab: {fileID: 406592, guid: 40f0006efe3b84bd184e557a71fb844b, type: 2}
+  range: 50
+  shotPrefab: {fileID: 406524, guid: 7f1f2ff1361a2524a8aedff70a83557c, type: 2}
 --- !u!114 &11415950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,6 +335,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shotPrefab
+      value: 
+      objectReference: {fileID: 406524, guid: 7f1f2ff1361a2524a8aedff70a83557c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: range
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

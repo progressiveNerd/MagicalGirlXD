@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
 		if (!hasWon) {
 			if (player.GetComponent<Player>().deathCounter > 10) {
 				isShowing = !isShowing;
@@ -35,6 +36,7 @@ public class LevelManager : MonoBehaviour {
 				hasWon = true;
 			}
 		}
+		*/
 	}
     
     void LoadLevel()
