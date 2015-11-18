@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Entity {
     //player vars
     GameObject player;
     Player playerScript;
@@ -212,7 +212,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void Death() {
+    protected override void Death() {
         isDead = true;
 		playerScript.deathCounter++;
         if(alerted)
@@ -220,8 +220,8 @@ public class Enemy : MonoBehaviour {
         Destroy(gameObject, 0f);
     }
 
-    public void TakeDamage(int amount) {
-        if (isDead)
+    public override void TakeDamage(int amount) {
+        if(isDead)
             return;
         currentHealth -= amount;
         if (currentHealth <= 0)

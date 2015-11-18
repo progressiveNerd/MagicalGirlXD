@@ -1,20 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Entity : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    void Damage(int value)
-    {
-
-    }
+public abstract class Entity : MonoBehaviour {
+	public abstract void TakeDamage(int amount);
+	protected abstract void Death();
 }

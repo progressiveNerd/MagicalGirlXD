@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour {
+public class Player : Entity {
     public float walkSpeed = 3f;
     public float runSpeed = 6f;
     public FacingDirection direction = FacingDirection.Front;
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour {
         anim.SetInteger("Direction", (int)direction);
     }
 
-    public void TakeDamage(int amount) {
+    public override void TakeDamage(int amount) {
         currentHealth -= amount;
 		healthSlider.value = currentHealth;
 
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void Death() {
+    protected override void Death() {
         //playerShooting.DisableEffects();
         //anim.SetTrigger("Die");
         //playerAudio.clip = deathClip;

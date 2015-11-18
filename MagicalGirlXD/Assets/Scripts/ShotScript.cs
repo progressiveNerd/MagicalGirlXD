@@ -4,8 +4,7 @@ using System.Collections;
 public class ShotScript : MonoBehaviour {
 	public bool isEnemyShot = false;
 	public float speed = 10f;
-	public float playerRange = 10f;
-    public float enemyRange = 100f;
+	public float range = 10f;
 	public int damage = 1;
     public Vector3 direction;
 
@@ -26,17 +25,27 @@ public class ShotScript : MonoBehaviour {
 			speed * direction.y * Time.deltaTime, 0f);
 		body.MovePosition(transform.position + movement);
 		elapsedDistance += movement.magnitude;
-		if((!isEnemyShot && elapsedDistance >= playerRange) || (isEnemyShot && elapsedDistance >= enemyRange))
+		if(elapsedDistance >= range)
 			Destroy(gameObject, 0f);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
+		Entity target = other.gameObject.GetComponent<Entity>();
+		if (target != null && ((target is Player && isEnemyShot) || (!(target is Player) && !isEnemyShot))) {
+			target.TakeDamage(damage);
+			if (shotCollider != null)
+				shotCollider.enabled = false;
+			Destroy(gameObject, 0.02f);
+		}
+
+		// old stuff
+		/*
 	    if (!isEnemyShot && (other.name == "MeleeEnemy(Clone)" || other.name == "RangedEnemy(Clone)")) {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
 			enemy.TakeDamage(damage);
             if (shotCollider != null)
                 shotCollider.enabled = false;
-			Destroy(gameObject, 0.1f);
+			Destroy(gameObject, 0.02f);
 		}
 
         if (isEnemyShot && other.name == "Player") {
@@ -44,7 +53,8 @@ public class ShotScript : MonoBehaviour {
             player.TakeDamage(damage);
             if(shotCollider != null)
                 shotCollider.enabled = false;
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, 0.02f);
         }
+		*/
 	}
 }

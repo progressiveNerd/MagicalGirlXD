@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boss : MonoBehaviour {
+public class Boss : Entity {
 	public int currentHealth;
 	public int startingHealth;
 	public int damage;
@@ -160,5 +160,9 @@ public class Boss : MonoBehaviour {
 		}
 	}
 
+	protected override void Death() {
+	}
 
+	public override void TakeDamage(int amount) {
+	}
 }
