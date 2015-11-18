@@ -5,7 +5,7 @@ public class BossAttack : MonoBehaviour {
 	public float range = 150f;
 	public Transform shotPrefab;
 	public Boss manager;
-	BossAttack attackscript;
+
 
 	// Use this for initialization
 	void Start () {

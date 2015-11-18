@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BossLoad : MonoBehaviour {
@@ -37,9 +38,11 @@ public class BossLoad : MonoBehaviour {
 	public Color spawnColor;
 	public Color bossColor; 
 
-	private Vector3 temp;
+	public Vector3 temp;
 	
 	public Texture2D levelTexture;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -95,7 +98,7 @@ public class BossLoad : MonoBehaviour {
 				{
 					Instantiate(baseTile,new Vector3(x,y), Quaternion.identity);
 					Vector2 pos = new Vector2(x,y);
-					Vector3 posCam = new Vector3(x,y,-20);
+					Vector3 posCam = new Vector3(x,y,-10);
 					player.transform.position = pos;
 
 					temp = posCam;
@@ -108,14 +111,13 @@ public class BossLoad : MonoBehaviour {
 					Vector3 posCam = new Vector3(x,y,-10);
 					maincam.transform.position = posCam;
 					boss.transform.position = pos;
-
-					
-					
 				}
 
 			}
 			
 		}
+
+		bossScript.Cutscene ();
 	}
 
 	// Update is called once per frame
