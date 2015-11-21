@@ -684,24 +684,30 @@ MonoBehaviour:
   player: {fileID: 1219358353}
   keyy: {fileID: 159324099}
   maincam: {fileID: 1884379683}
-  stonePath: {fileID: 431178, guid: f1d25bec028ab415d93d8c283a44ec42, type: 2}
+  stonePath: {fileID: 493430, guid: 519bc98465f724e34883861d438ba9c1, type: 2}
   grassTile: {fileID: 491504, guid: 80de8ed2b526c40448cf3ed91e8d40a0, type: 2}
   stairs: {fileID: 490184, guid: dad68468634124ab0add3e7b51f71691, type: 2}
   door: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   key: {fileID: 404224, guid: 01ec76e95866a484094e081d15270a95, type: 2}
   areaSwitch: {fileID: 493708, guid: d3b5b68990ea3474caa329678683a9bd, type: 2}
+  levelSelectSwitch: {fileID: 452424, guid: ab34852b6f15c478ead406bb5c98241a, type: 2}
   waterTile: {fileID: 400496, guid: 05c82eb98474544328cc89d7ae45f5c3, type: 2}
+  roadTile: {fileID: 416070, guid: 31cb092372d7b4a9da3b50664e8222aa, type: 2}
+  sidewalkTile: {fileID: 493430, guid: 519bc98465f724e34883861d438ba9c1, type: 2}
   school: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   schoolSwitch: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   schoolDoor: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   soccerGrass: {fileID: 429616, guid: 1ffa9658555aa4d78b4c2aa3d6f1991c, type: 2}
   soccerLine: {fileID: 402608, guid: 6f9ec234442a845edb93e33dcc121704, type: 2}
+  roadTileColor: {r: .572549045, g: .203921571, b: 0, a: 1}
+  sidewalkTileColor: {r: .490196079, g: .501960814, b: .556862772, a: 1}
   walkwayColor: {r: 1, g: .70588237, b: 0, a: 1}
   grassColor: {r: 0, g: 1, b: .0470588244, a: 1}
   areaSwitchColor: {r: .964705884, g: 0, b: 1, a: 1}
-  stairsColor: {r: .345098048, g: 0, b: 0, a: 1}
+  stairsColor: {r: 0, g: 0, b: 0, a: 1}
   doorColor: {r: 1, g: .352941185, b: 0, a: 1}
   keyColor: {r: 1, g: 0, b: 0, a: 1}
+  levelSelectSwitchColor: {r: .129411772, g: .482352942, b: .435294122, a: 1}
   waterColor: {r: 0, g: .164705887, b: 1, a: 1}
   stoneColor: {r: .498039216, g: .498039216, b: .498039216, a: 1}
   schoolColor: {r: 0, g: 1, b: .917647064, a: 1}
@@ -712,7 +718,7 @@ MonoBehaviour:
   spawnColor: {r: .964705884, g: 1, b: 0, a: 1}
   enemyColor: {r: 1, g: 1, b: 1, a: 1}
   rangedColor: {r: .921568632, g: .921568632, b: .921568632, a: 1}
-  levelTexture: {fileID: 2800000, guid: d3cdafc3560a046d08badd70e9a83f52, type: 3}
+  levelTexture: {fileID: 2800000, guid: cd275e9a0016d4cbd9b05c47ff9534bd, type: 3}
 --- !u!4 &1554764368
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,11 +1095,11 @@ Prefab:
       objectReference: {fileID: 1219358353}
     - target: {fileID: 22411100, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411100, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}

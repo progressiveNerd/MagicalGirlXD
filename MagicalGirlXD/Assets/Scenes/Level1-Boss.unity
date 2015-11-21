@@ -87,52 +87,47 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &371414873
-Prefab:
+--- !u!1 &125711831
+GameObject:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 125711833}
+  - 61: {fileID: 125711832}
+  m_Layer: 0
+  m_Name: BossDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &125711832
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 125711831}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0501021072, y: .0501019955}
   serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419560, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-      propertyPath: healthSlider
-      value: 
-      objectReference: {fileID: 697328991}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-  m_IsPrefabParent: 0
+  m_Size: {x: .607534826, y: .949897945}
+--- !u!4 &125711833
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 125711831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1905822881}
+  m_RootOrder: 1
 --- !u!1001 &453889715
 Prefab:
   m_ObjectHideFlags: 0
@@ -215,7 +210,7 @@ Prefab:
     - target: {fileID: 11463774, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1102099467}
+      objectReference: {fileID: 2047502085}
     - target: {fileID: 22411100, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -439,20 +434,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!1 &1102099464 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 146272, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-  m_PrefabInternal: {fileID: 371414873}
---- !u!4 &1102099465 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 445378, guid: c977ecce0a869486a9d6d1ecb1f9b914, type: 2}
-  m_PrefabInternal: {fileID: 371414873}
---- !u!114 &1102099467 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11419560, guid: c977ecce0a869486a9d6d1ecb1f9b914,
-    type: 2}
-  m_PrefabInternal: {fileID: 371414873}
-  m_Script: {fileID: 11500000, guid: 30c9dc6e2d1241f4fa4066c1d2f8cf67, type: 3}
 --- !u!1 &1351113983
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecf092dc8c674e62ad0cb909549b847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1102099467}
+  player: {fileID: 2047502085}
   boss: {fileID: 1905822879}
   bossScript: {fileID: 1905822880}
   maincam: {fileID: 1532029268}
@@ -555,7 +536,7 @@ Prefab:
     - target: {fileID: 11428544, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1102099465}
+      objectReference: {fileID: 2047502084}
     - target: {fileID: 2044458, guid: b33e2a2ddb8344a2384762b95ec43f33, type: 2}
       propertyPath: m_Depth
       value: -1
@@ -754,15 +735,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  startingHealth: 25
+  startingHealth: 5
   damage: 1
-  shotPrefab: {fileID: 406592, guid: 40f0006efe3b84bd184e557a71fb844b, type: 2}
+  shotPrefab: {fileID: 406524, guid: 7f1f2ff1361a2524a8aedff70a83557c, type: 2}
   attackscript: {fileID: 1905822884}
   counter: 0
   bossssss: {fileID: 1351113985}
   bossMan: {fileID: 1905822879}
-  player: {fileID: 1102099464}
-  playerScript: {fileID: 1102099467}
+  player: {fileID: 2047502083}
+  playerScript: {fileID: 2047502085}
   gymText: {fileID: 914287500}
   studentText: {fileID: 564720961}
 --- !u!4 &1905822881
@@ -776,6 +757,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 1605310474}
+  - {fileID: 125711833}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!61 &1905822882
@@ -819,5 +801,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 150
-  shotPrefab: {fileID: 406592, guid: 40f0006efe3b84bd184e557a71fb844b, type: 2}
+  shotPrefab: {fileID: 406524, guid: 7f1f2ff1361a2524a8aedff70a83557c, type: 2}
   manager: {fileID: 1905822880}
+--- !u!1 &2047502083 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 198338, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+  m_PrefabInternal: {fileID: 2113035548}
+--- !u!4 &2047502084 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+  m_PrefabInternal: {fileID: 2113035548}
+--- !u!114 &2047502085 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11472230, guid: 1830ba313aa0b1b4cbea55eb82048353,
+    type: 2}
+  m_PrefabInternal: {fileID: 2113035548}
+  m_Script: {fileID: 11500000, guid: 30c9dc6e2d1241f4fa4066c1d2f8cf67, type: 3}
+--- !u!1001 &2113035548
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 461796, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472230, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 697328991}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
+  m_IsPrefabParent: 0

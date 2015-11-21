@@ -12,6 +12,7 @@ TagManager:
   - AreaSwitch
   - Indicator
   - Detection
+  - LevelSelect
   layers:
   - Default
   - TransparentFX

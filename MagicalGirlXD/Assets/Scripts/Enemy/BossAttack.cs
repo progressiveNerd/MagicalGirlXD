@@ -12,10 +12,7 @@ public class BossAttack : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
-		manager.OnChildTriggerEnter(name, other);
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	

@@ -17,11 +17,13 @@ public class TextureLoad : MonoBehaviour {
 	public Transform door;
 	public Transform key;
 	public Transform areaSwitch;
-
+	public Transform levelSelectSwitch;
 	//Fountain
 	public Transform waterTile; 
 	//use school for brick
 
+	public Transform roadTile;
+	public Transform sidewalkTile; 
 
 
 	//School
@@ -43,14 +45,15 @@ public class TextureLoad : MonoBehaviour {
 	private Color[] tileColors;
 
 	//General
-
+	public Color roadTileColor;
+	public Color sidewalkTileColor; 
 	public Color walkwayColor;
 	public Color grassColor;
 	public Color areaSwitchColor;
 	public Color stairsColor;
 	public Color doorColor;
 	public Color keyColor;
-
+	public Color levelSelectSwitchColor;
 	//Fountain
 	public Color waterColor;
 	public Color stoneColor;
@@ -111,6 +114,22 @@ public class TextureLoad : MonoBehaviour {
 				{
 					Instantiate(school,new Vector3(x,y), Quaternion.identity);
 				}
+
+				else if(tileColors[x+y*levelWidth] == levelSelectSwitchColor)
+				{
+					Instantiate(levelSelectSwitch,new Vector3(x,y), Quaternion.identity);
+				}
+
+				else if(tileColors[x+y*levelWidth] == roadTileColor)
+				{
+					Instantiate(roadTile,new Vector3(x,y), Quaternion.identity);
+				}
+
+				else if(tileColors[x+y*levelWidth] == sidewalkTileColor)
+				{
+					Instantiate(sidewalkTile,new Vector3(x,y), Quaternion.identity);
+				}
+
 
 				else if(tileColors[x+y*levelWidth] == walkwayColor)
 				{
@@ -181,8 +200,6 @@ public class TextureLoad : MonoBehaviour {
 					Vector3 posCam = new Vector3(x,y,-10);
 					player.transform.position = pos;
 					maincam.transform.position = posCam;
-
-
 				}
 				else if(tileColors[x+y*levelWidth] == enemyColor || tileColors[x+y*levelWidth] == rangedColor)
 				{

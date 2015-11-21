@@ -41,6 +41,7 @@ public class Boss : Entity {
 		bossRigidBody = GetComponent<Rigidbody2D> ();
 		counter = 0;
 		phase = 1;
+		currentHealth = startingHealth;
 	}
 
 	void Update () {
@@ -90,6 +91,8 @@ public class Boss : Entity {
 				baseReached = true;
 				AttackPhase(baseNum);
 				phase++;
+				if(phase > 4)
+					phase = 1;
 			}
 		}
 		
@@ -100,6 +103,7 @@ public class Boss : Entity {
 				baseReached = true;
 				AttackPhase(baseNum);
 				phase++;
+
 			}
 		}
 	}
@@ -116,15 +120,12 @@ public class Boss : Entity {
 		baseReached = false;
 	}
 
-	public void OnChildTriggerEnter(string aName, Collider2D aOther) {
-
-	}
-
 	public void Cutscene() {
 		if (counter == 0) {
 			gymText.SetActive (true);
 		}
 		playerScript.enabled = false;
+		player.GetComponent<PlayerAttack> ().enabled = false;
 		if (Input.GetKeyDown ("enter") || Input.GetMouseButtonDown (0)) {
 			if(counter == 0) {
 				counter++;
@@ -135,6 +136,7 @@ public class Boss : Entity {
 				counter++;
 				studentText.SetActive(false);
 				playerScript.enabled = true;
+				player.GetComponent<PlayerAttack> ().enabled = true;
 				bossssss.maincam.transform.position = player.transform.position;
 				cutsceneEnd = true;
 			}
@@ -142,8 +144,13 @@ public class Boss : Entity {
 	}
 
 	protected override void Death() {
+		this.GetComponent<Boss> ().enabled = false;
 	}
 
 	public override void TakeDamage(int amount) {
+		currentHealth --;
+		if (currentHealth <= 0) {
+			Death();
+		}
 	}
 }
