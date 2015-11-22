@@ -398,15 +398,88 @@ Prefab:
       objectReference: {fileID: 1221941113}
     - target: {fileID: 22411100, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411100, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &807699183 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 138910, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
+  m_PrefabInternal: {fileID: 807699182}
+--- !u!82 &807699184
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807699183}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 033b23e2c04fc7f4e9ba1daac4ac7428, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &1221941113 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11472230, guid: 1830ba313aa0b1b4cbea55eb82048353,
@@ -533,18 +606,24 @@ MonoBehaviour:
   door: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   key: {fileID: 404224, guid: 01ec76e95866a484094e081d15270a95, type: 2}
   areaSwitch: {fileID: 493708, guid: d3b5b68990ea3474caa329678683a9bd, type: 2}
+  levelSelectSwitch: {fileID: 0}
   waterTile: {fileID: 400496, guid: 05c82eb98474544328cc89d7ae45f5c3, type: 2}
+  roadTile: {fileID: 0}
+  sidewalkTile: {fileID: 0}
   school: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   schoolSwitch: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   schoolDoor: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   soccerGrass: {fileID: 429616, guid: 1ffa9658555aa4d78b4c2aa3d6f1991c, type: 2}
   soccerLine: {fileID: 402608, guid: 6f9ec234442a845edb93e33dcc121704, type: 2}
+  roadTileColor: {r: 0, g: 0, b: 0, a: 0}
+  sidewalkTileColor: {r: 0, g: 0, b: 0, a: 0}
   walkwayColor: {r: 1, g: .70588237, b: 0, a: 1}
   grassColor: {r: 0, g: 1, b: .0470588244, a: 1}
   areaSwitchColor: {r: .964705884, g: 0, b: 1, a: 1}
   stairsColor: {r: .345098048, g: 0, b: 0, a: 1}
   doorColor: {r: 1, g: .352941185, b: 0, a: 1}
   keyColor: {r: 1, g: 0, b: 0, a: 1}
+  levelSelectSwitchColor: {r: 0, g: 0, b: 0, a: 0}
   waterColor: {r: 0, g: .164705887, b: 1, a: 1}
   stoneColor: {r: .498039216, g: .498039216, b: .498039216, a: 1}
   schoolColor: {r: 0, g: 1, b: .917647064, a: 1}
