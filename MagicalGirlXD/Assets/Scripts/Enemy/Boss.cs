@@ -126,7 +126,7 @@ public class Boss : Entity {
 		}
 		playerScript.enabled = false;
 		player.GetComponent<PlayerAttack> ().enabled = false;
-		if (Input.GetKeyDown ("enter") || Input.GetMouseButtonDown (0)) {
+		if (Input.GetKeyDown ("enter") || Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.E)) {
 			if(counter == 0) {
 				counter++;
 				gymText.SetActive(false);
