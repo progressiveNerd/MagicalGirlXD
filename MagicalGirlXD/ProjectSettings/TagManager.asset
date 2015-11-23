@@ -13,6 +13,7 @@ TagManager:
   - Indicator
   - Detection
   - LevelSelect
+  - EnemyHealth
   layers:
   - Default
   - TransparentFX

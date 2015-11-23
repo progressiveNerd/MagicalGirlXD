@@ -13,7 +13,6 @@ public class Key : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		Debug.Log ("Hi");
 		/*
 		if (col.gameObject.name == "AreaSwitch(Clone)") {
 			if(hasWaterKey) {

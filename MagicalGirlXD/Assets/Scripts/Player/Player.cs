@@ -85,6 +85,7 @@ public class Player : Entity {
         //playerAudio.clip = deathClip;
         //playerAudio.Play();
         playerAttack.enabled = false;
+		this.enabled = false;
         //Destroy(gameObject, 1f);
     }
 

@@ -8,7 +8,9 @@ public class LevelSelectLoad : MonoBehaviour {
 	private int levelHeight;
 	public Player player;
 	public Camera maincam;
-	public NPC npc;
+	public GameObject Npc1;
+	public GameObject Npc2;
+
 	
 	//General
 	public Transform sidewalk;
@@ -24,7 +26,7 @@ public class LevelSelectLoad : MonoBehaviour {
 	public Transform road;
 	public Transform roadLines;
 	public Transform roadBlock;
-
+	public Transform roadBlocks;
 	private Color[] tileColors;
 	
 	//General
@@ -45,7 +47,7 @@ public class LevelSelectLoad : MonoBehaviour {
 	public Color roadColor;
 	public Color roadLinesColor;
 	public Color roadBlockColor;
-
+	public Color roadBlocksColor;
 	
 	public Texture2D levelTexture;
 	
@@ -64,12 +66,13 @@ public class LevelSelectLoad : MonoBehaviour {
 		tileColors = new Color [levelWidth * levelHeight];
 		tileColors = levelTexture.GetPixels ();
 		
-		
+		int counter = 0;
 		
 		for (int y = 0; y < levelHeight; y++) 
 		{
 			for (int x = 0; x < levelWidth; x++)
 			{
+
 				if(tileColors[x+y*levelWidth] == grassTileColor)
 				{
 					Instantiate(grassTile,new Vector3(x,y), Quaternion.identity);
@@ -127,12 +130,23 @@ public class LevelSelectLoad : MonoBehaviour {
 					Vector3 posCam = new Vector3(x,y,-10);
 					player.transform.position = pos;
 					maincam.transform.position = posCam;
-					
-					
+
+				}
+
+				else if (tileColors[x+y*levelWidth] == roadBlocksColor) {
+					Instantiate(roadBlocks,new Vector3(x,y), Quaternion.identity);
 				}
 				else if(tileColors[x+y*levelWidth] == npcColor)
 				{
 					Instantiate(sidewalk,new Vector3(x,y), Quaternion.identity);
+					Vector2 pos = new Vector2(x,y);
+					if(counter == 0) {
+						Npc1.transform.position = pos;
+						counter++;
+					}
+					else if (counter == 1) {
+						Npc2.transform.position = pos;
+					}
 				}
 			}
 			

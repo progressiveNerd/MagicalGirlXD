@@ -8,6 +8,8 @@ public class Boss : Entity {
 	public Transform shotPrefab;
 	public BossAttack attackscript;
 	bool baseReached = false;
+	bool attacked = false;
+	bool waited = false;
 	int phase = 0;
 	bool cutsceneEnd = false;
 	bool click = false;
@@ -46,78 +48,84 @@ public class Boss : Entity {
 
 	void Update () {
 		if (!cutsceneEnd)
-			Cutscene();
+			Cutscene ();
 		else if (cutsceneEnd && phase == 1)
-			MovePhase(phase);
+			MovePhase ();
 		else if (phase == 2)
-			MovePhase(phase);
+			MovePhase ();
 		else if (phase == 3)
-			MovePhase(phase);
+			MovePhase ();
 		else if (phase == 4)
-			MovePhase(phase);
+			MovePhase ();
 	}
 
-	void Move(float h, float v) {
+	void Move(float h, float v, float speed) {
 		movement.Set(h, v, 0f);
-		movement = movement.normalized * 6.0f * Time.deltaTime;
+		movement = movement.normalized * speed * Time.deltaTime;
 		bossRigidBody.MovePosition(this.gameObject.transform.position + movement);
 	}
 
-	void MovePhase(int baseNum) {
-		if (baseNum == 2) {
+	void MovePhase() {
+		Debug.Log (phase);
+		if (phase == 2) {
 			if(transform.position.x < 23 && transform.position.y > 16 && baseReached != true)
-				Move(secondBase.x - transform.position.x, secondBase.y - transform.position.y);
+				Move(secondBase.x - transform.position.x, secondBase.y - transform.position.y, 10.0f);
 			else {
 				baseReached = true;
-				AttackPhase(baseNum);
-				phase++;
+				if(!waited)
+					waitPhase();
 			}
 		}
 		
-		if (baseNum == 3) {
+		else if (phase == 3) {
 			if(transform.position.x < 30 && transform.position.y < 25 && baseReached != true )
-				Move(thirdBase.x - transform.position.x, thirdBase.y - transform.position.y);
+				Move(thirdBase.x - transform.position.x, thirdBase.y - transform.position.y, 10.0f);
 			else {
 				baseReached = true;
-				AttackPhase(baseNum);
-				phase++;
+				if(!waited)
+					waitPhase();
 			}
 		}
 		
-		if (baseNum == 4) {
+		else if (phase == 4) {
 			if(transform.position.x > 23 && transform.position.y < 33 && baseReached != true)
-				Move(homeBase.x - transform.position.x, homeBase.y - transform.position.y);
+				Move(homeBase.x - transform.position.x, homeBase.y - transform.position.y, 10.0f);
 			else {
 				baseReached = true;
-				AttackPhase(baseNum);
-				phase++;
-				if(phase > 4)
-					phase = 1;
+				if(!waited)
+					waitPhase();
 			}
 		}
 		
-		if (baseNum == 1) { 
+		else if (phase == 1) { 
 			if(transform.position.x > 15 && transform.position.y > 25 && baseReached != true)
-				Move(firstBase.x - transform.position.x, firstBase.y - transform.position.y);
+				Move(firstBase.x - transform.position.x, firstBase.y - transform.position.y, 10.0f);
 			else {
 				baseReached = true;
-				AttackPhase(baseNum);
-				phase++;
+				if(!waited)
+					waitPhase();
 
 			}
 		}
 	}
 
-	void AttackPhase(int baseNum){
-		if (baseNum == 1)
-			attackscript.Attack(player);
-		if (baseNum == 2)
-			attackscript.Attack(player);
-		if (baseNum == 3)
-			attackscript.Attack(player);
-		if (baseNum == 4)
-			attackscript.Attack(player);
+	void AttackPhase(){
+		if (phase == 1 && !attacked) {
+			attackscript.Attack (player);
+			phase++;
+		} else if (phase == 2 && !attacked) {
+			attackscript.Attack (player);
+			phase++;
+		} else if (phase == 3 && !attacked) {
+			attackscript.Attack (player);
+			phase++;
+		} else if (phase == 4 && !attacked) {
+			attackscript.Attack (player);
+			phase = 1;
+		}
 		baseReached = false;
+		attacked = true;
+		waited = false;
 	}
 
 	public void Cutscene() {
@@ -148,9 +156,18 @@ public class Boss : Entity {
 	}
 
 	public override void TakeDamage(int amount) {
-		currentHealth --;
+		if(!baseReached)
+			currentHealth --;
 		if (currentHealth <= 0) {
 			Death();
 		}
 	}
+
+	public void waitPhase() {
+		waited = true;
+		Invoke("AttackPhase",3.0f);
+		attacked = false;
+
+	}
+
 }

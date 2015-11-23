@@ -64,7 +64,6 @@ public class BossLoad : MonoBehaviour {
 			{
 				if(tileColors[x+y*levelWidth] == grassColor)
 				{
-					Debug.Log("hi");
 					Instantiate(grassTile,new Vector3(x,y), Quaternion.identity);
 				}
 				

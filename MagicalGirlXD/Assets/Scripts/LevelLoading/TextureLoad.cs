@@ -30,17 +30,22 @@ public class TextureLoad : MonoBehaviour {
 	public Transform school;
 	public Transform schoolSwitch;
 	public Transform schoolDoor;
+	public Transform Window;
+	public Transform doorFrameSide;
+	public Transform doorFrameSide1;
+	public Transform schoolFloor;
 
 	//Soccer
 	public Transform soccerGrass;
 	public Transform soccerLine;
+	public Transform grassBlock;
 
-	private Transform tempPOI;
-	private Transform tempEnemy;
-	private List<Transform> poiList;
-	private List<Transform> enemyList;
-	private int enemyCounter = 0;
-	private int poiCounter = 0;
+	private PointOfInterest tempPOI;
+	private Enemy tempEnemy;
+	private PointOfInterest[] poiList;
+	private Enemy[] enemyList;
+	private int enemyCounter;
+	private int poiCounter;
 
 	private Color[] tileColors;
 
@@ -62,6 +67,8 @@ public class TextureLoad : MonoBehaviour {
 	public Color schoolColor;
 	public Color schoolArea;
 	public Color schoolDoorColor;
+	public Color windowColor;
+	public Color doorFrameSideColor;
 	
 
 	public Color soccersGrassColor;
@@ -70,6 +77,8 @@ public class TextureLoad : MonoBehaviour {
 	public Color spawnColor;
 	public Color enemyColor; 
 	public Color rangedColor;
+	public Color grassBlockColor;
+
 	
 	public Texture2D levelTexture;
 
@@ -80,10 +89,14 @@ public class TextureLoad : MonoBehaviour {
 		levelWidth = levelTexture.width;
 		levelHeight = levelTexture.height;
 		lm = GetComponent<LevelManager> ();
-		lm.AssignPOIs (levelTexture.name);
-		lm.AssignEnemies (levelTexture.name);
-		poiList = new List<Transform>(lm.poiTransforms);
-		enemyList = new List<Transform> (lm.enemyTransforms);
+		//lm.LoadLevel(levelTexture.name);
+		poiList = lm.AssignPOIs(levelTexture.name);
+		enemyList = lm.AssignEnemies(levelTexture.name);
+		for (int i = 0; i < enemyList.Length; i++) {
+		}
+		//Debug.Log (enemyList);
+		enemyCounter = 0;
+		poiCounter = 0;
 		loadLevel ();
 
 	}
@@ -99,7 +112,8 @@ public class TextureLoad : MonoBehaviour {
 		tileColors = new Color [levelWidth * levelHeight];
 		tileColors = levelTexture.GetPixels ();
 
-
+		int Framecounter = 0;
+		int sideCounter = 0;
 
 		for (int y = 0; y < levelHeight; y++) 
 		{
@@ -153,7 +167,9 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == doorColor)
 				{
+
 					Instantiate(door,new Vector3(x,y), Quaternion.identity);
+					Instantiate(schoolFloor,new Vector3(x,y), Quaternion.identity);
 				}
 
 				else if(tileColors[x+y*levelWidth] == keyColor)
@@ -175,7 +191,14 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == schoolArea)
 				{
+					if(sideCounter < 2 || sideCounter > 4) {
+						Instantiate(school,new Vector3(x,y), Quaternion.identity);
+						sideCounter++;
+					}
+					else {
 					Instantiate(schoolSwitch,new Vector3(x,y), Quaternion.identity);
+						sideCounter++;
+					}
 				}
 
 				else if(tileColors[x+y*levelWidth] == schoolDoorColor)
@@ -188,10 +211,32 @@ public class TextureLoad : MonoBehaviour {
 					Instantiate(soccerGrass,new Vector3(x,y), Quaternion.identity);
 				}
 
+				else if(tileColors[x+y*levelWidth] == grassBlockColor)
+				{
+					Instantiate(grassBlock,new Vector3(x,y), Quaternion.identity);
+				}
+
 				else if(tileColors[x+y*levelWidth] == soccerLinesColor)
 				{
 					Instantiate(soccerLine,new Vector3(x,y), Quaternion.identity);
 				}
+
+				else if(tileColors[x+y*levelWidth] == windowColor)
+				{
+					Instantiate(Window,new Vector3(x,y), Quaternion.identity);
+				}
+
+				else if(tileColors[x+y*levelWidth] == doorFrameSideColor)
+				{
+					if(Framecounter == 0) {
+						Framecounter++;
+						Instantiate(doorFrameSide,new Vector3(x,y), Quaternion.identity);
+					}
+					else {
+						Instantiate(doorFrameSide1,new Vector3(x,y), Quaternion.identity);
+					}
+				}
+
 
 				else if(tileColors[x+y*levelWidth] == spawnColor)
 				{
@@ -206,16 +251,14 @@ public class TextureLoad : MonoBehaviour {
 					Instantiate(grassTile, new Vector3(x,y), Quaternion.identity);
 					Vector2 pos = new Vector2(x,y);
 
-
 					tempPOI = poiList[poiCounter];
 					poiCounter++;
 					tempPOI.transform.position = pos;
-
-					if(enemyCounter < 14) {
-						tempEnemy = enemyList[enemyCounter];
-						enemyCounter++;
-						tempEnemy.transform.position = pos;
-					}
+					tempEnemy = enemyList[enemyCounter];
+					enemyCounter++;
+					Debug.Log (enemyList[0]);
+					tempEnemy.transform.position = pos;
+					
 
 				}
 			}

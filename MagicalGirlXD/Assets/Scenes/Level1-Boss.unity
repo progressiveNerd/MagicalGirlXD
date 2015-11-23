@@ -808,7 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  startingHealth: 5
+  startingHealth: 25
   damage: 1
   shotPrefab: {fileID: 406524, guid: 7f1f2ff1361a2524a8aedff70a83557c, type: 2}
   attackscript: {fileID: 1905822884}

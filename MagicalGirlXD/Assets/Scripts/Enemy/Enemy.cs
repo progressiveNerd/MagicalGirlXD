@@ -40,6 +40,8 @@ public class Enemy : Entity {
     Rigidbody2D enemyRigidbody;
     Vector3 movement;
 
+
+
     //attack vars
     public bool playerInRange;
     float attackTimer;
@@ -170,7 +172,6 @@ public class Enemy : Entity {
         } else if (aName == "Attack") {
             if (aOther.tag == "Player" && aOther is BoxCollider2D)
 			{
-				Debug.Log ("hehehe, " + name);
                 playerInRange = true;
 			}
         }

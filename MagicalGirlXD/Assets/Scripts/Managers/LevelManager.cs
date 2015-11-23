@@ -17,6 +17,8 @@ public class LevelManager : MonoBehaviour
     public GameObject menu;
     private bool isShowing = false;
     private bool hasWon = false;
+	public Player plays;
+	GameObject tempDoor;
 
     void Awake()
     {
@@ -28,24 +30,19 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (!hasWon) {
-            if (player.GetComponent<Player>().deathCounter > 10) {
-                isShowing = !isShowing;
-                menu.SetActive (isShowing);
-                hasWon = true;
-            }
-        }
-        */
+		if(plays.hasWaterKey) {
+			tempDoor = GameObject.Find("Door(Clone)");
+			Destroy(tempDoor);
+		}
     }
 
-    void LoadLevel(string level)
+    public void LoadLevel(string level)
     {
         AssignPOIs(level);
         AssignEnemies(level);
     }
 
-    public void AssignPOIs(string level)
+    public PointOfInterest[] AssignPOIs(string level)
     {
         CSVReader csv = new CSVReader("Assets/CSVs/" + level + "/poi.csv");
         List<string[]> level_pois = csv.Read();
@@ -64,7 +61,6 @@ public class LevelManager : MonoBehaviour
         {
             for (int j = 0; j < level_pois[i].Length; j++)
             {
-                Debug.Log(level_pois[i][j]);
                 if (level_pois[i][j] == "front")
                 {
                     poi[i].directionPattern.Add(FacingDirection.Front); //add direction patterns
@@ -91,9 +87,10 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+		return poi;
     }
 
-    public void AssignEnemies(string level)
+    public Enemy[] AssignEnemies(string level)
     {
         CSVReader csv = new CSVReader("Assets/CSVs/" + level + "/enemy.csv");
         List<string[]> level_enemies = csv.Read();
@@ -120,13 +117,14 @@ public class LevelManager : MonoBehaviour
         {
             for (int j = 0; j < level_enemies[i].Length; j++)
             {
-                Debug.Log(level_enemies[i][j]);
+//                Debug.Log(level_enemies[i][j]);
                 if (int.TryParse(level_enemies[i][j], out t))
                 {
                     enemies[i].points.Add(poi[t]);
                 }
             }
         }
+		return enemies;
     }
 
     void ClearArrays()
