@@ -80,8 +80,8 @@ public class TextureLoad : MonoBehaviour {
 		levelWidth = levelTexture.width;
 		levelHeight = levelTexture.height;
 		lm = GetComponent<LevelManager> ();
-		lm.AssignPOIs ();
-		lm.AssignEnemies ();
+		lm.AssignPOIs (levelTexture.name);
+		lm.AssignEnemies (levelTexture.name);
 		poiList = new List<Transform>(lm.poiTransforms);
 		enemyList = new List<Transform> (lm.enemyTransforms);
 		loadLevel ();
