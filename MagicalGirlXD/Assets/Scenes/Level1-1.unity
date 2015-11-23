@@ -968,7 +968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48dd99cba26a5f24fb52d492f88a1021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poi: []
   meleeEnemyPrefab: {fileID: 468298, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
   rangedEnemyPrefab: {fileID: 423976, guid: 28d19e63a3dc82045b878a93b138ad82, type: 2}
   poiPrefab: {fileID: 452066, guid: a858d594f43d0d84b9965b44087cf0ff, type: 2}
@@ -1274,11 +1273,11 @@ Prefab:
       objectReference: {fileID: 1219358353}
     - target: {fileID: 22411100, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411100, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a773ab1e1d5645e796b7c138decb5e5, type: 2}
@@ -1477,18 +1476,18 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11437972, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1554764371}
-    - target: {fileID: 11436854, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1554764371}
     - target: {fileID: 9523294, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ac0ada47e1aac4536a212430685d746a, type: 2}
+    - target: {fileID: 11436854, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1554764371}
+    - target: {fileID: 11437972, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1554764371}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecb040e0fee9148c9968ddbe389a85c0, type: 2}
   m_IsPrefabParent: 0
