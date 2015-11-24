@@ -256,6 +256,8 @@ MonoBehaviour:
   startingHealth: 5
   currentHealth: 0
   hasWaterKey: 0
+  hasSchoolkey: 0
+  hasBossKey: 0
   healthSlider: {fileID: 0}
   pickupSound: {fileID: 8300000, guid: e22f00e13559d45479ac68700d87db70, type: 3}
   damageSound: {fileID: 8300000, guid: 76345451a3c51974f8ad9a36a4b24012, type: 3}
