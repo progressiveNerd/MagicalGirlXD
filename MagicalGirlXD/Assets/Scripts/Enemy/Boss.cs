@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Boss : Entity {
@@ -15,7 +16,8 @@ public class Boss : Entity {
 	bool click = false;
 	public int counter;
 	public BossLoad bossssss;
-
+	public Camera mainCam;
+	public CameraFollow yep;
 
 	public GameObject bossMan;
 	public GameObject player;
@@ -23,7 +25,13 @@ public class Boss : Entity {
 
 	public GameObject gymText;
 	public GameObject studentText;
+	public Text textbox;
+	public GameObject canv;
+	public Slider health;
+	public GameObject levelComplete;
 
+
+	float speed;
 	//Home - 23, 33
 	//Second - 23, 16
 	//First - 15,25
@@ -43,7 +51,10 @@ public class Boss : Entity {
 		bossRigidBody = GetComponent<Rigidbody2D> ();
 		counter = 0;
 		phase = 1;
+		speed = 3.0f;
 		currentHealth = startingHealth;
+		Cutscene ();
+
 	}
 
 	void Update () {
@@ -139,13 +150,18 @@ public class Boss : Entity {
 				counter++;
 				gymText.SetActive(false);
 				studentText.SetActive(true);
+				yep.ChangePosition(new Vector3(23.0f, 25.0f, -10.0f));
 			}
 			else if(counter == 1) {
 				counter++;
+				textbox.text = "Don't let him hit a homerun!!";
+
+			}
+			else if(counter == 2) {
+				canv.SetActive(false);
 				studentText.SetActive(false);
 				playerScript.enabled = true;
 				player.GetComponent<PlayerAttack> ().enabled = true;
-				bossssss.maincam.transform.position = player.transform.position;
 				cutsceneEnd = true;
 			}
 		}
@@ -153,11 +169,15 @@ public class Boss : Entity {
 
 	protected override void Death() {
 		this.GetComponent<Boss> ().enabled = false;
+		levelComplete.SetActive(true);
+		playerScript.enabled = false;
+		player.GetComponent<PlayerAttack>().enabled = false;
 	}
 
 	public override void TakeDamage(int amount) {
 		if(!baseReached)
 			currentHealth --;
+		health.value = currentHealth;
 		if (currentHealth <= 0) {
 			Death();
 		}

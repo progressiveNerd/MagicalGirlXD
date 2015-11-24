@@ -99,8 +99,8 @@ public class BossLoad : MonoBehaviour {
 					Vector2 pos = new Vector2(x,y);
 					Vector3 posCam = new Vector3(x,y,-10);
 					player.transform.position = pos;
-
-					temp = posCam;
+					maincam.transform.position = posCam;
+					//temp = posCam;
 					
 				}
 				else if(tileColors[x+y*levelWidth] == bossColor)
@@ -108,19 +108,11 @@ public class BossLoad : MonoBehaviour {
 					Instantiate(baseTile,new Vector3(x,y), Quaternion.identity);
 					Vector2 pos = new Vector2(x,y);
 					Vector3 posCam = new Vector3(x,y,-10);
-					maincam.transform.position = posCam;
 					boss.transform.position = pos;
 				}
 
 			}
 			
 		}
-
-		bossScript.Cutscene ();
-	}
-
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
