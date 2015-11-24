@@ -29,6 +29,7 @@ GameObject:
   - 50: {fileID: 5025718}
   - 61: {fileID: 6189832}
   - 114: {fileID: 11486750}
+  - 95: {fileID: 9509982}
   m_Layer: 8
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -177,6 +178,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .75, y: 1}
+--- !u!95 &9509982
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96ffcfe8ae543eb4c80611face93af4a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11403968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,6 +362,10 @@ Prefab:
       propertyPath: range
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 96ffcfe8ae543eb4c80611face93af4a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119750}

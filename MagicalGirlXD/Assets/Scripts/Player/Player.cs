@@ -20,6 +20,7 @@ public class Player : Entity {
     PlayerAttack playerAttack;
     Rigidbody2D rigidBody;
     Vector3 movement;
+    int animDirection;
 
 	void Awake() {
         currentHealth = startingHealth;
