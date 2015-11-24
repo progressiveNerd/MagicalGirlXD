@@ -10,6 +10,8 @@ public class TextureLoad : MonoBehaviour {
 	public GameObject keyy;
 	public Camera maincam;
 
+	Vector3 PlayerTempPos;
+
 	//General
 	public Transform stonePath;
 	public Transform grassTile;
@@ -39,6 +41,8 @@ public class TextureLoad : MonoBehaviour {
 	public Transform soccerGrass;
 	public Transform soccerLine;
 	public Transform grassBlock;
+	public Transform fence;
+	public Transform fence2;
 
 	private PointOfInterest tempPOI;
 	private Enemy tempEnemy;
@@ -46,7 +50,7 @@ public class TextureLoad : MonoBehaviour {
 	private Enemy[] enemyList;
 	private int enemyCounter;
 	private int poiCounter;
-
+	Vector2 pos = new Vector2(0,0);
 	private Color[] tileColors;
 
 	//General
@@ -59,6 +63,7 @@ public class TextureLoad : MonoBehaviour {
 	public Color doorColor;
 	public Color keyColor;
 	public Color levelSelectSwitchColor;
+	public Color fenceColor;
 	//Fountain
 	public Color waterColor;
 	public Color stoneColor;
@@ -174,7 +179,12 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == keyColor)
 				{
-					Instantiate(waterTile,new Vector3(x,y), Quaternion.identity);
+					if(Application.loadedLevel == 1) {
+						Instantiate(waterTile,new Vector3(x,y), Quaternion.identity);
+					}
+					else {
+						Instantiate(soccerLine,new Vector3(x,y), Quaternion.identity);
+					}
 					Vector2 pos = new Vector2(x,y);
 					keyy.transform.position = pos;
 				}
@@ -204,6 +214,19 @@ public class TextureLoad : MonoBehaviour {
 				else if(tileColors[x+y*levelWidth] == schoolDoorColor)
 				{
 					Instantiate(schoolDoor,new Vector3(x,y), Quaternion.identity);
+				}
+
+				else if(tileColors[x+y*levelWidth] == fenceColor)
+				{
+					if(x <= 10 || x >= 94) {
+						Instantiate(fence,new Vector3(x,y), Quaternion.identity);
+						Instantiate(sidewalkTile,new Vector3(x,y), Quaternion.identity);
+					}
+					else {
+						Instantiate(fence2,new Vector3(x,y), Quaternion.identity);
+						Instantiate(sidewalkTile,new Vector3(x,y), Quaternion.identity);
+					}
+
 				}
 
 				else if(tileColors[x+y*levelWidth] == soccersGrassColor)
@@ -240,12 +263,49 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == spawnColor)
 				{
-					Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
-					Vector2 pos = new Vector2(x,y);
+					PlayerTempPos = GameObject.FindWithTag("Preserve").GetComponent<Preserve>().pos;
+					if(Application.loadedLevel == 2) {
+						Instantiate(grassTile,new Vector3(x,y), Quaternion.identity);
+						if(GameObject.FindWithTag("Preserve").GetComponent<Preserve>().loaded)
+						{
+							Debug.Log(PlayerTempPos.x);
+							Debug.Log(x);
+							if((PlayerTempPos.x >=14 && PlayerTempPos.x <=24 )&& x == 15) {
+								pos = new Vector2(x,y);
+							}
+							else if((PlayerTempPos.x >=58 && PlayerTempPos.x <=69) && x == 89) {
+								pos = new Vector2(x,y);
+							}
+							else if((PlayerTempPos.x >=100 && PlayerTempPos.x <=120) && x == 52) {
+								pos = new Vector2(x,y);
+							}
+						}
+
+					}
+					else if (Application.loadedLevel == 1) {
+
+						Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
+						if(GameObject.FindWithTag("Preserve").GetComponent<Preserve>().loaded) {
+							if(PlayerTempPos.x >=10 && PlayerTempPos.x <=24 && x == 19) {
+								pos = new Vector2(x,y);
+							}
+							else if(PlayerTempPos.x >=78 && PlayerTempPos.x <=93 && x == 63) {
+								pos = new Vector2(x,y);
+							}
+
+							else if(PlayerTempPos.x >=46 && PlayerTempPos.x <=56 && x == 41) {
+								pos = new Vector2(x,y);
+							}
+						}
+						else 
+							pos = new Vector2(41,27);
+					}
+
 					Vector3 posCam = new Vector3(x,y,-10);
 					player.transform.position = pos;
 					maincam.transform.position = posCam;
 				}
+
 				else if(tileColors[x+y*levelWidth] == enemyColor || tileColors[x+y*levelWidth] == rangedColor)
 				{
 					Instantiate(grassTile, new Vector3(x,y), Quaternion.identity);

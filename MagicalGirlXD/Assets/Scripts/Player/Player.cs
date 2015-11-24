@@ -8,7 +8,7 @@ public class Player : Entity {
     public int startingHealth = 5;
 	public int currentHealth;
 	public bool hasWaterKey = false;
-
+	public bool hasSchoolkey = false;
 	public Slider healthSlider;
     public AudioClip pickupSound;
 	public AudioClip damageSound;

@@ -24,7 +24,13 @@ public class Key : MonoBehaviour {
 		}
 		*/
 		if (col.gameObject.tag == "Player") {
-			player.hasWaterKey = true;
+			if(this.name == "SchoolKey")
+			{
+				player.hasSchoolkey = true;
+			}
+			if(this.name == "WaterKey") {
+				player.hasWaterKey = true;
+			}
 			//audioSource.clip = pickupSound;
 			//audioSource.Play();
 			Destroy(gameObject);

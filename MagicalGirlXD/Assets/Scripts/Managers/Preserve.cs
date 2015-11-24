@@ -10,10 +10,11 @@ public class Preserve : MonoBehaviour {
 	public Vector3 pos;
 	public bool hasWaterKey;
 	public bool hasSchoolKey;
+	public bool loaded;
 
 	// Use this for initialization
 	void Start () {
-
+		loaded = false;
 	}
 
 	void Awake () {
@@ -28,9 +29,13 @@ public class Preserve : MonoBehaviour {
 		if (playerscript == null) {
 			playerscript = player.GetComponent<Player>();
 		}
-		if (playerscript.hasWaterKey) {
-			pos = player.transform.position;
-			hasWaterKey = playerscript.hasWaterKey;
-		}
+	}
+	public void setPosition(Vector3 a) {
+		pos = a;
+	}
+
+	public void toggleLoad() {
+		if (!loaded)
+			loaded = true;
 	}
 }
