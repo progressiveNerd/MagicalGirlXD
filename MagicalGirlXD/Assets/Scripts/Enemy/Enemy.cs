@@ -162,7 +162,6 @@ public class Enemy : Entity {
             }
         }
         directionIndicator.SetDirection(direction);
-        //Animating();
     }
 
     public void OnChildTriggerEnter(string aName, Collider2D aOther) {
@@ -245,10 +244,5 @@ public class Enemy : Entity {
 
     public void DestinationReached() {
         destinationReached = true;
-    }
-
-    void Animating()
-    {
-        anim.SetInteger("Direction", (int)direction);
     }
 }
