@@ -771,6 +771,7 @@ MonoBehaviour:
   grassBlock: {fileID: 483070, guid: 8d02fec0b013b489288a014c8588caad, type: 2}
   fence: {fileID: 0}
   fence2: {fileID: 0}
+  bossSwitch: {fileID: 0}
   roadTileColor: {r: .572549045, g: .203921571, b: 0, a: 1}
   sidewalkTileColor: {r: .490196079, g: .501960814, b: .556862772, a: 1}
   walkwayColor: {r: 1, g: .70588237, b: 0, a: 1}
@@ -795,6 +796,7 @@ MonoBehaviour:
   enemyColor: {r: 1, g: 1, b: 1, a: 1}
   rangedColor: {r: .921568632, g: .921568632, b: .921568632, a: 1}
   grassBlockColor: {r: 0, g: .482352942, b: .0235294122, a: 1}
+  bossSwitchColor: {r: 0, g: 0, b: 0, a: 0}
   levelTexture: {fileID: 2800000, guid: 5aaf6df87bc0f4560a2ad108a6747dd5, type: 3}
 --- !u!4 &1554764368
 Transform:

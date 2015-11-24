@@ -51,7 +51,7 @@ public class Boss : Entity {
 		bossRigidBody = GetComponent<Rigidbody2D> ();
 		counter = 0;
 		phase = 1;
-		speed = 3.0f;
+		speed = 7.0f;
 		currentHealth = startingHealth;
 		Cutscene ();
 
@@ -80,7 +80,7 @@ public class Boss : Entity {
 		Debug.Log (phase);
 		if (phase == 2) {
 			if(transform.position.x < 23 && transform.position.y > 16 && baseReached != true)
-				Move(secondBase.x - transform.position.x, secondBase.y - transform.position.y, 10.0f);
+				Move(secondBase.x - transform.position.x, secondBase.y - transform.position.y, speed);
 			else {
 				baseReached = true;
 				if(!waited)
@@ -90,7 +90,7 @@ public class Boss : Entity {
 		
 		else if (phase == 3) {
 			if(transform.position.x < 30 && transform.position.y < 25 && baseReached != true )
-				Move(thirdBase.x - transform.position.x, thirdBase.y - transform.position.y, 10.0f);
+				Move(thirdBase.x - transform.position.x, thirdBase.y - transform.position.y, speed);
 			else {
 				baseReached = true;
 				if(!waited)
@@ -100,7 +100,7 @@ public class Boss : Entity {
 		
 		else if (phase == 4) {
 			if(transform.position.x > 23 && transform.position.y < 33 && baseReached != true)
-				Move(homeBase.x - transform.position.x, homeBase.y - transform.position.y, 10.0f);
+				Move(homeBase.x - transform.position.x, homeBase.y - transform.position.y, speed);
 			else {
 				baseReached = true;
 				if(!waited)
@@ -110,7 +110,7 @@ public class Boss : Entity {
 		
 		else if (phase == 1) { 
 			if(transform.position.x > 15 && transform.position.y > 25 && baseReached != true)
-				Move(firstBase.x - transform.position.x, firstBase.y - transform.position.y, 10.0f);
+				Move(firstBase.x - transform.position.x, firstBase.y - transform.position.y, speed);
 			else {
 				baseReached = true;
 				if(!waited)
@@ -132,7 +132,8 @@ public class Boss : Entity {
 			phase++;
 		} else if (phase == 4 && !attacked) {
 			attackscript.Attack (player);
-			phase = 1;
+			playerScript.TakeDamage(5);
+
 		}
 		baseReached = false;
 		attacked = true;
@@ -185,7 +186,7 @@ public class Boss : Entity {
 
 	public void waitPhase() {
 		waited = true;
-		Invoke("AttackPhase",3.0f);
+		Invoke("AttackPhase",1.0f);
 		attacked = false;
 
 	}

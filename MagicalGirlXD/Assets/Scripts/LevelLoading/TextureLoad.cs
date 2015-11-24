@@ -9,6 +9,7 @@ public class TextureLoad : MonoBehaviour {
 	public Player player;
 	public GameObject keyy;
 	public Camera maincam;
+	bool spawnPicked = false;
 
 	Vector3 PlayerTempPos;
 
@@ -44,6 +45,7 @@ public class TextureLoad : MonoBehaviour {
 	public Transform grassBlock;
 	public Transform fence;
 	public Transform fence2;
+	public Transform bossSwitch;
 
 	private PointOfInterest tempPOI;
 	private Enemy tempEnemy;
@@ -86,6 +88,8 @@ public class TextureLoad : MonoBehaviour {
 	public Color rangedColor;
 	public Color grassBlockColor;
 
+
+	public Color bossSwitchColor;
 	
 	public Texture2D levelTexture;
 
@@ -116,6 +120,7 @@ public class TextureLoad : MonoBehaviour {
 
 	void loadLevel()
 	{
+		spawnPicked = false;
 		tileColors = new Color [levelWidth * levelHeight];
 		tileColors = levelTexture.GetPixels ();
 
@@ -200,7 +205,7 @@ public class TextureLoad : MonoBehaviour {
 					}
 					Vector2 pos = new Vector2(x,y);
 					if(!player.hasWaterKey || !player.hasBossKey || !player.hasSchoolkey)
-					keyy.transform.position = pos;
+						keyy.transform.position = pos;
 				}
 
 				else if(tileColors[x+y*levelWidth] == waterColor)
@@ -258,6 +263,11 @@ public class TextureLoad : MonoBehaviour {
 					Instantiate(soccerLine,new Vector3(x,y), Quaternion.identity);
 				}
 
+				else if(tileColors[x+y*levelWidth] == bossSwitchColor)
+				{
+					Instantiate(bossSwitch,new Vector3(x,y), Quaternion.identity);
+				}
+
 				else if(tileColors[x+y*levelWidth] == windowColor)
 				{
 					Instantiate(Window,new Vector3(x,y), Quaternion.identity);
@@ -277,40 +287,86 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == spawnColor)
 				{
+
 					PlayerTempPos = GameObject.FindWithTag("Preserve").GetComponent<Preserve>().pos;
 					if(Application.loadedLevel == 2) {
 						Instantiate(grassTile,new Vector3(x,y), Quaternion.identity);
-						if(GameObject.FindWithTag("Preserve").GetComponent<Preserve>().loaded)
-						{
-							if((PlayerTempPos.x >=14 && PlayerTempPos.x <=24 )&& x == 15) {
-								pos = new Vector2(x,y);
+
+						if(!spawnPicked) {
+							if(GameObject.FindWithTag("Preserve").GetComponent<Preserve>().loaded)
+							{
+								if((PlayerTempPos.x >=14 && PlayerTempPos.x <=24 )&& x == 15) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
+								else if((PlayerTempPos.x >=58 && PlayerTempPos.x <=69) && x == 89) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
+								else if((PlayerTempPos.x >=100 && PlayerTempPos.x <=120) && x == 52) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
+
+								else if((PlayerTempPos.x >=23 && PlayerTempPos.x <=26) && x == 52) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
 							}
-							else if((PlayerTempPos.x >=58 && PlayerTempPos.x <=69) && x == 89) {
-								pos = new Vector2(x,y);
-							}
-							else if((PlayerTempPos.x >=100 && PlayerTempPos.x <=120) && x == 52) {
-								pos = new Vector2(x,y);
-							}
+
 						}
+
 
 					}
 					else if (Application.loadedLevel == 1) {
-
+						Debug.Log(PlayerTempPos);
+						Debug.Log(x);
 						Instantiate(stonePath,new Vector3(x,y), Quaternion.identity);
-						if(GameObject.FindWithTag("Preserve").GetComponent<Preserve>().loaded) {
-							if(PlayerTempPos.x >=10 && PlayerTempPos.x <=24 && x == 19) {
-								pos = new Vector2(x,y);
-							}
-							else if(PlayerTempPos.x >=78 && PlayerTempPos.x <=93 && x == 63) {
-								pos = new Vector2(x,y);
-							}
+						if(!spawnPicked) {
+							if(GameObject.FindWithTag("Preserve").GetComponent<Preserve>().loaded) {
+								if(PlayerTempPos.y == 0 && x == 41) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
+								else if(PlayerTempPos.x >=10 && PlayerTempPos.x <=24 && x == 19) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
+								else if(PlayerTempPos.x >=78 && PlayerTempPos.x <=93 && x == 63) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
 
-							else if(PlayerTempPos.x >=46 && PlayerTempPos.x <=56 && x == 41) {
-								pos = new Vector2(x,y);
+								else if(PlayerTempPos.x >= 23 && PlayerTempPos.x <=26 && x == 41 && y >= 30) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
+							}
+							else {
+								pos = new Vector2(41,27);
+								spawnPicked = true;
 							}
 						}
-						else 
-							pos = new Vector2(41,27);
+					}
+					else if (Application.loadedLevel == 5) {
+						Instantiate(schoolFloor,new Vector3(x,y), Quaternion.identity);
+						if(!spawnPicked) {
+							if(GameObject.FindWithTag("Preserve").GetComponent<Preserve>().loaded) {
+
+								if(PlayerTempPos.x >=40 && PlayerTempPos.x <=42 && x == 24) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
+								else if(PlayerTempPos.x >=46 && PlayerTempPos.x <=56 && x == 25) {
+									pos = new Vector2(x,y);
+									spawnPicked = true;
+								}
+							}
+							else {
+								pos = new Vector2(26,41);
+								spawnPicked = true;
+							}
+						}
 					}
 
 					Vector3 posCam = new Vector3(x,y,-10);
@@ -320,7 +376,10 @@ public class TextureLoad : MonoBehaviour {
 
 				else if(tileColors[x+y*levelWidth] == enemyColor || tileColors[x+y*levelWidth] == rangedColor)
 				{
-					Instantiate(grassTile, new Vector3(x,y), Quaternion.identity);
+					if(Application.loadedLevel != 5)
+						Instantiate(grassTile, new Vector3(x,y), Quaternion.identity);
+					else
+						Instantiate(schoolFloor, new Vector3(x,y), Quaternion.identity);
 					Vector2 pos = new Vector2(x,y);
 
 					tempPOI = poiList[poiCounter];
