@@ -36,7 +36,8 @@ public class TextureLoad : MonoBehaviour {
 	public Transform doorFrameSide;
 	public Transform doorFrameSide1;
 	public Transform schoolFloor;
-
+	public Transform lockerup;
+	public Transform lockerDown;
 	//Soccer
 	public Transform soccerGrass;
 	public Transform soccerLine;
@@ -74,6 +75,7 @@ public class TextureLoad : MonoBehaviour {
 	public Color schoolDoorColor;
 	public Color windowColor;
 	public Color doorFrameSideColor;
+	public Color lockerColor;
 	
 
 	public Color soccersGrassColor;
@@ -148,7 +150,15 @@ public class TextureLoad : MonoBehaviour {
 				{
 					Instantiate(sidewalkTile,new Vector3(x,y), Quaternion.identity);
 				}
-
+				else if(tileColors[x+y*levelWidth] == lockerColor)
+				{
+					if(y == 8 || y == 41) {
+						Instantiate(lockerDown,new Vector3(x,y), Quaternion.identity);
+					}
+					else {
+						Instantiate(lockerup,new Vector3(x,y), Quaternion.identity);
+					}
+				}
 
 				else if(tileColors[x+y*levelWidth] == walkwayColor)
 				{
@@ -182,10 +192,14 @@ public class TextureLoad : MonoBehaviour {
 					if(Application.loadedLevel == 1) {
 						Instantiate(waterTile,new Vector3(x,y), Quaternion.identity);
 					}
-					else {
+					else if (Application.loadedLevel == 2) {
 						Instantiate(soccerLine,new Vector3(x,y), Quaternion.identity);
 					}
+					else if (Application.loadedLevel == 5) {
+						Instantiate(schoolFloor,new Vector3(x,y), Quaternion.identity); 
+					}
 					Vector2 pos = new Vector2(x,y);
+					if(!player.hasWaterKey || !player.hasBossKey || !player.hasSchoolkey)
 					keyy.transform.position = pos;
 				}
 
@@ -268,8 +282,6 @@ public class TextureLoad : MonoBehaviour {
 						Instantiate(grassTile,new Vector3(x,y), Quaternion.identity);
 						if(GameObject.FindWithTag("Preserve").GetComponent<Preserve>().loaded)
 						{
-							Debug.Log(PlayerTempPos.x);
-							Debug.Log(x);
 							if((PlayerTempPos.x >=14 && PlayerTempPos.x <=24 )&& x == 15) {
 								pos = new Vector2(x,y);
 							}

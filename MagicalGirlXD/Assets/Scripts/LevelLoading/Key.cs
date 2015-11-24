@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Key : MonoBehaviour {
 	public Player player;
+	public Preserve preserve;
 	// Use this for initialization
 	void Awake () {
+		preserve = GameObject.FindGameObjectWithTag ("Preserve").GetComponent<Preserve> ();
 	}
 	
 	// Update is called once per frame
@@ -27,9 +29,15 @@ public class Key : MonoBehaviour {
 			if(this.name == "SchoolKey")
 			{
 				player.hasSchoolkey = true;
+				preserve.hasSchoolKey = true;
 			}
 			if(this.name == "WaterKey") {
 				player.hasWaterKey = true;
+				preserve.hasWaterKey = true;
+			}
+			if(this.name == "BossKey") {
+				player.hasBossKey = true;
+				preserve.hasBossKey = true;
 			}
 			//audioSource.clip = pickupSound;
 			//audioSource.Play();

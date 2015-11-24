@@ -25,11 +25,21 @@ public class AreaSwitch : MonoBehaviour {
 			if(player.hasSchoolkey) {
 				if (Application.loadedLevel == 1 && ((player.transform.position.x >= 40 && player.transform.position.x <= 42)))
 				{
-					Application.LoadLevel (4);
+					Application.LoadLevel (5);
 				}
 				else if (Application.loadedLevel == 2 && ((player.transform.position.x >= 46 && player.transform.position.x <= 56)))
 				{
-					Application.LoadLevel (4);
+					Application.LoadLevel (5);
+				}
+			}
+			if(player.hasBossKey) {
+				if(Application.loadedLevel == 5 && ((player.transform.position.x >= 46 && player.transform.position.x <= 56)))
+				{
+					Application.LoadLevel(1);
+				}
+				if(Application.loadedLevel == 5 && ((player.transform.position.x >= 46 && player.transform.position.x <= 56)))
+				{
+					Application.LoadLevel(2);
 				}
 			}
 		}

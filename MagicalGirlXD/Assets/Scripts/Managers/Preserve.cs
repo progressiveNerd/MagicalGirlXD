@@ -8,8 +8,9 @@ public class Preserve : MonoBehaviour {
 
 	int currenthealth;
 	public Vector3 pos;
-	public bool hasWaterKey;
-	public bool hasSchoolKey;
+	public bool hasWaterKey = false;
+	public bool hasSchoolKey = false;
+	public bool hasBossKey = false;
 	public bool loaded;
 
 	// Use this for initialization

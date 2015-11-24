@@ -9,6 +9,7 @@ public class Player : Entity {
 	public int currentHealth;
 	public bool hasWaterKey = false;
 	public bool hasSchoolkey = false;
+	public bool hasBossKey = false;
 	public Slider healthSlider;
     public AudioClip pickupSound;
 	public AudioClip damageSound;
@@ -28,6 +29,13 @@ public class Player : Entity {
         audioSource = GetComponent<AudioSource>();
         playerAttack = GetComponent<PlayerAttack>();
         rigidBody = GetComponent<Rigidbody2D>();
+
+		if (GameObject.FindGameObjectWithTag ("Preserve") != null) {
+			Debug.Log ("HERE");
+			hasWaterKey = GameObject.FindGameObjectWithTag ("Preserve").GetComponent<Preserve> ().hasWaterKey;
+			hasSchoolkey = GameObject.FindGameObjectWithTag ("Preserve").GetComponent<Preserve> ().hasSchoolKey;
+			hasBossKey = GameObject.FindGameObjectWithTag ("Preserve").GetComponent<Preserve> ().hasBossKey;
+		}
 	}
 	
 	void FixedUpdate() {
