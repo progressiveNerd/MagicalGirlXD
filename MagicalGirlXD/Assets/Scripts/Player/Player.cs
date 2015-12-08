@@ -59,7 +59,7 @@ public class Player : Entity {
         Vector3 mousePosVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 playerToMouse = mousePosVector - transform.position;
         playerToMouse.z = 0f;
-        if (Mathf.Abs(playerToMouse.y) >= Mathf.Abs(playerToMouse.x)) {
+        if(Mathf.Abs(playerToMouse.y) >= Mathf.Abs(playerToMouse.x)) {
             if (playerToMouse.y <= 0)
                 direction = FacingDirection.Front;
             else direction = FacingDirection.Back;
@@ -77,15 +77,16 @@ public class Player : Entity {
     }
 
     public override void TakeDamage(int amount) {
+		Debug.Log ("Take damage");
         currentHealth -= amount;
 		healthSlider.value = currentHealth;
-
-        //playerAudio.Play();
+        
         if (currentHealth <= 0)
-        {
-            Death();
-            
-        }
+			Death ();
+		else {
+			audioSource.clip = damageSound;
+			audioSource.Play();
+		}
     }
 
     protected override void Death() {

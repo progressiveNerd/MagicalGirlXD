@@ -77,7 +77,6 @@ public class Boss : Entity {
 	}
 
 	void MovePhase() {
-		Debug.Log (phase);
 		if (phase == 2) {
 			if(transform.position.x < 23 && transform.position.y > 16 && baseReached != true)
 				Move(secondBase.x - transform.position.x, secondBase.y - transform.position.y, speed);
