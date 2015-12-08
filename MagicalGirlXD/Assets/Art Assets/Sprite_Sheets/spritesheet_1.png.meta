@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 716ed332a9c0b3b4995c1311b7905d5b
-timeCreated: 1448383271
+timeCreated: 1448155799
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,10 +57,6 @@ TextureImporter:
     21300100: spritesheet_1_64
     21300102: spritesheet_1_65
     21300104: spritesheet_1_66
-    21300106: spritesheet_1_5
-    21300108: spritesheet_1_12
-    21300110: spritesheet_1_67
-    21300112: spritesheet_1_68
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -109,550 +105,530 @@ TextureImporter:
     - name: spritesheet_1_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 1014
-        width: 81
-        height: 73
+        x: 7
+        y: 510
+        width: 41
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_1
       rect:
         serializedVersion: 2
-        x: 115
-        y: 1014
-        width: 84
-        height: 79
+        x: 58
+        y: 510
+        width: 42
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_4
       rect:
         serializedVersion: 2
-        x: 404
-        y: 996
-        width: 89
-        height: 103
+        x: 155
+        y: 509
+        width: 41
+        height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritesheet_1_5
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 1085
-        width: 14
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_6
       rect:
         serializedVersion: 2
-        x: 505
-        y: 996
-        width: 76
-        height: 101
+        x: 203
+        y: 501
+        width: 52
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_7
       rect:
         serializedVersion: 2
-        x: 604
-        y: 996
-        width: 66
-        height: 93
+        x: 254
+        y: 501
+        width: 38
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_8
       rect:
         serializedVersion: 2
-        x: 215
-        y: 1018
-        width: 75
-        height: 75
+        x: 304
+        y: 501
+        width: 33
+        height: 47
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_1_9
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 501
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_1_10
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 501
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_11
       rect:
         serializedVersion: 2
-        x: 704
-        y: 996
-        width: 65
-        height: 89
+        x: 108
+        y: 512
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritesheet_1_12
-      rect:
-        serializedVersion: 2
-        x: 809
-        y: 996
-        width: 64
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_13
       rect:
         serializedVersion: 2
-        x: 915
-        y: 996
-        width: 64
-        height: 81
+        x: 460
+        y: 501
+        width: 32
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_24
       rect:
         serializedVersion: 2
-        x: 495
-        y: 1020
-        width: 12
-        height: 5
+        x: 2
+        y: 443
+        width: 45
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_25
       rect:
         serializedVersion: 2
-        x: 308
-        y: 1012
-        width: 82
-        height: 77
+        x: 58
+        y: 443
+        width: 40
+        height: 57
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_26
       rect:
         serializedVersion: 2
-        x: 3
-        y: 880
-        width: 90
-        height: 102
+        x: 104
+        y: 445
+        width: 45
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_27
       rect:
         serializedVersion: 2
-        x: 115
-        y: 880
-        width: 80
-        height: 114
+        x: 150
+        y: 442
+        width: 49
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_28
       rect:
         serializedVersion: 2
-        x: 207
-        y: 884
-        width: 89
-        height: 102
+        x: 203
+        y: 442
+        width: 45
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_29
       rect:
         serializedVersion: 2
-        x: 298
-        y: 878
-        width: 98
-        height: 92
+        x: 255
+        y: 442
+        width: 40
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_30
       rect:
         serializedVersion: 2
-        x: 404
-        y: 878
-        width: 89
-        height: 102
+        x: 301
+        y: 442
+        width: 45
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_31
       rect:
         serializedVersion: 2
-        x: 507
-        y: 878
-        width: 79
-        height: 112
+        x: 350
+        y: 445
+        width: 49
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_32
       rect:
         serializedVersion: 2
-        x: 598
-        y: 878
-        width: 90
-        height: 102
+        x: 3
+        y: 380
+        width: 45
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_33
       rect:
         serializedVersion: 2
-        x: 696
-        y: 884
-        width: 97
-        height: 92
+        x: 53
+        y: 380
+        width: 40
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_34
       rect:
         serializedVersion: 2
-        x: 6
-        y: 755
-        width: 89
-        height: 102
+        x: 103
+        y: 379
+        width: 45
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_35
       rect:
         serializedVersion: 2
-        x: 105
-        y: 755
-        width: 80
-        height: 113
+        x: 150
+        y: 379
+        width: 49
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_36
       rect:
         serializedVersion: 2
-        x: 205
-        y: 753
-        width: 89
-        height: 102
+        x: 5
+        y: 320
+        width: 42
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_37
       rect:
         serializedVersion: 2
-        x: 298
-        y: 753
-        width: 98
-        height: 92
+        x: 54
+        y: 320
+        width: 39
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_38
       rect:
         serializedVersion: 2
-        x: 10
-        y: 636
-        width: 83
-        height: 97
+        x: 107
+        y: 320
+        width: 42
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_39
       rect:
         serializedVersion: 2
-        x: 107
-        y: 636
-        width: 78
-        height: 103
+        x: 157
+        y: 320
+        width: 39
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_40
       rect:
         serializedVersion: 2
-        x: 213
-        y: 636
-        width: 83
-        height: 97
+        x: 5
+        y: 259
+        width: 42
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_41
       rect:
         serializedVersion: 2
-        x: 312
-        y: 636
-        width: 78
-        height: 103
+        x: 55
+        y: 259
+        width: 39
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_42
       rect:
         serializedVersion: 2
-        x: 10
-        y: 515
-        width: 83
-        height: 97
+        x: 104
+        y: 259
+        width: 46
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_43
       rect:
         serializedVersion: 2
-        x: 109
-        y: 515
-        width: 78
-        height: 103
+        x: 5
+        y: 198
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_44
       rect:
         serializedVersion: 2
-        x: 207
-        y: 515
-        width: 91
-        height: 93
+        x: 55
+        y: 198
+        width: 43
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_45
       rect:
         serializedVersion: 2
-        x: 10
-        y: 393
-        width: 87
-        height: 98
+        x: 103
+        y: 198
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_46
       rect:
         serializedVersion: 2
-        x: 109
-        y: 393
-        width: 86
-        height: 104
+        x: 152
+        y: 198
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_47
       rect:
         serializedVersion: 2
-        x: 205
-        y: 393
-        width: 87
-        height: 98
+        x: 203
+        y: 198
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_48
       rect:
         serializedVersion: 2
-        x: 302
-        y: 393
-        width: 92
-        height: 92
+        x: 251
+        y: 198
+        width: 43
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_49
       rect:
         serializedVersion: 2
-        x: 404
-        y: 393
-        width: 87
-        height: 98
+        x: 302
+        y: 198
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_50
       rect:
         serializedVersion: 2
-        x: 499
-        y: 393
-        width: 85
-        height: 104
+        x: 351
+        y: 198
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_51
       rect:
         serializedVersion: 2
-        x: 600
-        y: 393
-        width: 88
-        height: 98
+        x: 5
+        y: 137
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_52
       rect:
         serializedVersion: 2
-        x: 698
-        y: 393
-        width: 91
-        height: 92
+        x: 55
+        y: 137
+        width: 43
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_53
       rect:
         serializedVersion: 2
-        x: 10
-        y: 272
-        width: 87
-        height: 98
+        x: 104
+        y: 139
+        width: 44
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_54
       rect:
         serializedVersion: 2
-        x: 109
-        y: 272
-        width: 86
-        height: 104
+        x: 152
+        y: 137
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_55
       rect:
         serializedVersion: 2
-        x: 207
-        y: 276
-        width: 87
-        height: 98
+        x: 4
+        y: 76
+        width: 45
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_56
       rect:
         serializedVersion: 2
-        x: 302
-        y: 272
-        width: 92
-        height: 92
+        x: 58
+        y: 76
+        width: 41
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_57
       rect:
         serializedVersion: 2
-        x: 8
-        y: 151
-        width: 89
-        height: 97
+        x: 104
+        y: 76
+        width: 45
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_58
       rect:
         serializedVersion: 2
-        x: 115
-        y: 151
-        width: 82
-        height: 109
+        x: 151
+        y: 76
+        width: 48
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_59
       rect:
         serializedVersion: 2
-        x: 207
-        y: 151
-        width: 89
-        height: 97
+        x: 203
+        y: 76
+        width: 45
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_60
       rect:
         serializedVersion: 2
-        x: 300
-        y: 151
-        width: 96
-        height: 89
+        x: 252
+        y: 75
+        width: 41
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_61
       rect:
         serializedVersion: 2
-        x: 404
-        y: 151
-        width: 89
-        height: 97
+        x: 302
+        y: 76
+        width: 45
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_62
       rect:
         serializedVersion: 2
-        x: 501
-        y: 149
-        width: 82
-        height: 109
+        x: 350
+        y: 76
+        width: 48
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_63
       rect:
         serializedVersion: 2
-        x: 600
-        y: 151
-        width: 90
-        height: 97
+        x: 5
+        y: 11
+        width: 45
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_64
       rect:
         serializedVersion: 2
-        x: 696
-        y: 151
-        width: 95
-        height: 89
+        x: 51
+        y: 11
+        width: 48
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_65
       rect:
         serializedVersion: 2
-        x: 10
-        y: 22
-        width: 89
-        height: 97
+        x: 105
+        y: 9
+        width: 45
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: spritesheet_1_66
       rect:
         serializedVersion: 2
-        x: 101
-        y: 22
-        width: 96
-        height: 89
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritesheet_1_67
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 17
-        width: 89
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritesheet_1_68
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 17
-        width: 82
-        height: 110
+        x: 157
+        y: 9
+        width: 41
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(plays.hasWaterKey) {
+		if(plays.hasSchoolkey) {
 			tempDoor = GameObject.Find("Door(Clone)");
 			Destroy(tempDoor);
 		}
