@@ -10,11 +10,11 @@ public class PlayerAttack : MonoBehaviour
     public AudioClip meleeSound, shootSound;
 
     float attackTimer;
-    float indicatorTimer;
-    float indicatorLength;
+    //float indicatorTimer;
+    //float indicatorLength;
     int shootableMask;
     AudioSource audioSource;
-    PlayerMeleeIndicator indicator;
+    //PlayerMeleeIndicator indicator;
     Ray shootRay;
     RaycastHit shootHit;
 
@@ -22,19 +22,22 @@ public class PlayerAttack : MonoBehaviour
     {
         shootableMask = LayerMask.GetMask("Shootable");
         audioSource = GetComponent<AudioSource>();
-        indicator = GameObject.FindWithTag("Indicator").GetComponent<PlayerMeleeIndicator>();
-        indicatorLength = 0.5f;
+        //indicator = GameObject.FindWithTag("Indicator").GetComponent<PlayerMeleeIndicator>();
+        //indicatorLength = 0.5f;
     }
 
     void FixedUpdate()
     {
         attackTimer += Time.deltaTime;
-        if (Input.GetButton("Fire1") && attackTimer >= attackSpeed && Time.timeScale != 0)
+        if ((Input.GetButton("Fire1") || Input.GetButton("Fire2")) && attackTimer >= attackSpeed && Time.timeScale != 0)
             Shoot();
+        /*
         if (Input.GetButtonDown("Fire2") && attackTimer >= attackSpeed && Time.timeScale != 0)
             Melee();
+         */
     }
 
+    /*
     private void Melee()
     {
         attackTimer = 0f;
@@ -56,6 +59,7 @@ public class PlayerAttack : MonoBehaviour
                 enemy.TakeDamage(meleeDamage);
         }
     }
+     */
 
     void Shoot()
     {

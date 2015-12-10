@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
             temp.a = 1.0f;
             keyImage.color = temp;
         }
-        if (player.hasSchoolkey)
+        if (player.hasSchoolKey)
         {
             temp = schoolKeyImage.color;
             temp.a = 1.0f;
@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
             keyImage.color = temp;
 
         }
-        if (!player.hasSchoolkey)
+        if (!player.hasSchoolKey)
         {
             temp = schoolKeyImage.color;
             temp.a = 0.0f;

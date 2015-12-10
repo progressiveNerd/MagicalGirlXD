@@ -30,7 +30,7 @@ public class AreaSwitch : MonoBehaviour
                                                           || (player.transform.position.x >= 78 && player.transform.position.x <= 93)))
                     Application.LoadLevel(1);
             }
-            if (player.hasSchoolkey)
+            if (player.hasSchoolKey)
             {
                 if (Application.loadedLevel == 1 && ((player.transform.position.x >= 40 && player.transform.position.x <= 42)))
                     Application.LoadLevel(5);

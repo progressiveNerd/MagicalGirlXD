@@ -177,7 +177,7 @@ public class TextureLoad : MonoBehaviour
                     else if (Application.loadedLevel == 5)
                         Instantiate(schoolFloor, new Vector3(x, y), Quaternion.identity);
                     Vector2 pos = new Vector2(x, y);
-                    if (!player.hasWaterKey || !player.hasBossKey || !player.hasSchoolkey)
+                    if (!player.hasWaterKey || !player.hasBossKey || !player.hasSchoolKey)
                         keyy.transform.position = pos;
                 }
 

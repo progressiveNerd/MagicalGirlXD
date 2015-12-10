@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerscript.hasSchoolkey)
+        if (playerscript.hasSchoolKey)
         {
             openDoor.SetActive(true);
             closedDoor.SetActive(false);

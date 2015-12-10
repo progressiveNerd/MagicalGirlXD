@@ -5,10 +5,12 @@ public class Key : MonoBehaviour
 {
     public Player player;
     public Preserve preserve;
+    AudioSource audioSource;
 
     void Awake()
     {
         preserve = GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -17,21 +19,19 @@ public class Key : MonoBehaviour
         {
             if (this.name == "SchoolKey")
             {
-                player.hasSchoolkey = true;
+                player.PickupKey("SchoolKey");
                 preserve.hasSchoolKey = true;
             }
             if (this.name == "WaterKey")
             {
-                player.hasWaterKey = true;
+                player.PickupKey("WaterKey");
                 preserve.hasWaterKey = true;
             }
             if (this.name == "BossKey")
             {
-                player.hasBossKey = true;
+                player.PickupKey("BossKey");
                 preserve.hasBossKey = true;
             }
-            //audioSource.clip = pickupSound;
-            //audioSource.Play();
             Destroy(gameObject);
         }
     }

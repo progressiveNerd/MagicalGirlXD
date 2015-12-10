@@ -9,7 +9,7 @@ public class Player : Entity
     public int startingHealth = 5;
     public int currentHealth;
     public bool hasWaterKey = false;
-    public bool hasSchoolkey = false;
+    public bool hasSchoolKey = false;
     public bool hasBossKey = false;
     public bool hasDied = false;
     public Slider healthSlider;
@@ -37,7 +37,7 @@ public class Player : Entity
         if (GameObject.FindGameObjectWithTag("Preserve") != null)
         {
             hasWaterKey = GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().hasWaterKey;
-            hasSchoolkey = GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().hasSchoolKey;
+            hasSchoolKey = GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().hasSchoolKey;
             hasBossKey = GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().hasBossKey;
             hasDied = GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().deathload;
         }
@@ -119,5 +119,17 @@ public class Player : Entity
     public void RestartLevel()
     {
         Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public void PickupKey(string keyType)
+    {
+        if (keyType == "WaterKey")
+            hasWaterKey = true;
+        else if (keyType == "SchoolKey")
+            hasSchoolKey = true;
+        else if (keyType == "BossKey")
+            hasBossKey = true;
+        audioSource.clip = pickupSound;
+        audioSource.Play();
     }
 }
