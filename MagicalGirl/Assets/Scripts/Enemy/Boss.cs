@@ -19,6 +19,7 @@ public class Boss : Entity
     public BossLoad bossssss;
     public Camera mainCam;
     public CameraFollow yep;
+    Animator anim;
 
     public GameObject bossMan;
     public GameObject player;
@@ -49,6 +50,7 @@ public class Boss : Entity
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
         bossRigidBody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         counter = 0;
         phase = 1;
         speed = 7.0f;
@@ -132,21 +134,25 @@ public class Boss : Entity
     {
         if (phase == 1 && !attacked)
         {
+            anim.SetTrigger("Attack");
             attackscript.Attack(player);
             phase++;
         }
         else if (phase == 2 && !attacked)
         {
+            anim.SetTrigger("Attack");
             attackscript.Attack(player);
             phase++;
         }
         else if (phase == 3 && !attacked)
         {
+            anim.SetTrigger("Attack");
             attackscript.Attack(player);
             phase++;
         }
         else if (phase == 4 && !attacked)
         {
+            anim.SetTrigger("Attack");
             attackscript.Attack(player);
             playerScript.TakeDamage(5);
         }
