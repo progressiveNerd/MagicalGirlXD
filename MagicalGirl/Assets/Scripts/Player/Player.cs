@@ -114,7 +114,9 @@ public class Player : Entity
         //playerAudio.Play();
         playerAttack.enabled = false;
         this.enabled = false;
-       // GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().deathload = true;
+        GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().deathload = true;
+		if(GameObject.FindGameObjectWithTag ("Preserve") != null) 
+			Destroy (GameObject.FindGameObjectWithTag ("Preserve"));
         //Destroy(gameObject, 1f);
     }
 	public void changeTextInfo(string keyType) {
