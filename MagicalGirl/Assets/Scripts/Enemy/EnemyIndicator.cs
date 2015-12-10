@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyIndicator : MonoBehaviour
 {
+    /*
     SpriteRenderer directionSprite;
 
     void Awake()
@@ -28,4 +29,5 @@ public class EnemyIndicator : MonoBehaviour
                 break;
         }
     }
+     */
 }

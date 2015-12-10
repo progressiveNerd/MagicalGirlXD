@@ -5,12 +5,10 @@ public class Key : MonoBehaviour
 {
     public Player player;
     public Preserve preserve;
-    AudioSource audioSource;
 
     void Awake()
     {
         preserve = GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D col)

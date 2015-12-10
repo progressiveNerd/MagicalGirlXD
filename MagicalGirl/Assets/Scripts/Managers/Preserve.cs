@@ -31,7 +31,7 @@ public class Preserve : MonoBehaviour
     {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
-        if (playerscript == null)
+        if (playerscript == null && player != null) // temporary fix for exception
             playerscript = player.GetComponent<Player>();
     }
 

@@ -8,23 +8,13 @@ public class LevelManager : MonoBehaviour
     public Transform meleeEnemyPrefab;
     public Transform rangedEnemyPrefab;
     public Transform poiPrefab;
-    int deadEnemies;
     Enemy[] enemies;
-    GameObject player;
     public Transform[] enemyTransforms;
     public Transform[] poiTransforms;
     public int deathCounter = 0;
     public GameObject menu;
-    private bool isShowing = false;
-    private bool hasWon = false;
     public Player plays;
     GameObject tempDoor;
-
-    void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        deadEnemies = 0;
-    }
 
     // Update is called once per frame
     void Update()

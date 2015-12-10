@@ -17,7 +17,6 @@ public class Enemy : Entity
     int currentHealth;
     Animator anim;
     EnemyAttack attackScript;
-    LevelManager levelManager;
 
     //stealth vars
     public bool alerted;
@@ -68,7 +67,6 @@ public class Enemy : Entity
         attackRangeCollider = attackScript.gameObject.GetComponent<CircleCollider2D>();
         attackRangeCollider.radius = attackScript.GetRange();
         anim = GetComponent<Animator>();
-        levelManager = GetComponent<LevelManager>();
         points = new List<PointOfInterest>();
         //directionIndicator = GetComponentInChildren<EnemyIndicator>();
     }

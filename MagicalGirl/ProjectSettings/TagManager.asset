@@ -15,6 +15,7 @@ TagManager:
   - LevelSelect
   - EnemyHealth
   - Preserve
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -42,5 +42,7 @@ public class ShotScript : MonoBehaviour
                 shotCollider.enabled = false;
             Destroy(gameObject, 0.02f);
         }
+        else if(other.tag == "Wall")
+            Destroy(gameObject, 0f);
     }
 }

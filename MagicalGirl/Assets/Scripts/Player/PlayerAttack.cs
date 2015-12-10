@@ -3,24 +3,25 @@
 public class PlayerAttack : MonoBehaviour
 {
     public Transform shotPrefab;
-    public int meleeDamage = 2;
+    //public int meleeDamage = 2;
     public float attackSpeed = 0.15f;
     public float shootingRange = 100f;
-    public float meleeRange = 2f;
-    public AudioClip meleeSound, shootSound;
+    //public float meleeRange = 2f;
+    //public AudioClip meleeSound;
+    public AudioClip shootSound;
 
     float attackTimer;
     //float indicatorTimer;
     //float indicatorLength;
-    int shootableMask;
+    //int shootableMask;
     AudioSource audioSource;
     //PlayerMeleeIndicator indicator;
-    Ray shootRay;
-    RaycastHit shootHit;
+    //Ray shootRay;
+    //RaycastHit shootHit;
 
     void Awake()
     {
-        shootableMask = LayerMask.GetMask("Shootable");
+        //shootableMask = LayerMask.GetMask("Shootable");
         audioSource = GetComponent<AudioSource>();
         //indicator = GameObject.FindWithTag("Indicator").GetComponent<PlayerMeleeIndicator>();
         //indicatorLength = 0.5f;

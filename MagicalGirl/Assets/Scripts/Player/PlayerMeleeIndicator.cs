@@ -3,10 +3,10 @@ using System.Collections;
 
 public class PlayerMeleeIndicator : MonoBehaviour
 {
+    /*
     float timer;
     float duration;
     GameObject playerObject;
-    Player player;
     SpriteRenderer indicator;
 
     void Awake()
@@ -37,4 +37,5 @@ public class PlayerMeleeIndicator : MonoBehaviour
         indicator.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         timer = 0;
     }
+     */
 }
