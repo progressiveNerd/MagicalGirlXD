@@ -17,23 +17,23 @@ public class LevelManager : MonoBehaviour
     public GameObject menu;
     private bool isShowing = false;
     private bool hasWon = false;
-	public Player plays;
-	GameObject tempDoor;
+    public Player plays;
+    GameObject tempDoor;
 
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         deadEnemies = 0;
-        // LoadLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
-		if(plays.hasSchoolkey) {
-			tempDoor = GameObject.Find("Door(Clone)");
-			Destroy(tempDoor);
-		}
+        if (plays.hasSchoolkey)
+        {
+            tempDoor = GameObject.Find("Door(Clone)");
+            Destroy(tempDoor);
+        }
     }
 
     public void LoadLevel(string level)
@@ -62,32 +62,20 @@ public class LevelManager : MonoBehaviour
             for (int j = 0; j < level_pois[i].Length; j++)
             {
                 if (level_pois[i][j] == "front")
-                {
                     poi[i].directionPattern.Add(FacingDirection.Front); //add direction patterns
-                }
                 else if (level_pois[i][j] == "back")
-                {
                     poi[i].directionPattern.Add(FacingDirection.Back);
-                }
                 else if (level_pois[i][j] == "right")
-                {
                     poi[i].directionPattern.Add(FacingDirection.Right);
-                }
                 else if (level_pois[i][j] == "left")
-                {
                     poi[i].directionPattern.Add(FacingDirection.Left);
-                }
                 else if (j == level_pois[i].Length - 2) //second to last item is wait time at poi
-                {
                     poi[i].restTime = float.Parse(level_pois[i][j]);
-                }
                 else if (j == level_pois[i].Length - 1) //last item in line is rotation speed
-                {
                     poi[i].rotationSpeed = float.Parse(level_pois[i][j]);
-                }
             }
         }
-		return poi;
+        return poi;
     }
 
     public Enemy[] AssignEnemies(string level)
@@ -101,13 +89,9 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < level_enemies.Count; i++) //initialize all pois
         {
             if (level_enemies[i][0] == "ranged")
-            {
                 poiTransforms[i] = Instantiate(rangedEnemyPrefab) as Transform;
-            }
             else
-            {
                 poiTransforms[i] = Instantiate(meleeEnemyPrefab) as Transform;
-            }
             enemies[i] = poiTransforms[i].gameObject.GetComponent<Enemy>();
             enemies[i].enabled = true;
         }
@@ -117,25 +101,15 @@ public class LevelManager : MonoBehaviour
         {
             for (int j = 0; j < level_enemies[i].Length; j++)
             {
-//                Debug.Log(level_enemies[i][j]);
                 if (int.TryParse(level_enemies[i][j], out t))
-                {
                     enemies[i].points.Add(poi[t]);
-                }
             }
         }
-		return enemies;
-    }
-
-    void ClearArrays()
-    {
-
+        return enemies;
     }
 
     public void EnemyDead()
     {
         deathCounter++;
-        //if (deadEnemies == enemies.Length)
-        //    SpawnBoss();
     }
 }

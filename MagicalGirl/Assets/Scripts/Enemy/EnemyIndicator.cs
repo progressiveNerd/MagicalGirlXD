@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyIndicator : MonoBehaviour {
+public class EnemyIndicator : MonoBehaviour
+{
     SpriteRenderer directionSprite;
-	
-	void Awake() {
-	    directionSprite = GetComponent<SpriteRenderer>();
-	}
 
-    public void SetDirection(FacingDirection direction) {
-        switch (direction) {
+    void Awake()
+    {
+        directionSprite = GetComponent<SpriteRenderer>();
+    }
+
+    public void SetDirection(FacingDirection direction)
+    {
+        switch (direction)
+        {
             case FacingDirection.Right:
                 directionSprite.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
                 break;

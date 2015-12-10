@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Enemy : Entity {
+public class Enemy : Entity
+{
     //player vars
     GameObject player;
     Player playerScript;
-	
+
     //enemy info vars
     public bool ranged;
     public float timeBetweenAttacks = 0.5f;
@@ -17,7 +18,7 @@ public class Enemy : Entity {
     Animator anim;
     EnemyAttack attackScript;
     LevelManager levelManager;
-    
+
     //stealth vars
     public bool alerted;
 
@@ -32,7 +33,7 @@ public class Enemy : Entity {
     public float turnTimer;
 
     FacingDirection playerDirection;
-	PlayerDetection detection;
+    PlayerDetection detection;
     CircleCollider2D attackRangeCollider;
     EnemyIndicator directionIndicator;
     List<PointOfInterest>.Enumerator currentPOI;
@@ -40,13 +41,12 @@ public class Enemy : Entity {
     Rigidbody2D enemyRigidbody;
     Vector3 movement;
 
-
-
     //attack vars
     public bool playerInRange;
     float attackTimer;
 
-    void Awake() {
+    void Awake()
+    {
         currentHealth = startingHealth;
         attackTimer = 0f;
         poiTimer = 0f;
@@ -56,10 +56,9 @@ public class Enemy : Entity {
         playerInRange = false;
         direction = FacingDirection.Front;
 
-
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<Player>();
-		detection = player.GetComponentInChildren<PlayerDetection>();
+        detection = player.GetComponentInChildren<PlayerDetection>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
         if (ranged)
             attackScript = GetComponentInChildren<EnemyShooting>();
@@ -73,9 +72,11 @@ public class Enemy : Entity {
         directionIndicator = GetComponentInChildren<EnemyIndicator>();
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         // if we haven't set up the enumerator, do so
-        if(currentPOI.Current == null) {
+        if (currentPOI.Current == null)
+        {
             currentPOI = points.GetEnumerator();
             currentPOI.MoveNext(); //set the enumerator to the first element (Why microsoft?)
             currentRotation = currentPOI.Current.directionPattern.GetEnumerator();
@@ -83,36 +84,35 @@ public class Enemy : Entity {
         }
 
         // get the player's direction relative to the enemy if they're within range
-        if (alerted) {
+        if (alerted)
+        {
             Vector3 playerVector = player.transform.position - transform.position;
             playerVector.z = 0f;
-            if (Mathf.Abs(playerVector.y) >= Mathf.Abs(playerVector.x)) {
+            if (Mathf.Abs(playerVector.y) >= Mathf.Abs(playerVector.x))
+            {
                 if (playerVector.y <= 0)
                     playerDirection = FacingDirection.Front;
                 else playerDirection = FacingDirection.Back;
             }
-            else {
+            else
+            {
                 if (playerVector.x <= 0)
                     playerDirection = FacingDirection.Left;
                 else playerDirection = FacingDirection.Right;
             }
         }
 
-		// causing the massive frame rate issue most likely
-		// RESOLVE THIS IMMEDIATELY
-        //if(playerDirection == direction && alerted)
-            //detection.Detect();
-
         attackTimer += Time.deltaTime;
 
         //attack update
-        if (playerScript.currentHealth <= 0) {
+        if (playerScript.currentHealth <= 0)
+        {
             alerted = false;
             playerInRange = false;
-            //anim.SetTrigger("PlayerDead");
         }
 
-        if (attackTimer >= timeBetweenAttacks && playerInRange && alerted && playerDirection == direction && currentHealth > 0) {
+        if (attackTimer >= timeBetweenAttacks && playerInRange && alerted && playerDirection == direction && currentHealth > 0)
+        {
             attackTimer = 0f;
             attackScript.Attack(player);
         }
@@ -164,40 +164,48 @@ public class Enemy : Entity {
         directionIndicator.SetDirection(direction);
     }
 
-    public void OnChildTriggerEnter(string aName, Collider2D aOther) {
-        if(aName == "Vision") {
-            if (aOther.tag == "Detection") {
+    public void OnChildTriggerEnter(string aName, Collider2D aOther)
+    {
+        if (aName == "Vision")
+        {
+            if (aOther.tag == "Detection")
                 alerted = true;
-            }
-        } else if (aName == "Attack") {
+        }
+        else if (aName == "Attack")
+        {
             if (aOther.tag == "Player" && aOther is BoxCollider2D)
-			{
                 playerInRange = true;
-			}
         }
     }
 
-    public void OnChildTriggerExit(string aName, Collider2D aOther) {
-        if (aName == "Vision") {
-            if (aOther.tag == "Detection") {
+    public void OnChildTriggerExit(string aName, Collider2D aOther)
+    {
+        if (aName == "Vision")
+        {
+            if (aOther.tag == "Detection")
+            {
                 alerted = false;
                 detection.Undetect();
             }
-        } else if (aName == "Attack") {
+        }
+        else if (aName == "Attack")
+        {
             if (aOther.tag == "Player")
                 playerInRange = false;
         }
     }
 
-    void Move(float h, float v) {
+    void Move(float h, float v)
+    {
         movement.Set(h, v, 0f);
         movement = movement.normalized * walkSpeed * Time.deltaTime;
         enemyRigidbody.MovePosition(this.gameObject.transform.position + movement);
     }
 
-    public void Patrol() {
+    public void Patrol()
+    {
         poiTimer = 0f;
-        if(!ranged)
+        if (!ranged)
             destinationReached = false;
 
         float h = currentPOI.Current.gameObject.transform.position.x;
@@ -206,43 +214,50 @@ public class Enemy : Entity {
 
         Vector3 facing = currentPOI.Current.gameObject.transform.position - transform.position;
         facing.z = 0f;
-        if (Mathf.Abs(facing.y) >= Mathf.Abs(facing.x)) {
+        if (Mathf.Abs(facing.y) >= Mathf.Abs(facing.x))
+        {
             if (facing.y <= 0)
                 direction = FacingDirection.Front;
             else direction = FacingDirection.Back;
         }
-        else {
+        else
+        {
             if (facing.x <= 0)
                 direction = FacingDirection.Left;
             else direction = FacingDirection.Right;
         }
     }
 
-    protected override void Death() {
+    protected override void Death()
+    {
         isDead = true;
-        if(alerted)
+        if (alerted)
             player.GetComponentInChildren<PlayerDetection>().Undetect();
         Destroy(gameObject, 0f);
     }
 
-    public override void TakeDamage(int amount) {
-        if(isDead)
+    public override void TakeDamage(int amount)
+    {
+        if (isDead)
             return;
         currentHealth -= amount;
         if (currentHealth <= 0)
             Death();
     }
 
-    void Turn() {
+    void Turn()
+    {
         direction = currentRotation.Current;
-        if(!currentRotation.MoveNext()) {
+        if (!currentRotation.MoveNext())
+        {
             currentRotation = currentPOI.Current.directionPattern.GetEnumerator();
             currentRotation.MoveNext();
         }
         turnTimer = 0f;
     }
 
-    public void DestinationReached() {
+    public void DestinationReached()
+    {
         destinationReached = true;
     }
 }

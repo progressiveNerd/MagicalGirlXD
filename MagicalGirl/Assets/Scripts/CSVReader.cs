@@ -2,8 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 
-public class CSVReader {
-
+public class CSVReader
+{
     StreamReader csv;
 
     public CSVReader(string path)
@@ -15,11 +15,8 @@ public class CSVReader {
     {
         List<string[]> file = new List<string[]>();
         string line;
-        while((line = csv.ReadLine()) != null)
-        {
+        while ((line = csv.ReadLine()) != null)
             file.Add(line.Split(','));
-        }
-
         return file;
     }
 }

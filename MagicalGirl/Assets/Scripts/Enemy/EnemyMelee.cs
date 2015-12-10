@@ -1,30 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMelee : EnemyAttack {
+public class EnemyMelee : EnemyAttack
+{
     public float range = 2f;
     public int damage = 1;
     Enemy manager;
-    void Awake() {
+    void Awake()
+    {
         manager = transform.parent.GetComponent<Enemy>();
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-		if(other.tag == "Player")
-        manager.OnChildTriggerEnter("Attack", other);
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+            manager.OnChildTriggerEnter("Attack", other);
     }
 
-    void OnTriggerExit2D(Collider2D other) {
+    void OnTriggerExit2D(Collider2D other)
+    {
         manager.OnChildTriggerExit("Attack", other);
     }
 
-    public override void Attack(GameObject player) {
+    public override void Attack(GameObject player)
+    {
         Player playerScript = player.GetComponent<Player>();
         if (playerScript != null)
             playerScript.TakeDamage(damage);
     }
 
-    public override float GetRange() {
+    public override float GetRange()
+    {
         return range;
     }
 }
