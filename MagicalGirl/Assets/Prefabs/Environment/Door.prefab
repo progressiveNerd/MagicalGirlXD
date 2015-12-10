@@ -26,6 +26,7 @@ GameObject:
   - 4: {fileID: 494586}
   - 61: {fileID: 6115842}
   - 61: {fileID: 6100172}
+  - 114: {fileID: 11465762}
   m_Layer: 0
   m_Name: Door
   m_TagString: Wall
@@ -68,9 +69,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -.323434472}
+  m_Offset: {x: 0, y: -.211910725}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.64686894}
+  m_Size: {x: 1, y: 1.42382145}
 --- !u!61 &6115842
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -84,6 +85,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &11465762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28edad9694a634a4e9c64d687027221a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
+  info: {fileID: 0}
 --- !u!212 &21236386
 SpriteRenderer:
   m_ObjectHideFlags: 1

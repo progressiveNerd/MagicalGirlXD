@@ -16,6 +16,8 @@ TagManager:
   - EnemyHealth
   - Preserve
   - Wall
+  - Info
+  - Manage
   layers:
   - Default
   - TransparentFX

@@ -7,12 +7,14 @@ public class Boss : Entity
     public int currentHealth;
     public int startingHealth;
     public int damage;
+	int counterrrrrrr = 0;
     public Transform shotPrefab;
     public BossAttack attackscript;
     bool baseReached = false;
     bool attacked = false;
     bool waited = false;
     int phase = 0;
+	int frameNumber = 0;
     bool cutsceneEnd = false;
     bool click = false;
     public int counter;
@@ -62,14 +64,19 @@ public class Boss : Entity
     {
         if (!cutsceneEnd)
             Cutscene();
-        else if (cutsceneEnd && phase == 1)
-            MovePhase();
-        else if (phase == 2)
-            MovePhase();
-        else if (phase == 3)
-            MovePhase();
-        else if (phase == 4)
-            MovePhase();
+		if(!waited && cutsceneEnd) {
+	        if (phase == 1)
+	            MovePhase();
+	        else if (phase == 2)
+	            MovePhase();
+	        else if (phase == 3)
+	            MovePhase();
+	        else if (phase == 4)
+	            MovePhase();
+		}
+		if (waited) {
+			AttackPhase();
+		}
     }
 
     void Move(float h, float v, float speed)
@@ -81,13 +88,14 @@ public class Boss : Entity
 
     void MovePhase()
     {
+		attacked = false;
         if (phase == 2)
         {
             if (transform.position.x < 23 && transform.position.y > 16 && baseReached != true)
                 Move(secondBase.x - transform.position.x, secondBase.y - transform.position.y, speed);
             else
             {
-                baseReached = true;
+                
                 if (!waited)
                     waitPhase();
             }
@@ -99,7 +107,6 @@ public class Boss : Entity
                 Move(thirdBase.x - transform.position.x, thirdBase.y - transform.position.y, speed);
             else
             {
-                baseReached = true;
                 if (!waited)
                     waitPhase();
             }
@@ -111,7 +118,6 @@ public class Boss : Entity
                 Move(homeBase.x - transform.position.x, homeBase.y - transform.position.y, speed);
             else
             {
-                baseReached = true;
                 if (!waited)
                     waitPhase();
             }
@@ -123,7 +129,6 @@ public class Boss : Entity
                 Move(firstBase.x - transform.position.x, firstBase.y - transform.position.y, speed);
             else
             {
-                baseReached = true;
                 if (!waited)
                     waitPhase();
             }
@@ -132,33 +137,32 @@ public class Boss : Entity
 
     void AttackPhase()
     {
+		baseReached = true;
         if (phase == 1 && !attacked)
         {
             anim.SetTrigger("Attack");
-            attackscript.Attack(player);
-            phase++;
+            attackscript.SpecialAttack1(player);
+            
         }
         else if (phase == 2 && !attacked)
         {
             anim.SetTrigger("Attack");
-            attackscript.Attack(player);
-            phase++;
+            attackscript.SpecialAttack2(player);
         }
         else if (phase == 3 && !attacked)
         {
             anim.SetTrigger("Attack");
-            attackscript.Attack(player);
-            phase++;
+            attackscript.SpecialAttack3(player);
         }
         else if (phase == 4 && !attacked)
         {
             anim.SetTrigger("Attack");
             attackscript.Attack(player);
-            playerScript.TakeDamage(5);
         }
-        baseReached = false;
-        attacked = true;
-        waited = false;
+        
+		if(counterrrrrrr == 0)
+			Invoke("AttackWait",2.0f);
+		counterrrrrrr++;
     }
 
     public void Cutscene()
@@ -211,8 +215,22 @@ public class Boss : Entity
 
     public void waitPhase()
     {
-        waited = true;
-        Invoke("AttackPhase", 1.0f);
-        attacked = false;
+		baseReached = true;
+        Invoke("superWait", 1.0f);
     }
+	public void superWait()
+	{
+		waited = true;
+	}
+	public void AttackWait()
+	{
+		attacked = true;
+		waited = false;
+		baseReached = false;
+		if (phase != 4)
+			phase++;
+		else 
+			phase = 1;
+		counterrrrrrr = 0;
+	}
 }

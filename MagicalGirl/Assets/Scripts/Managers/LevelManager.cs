@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class LevelManager : MonoBehaviour
     public GameObject menu;
     public Player plays;
     GameObject tempDoor;
+	public GameObject Info;
+	public Text[] texts;
 
     // Update is called once per frame
     void Update()

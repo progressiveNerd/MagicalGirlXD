@@ -16,6 +16,8 @@ public class Player : Entity
     public AudioClip pickupSound;
     public AudioClip damageSound;
     public AudioClip deathSound;
+	public GameObject info;
+	public Text info1;
 
     Animator anim;
     AudioSource audioSource;
@@ -112,9 +114,22 @@ public class Player : Entity
         //playerAudio.Play();
         playerAttack.enabled = false;
         this.enabled = false;
-        GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().deathload = true;
+       // GameObject.FindGameObjectWithTag("Preserve").GetComponent<Preserve>().deathload = true;
         //Destroy(gameObject, 1f);
     }
+	public void changeTextInfo(string keyType) {
+		if (keyType == "WaterKey") {
+
+			info1.text = "The backyard is now open!";
+		} else if (keyType == "SchoolKey") {
+
+			info1.text = "The school's doors are now open!";
+		} else if (keyType == "BossKey") {
+
+			info1.text = "The stairs can now be accessed!";
+		}
+		Invoke ("disableCanvas", 3.0f);
+	}
 
     public void RestartLevel()
     {
@@ -123,13 +138,23 @@ public class Player : Entity
 
     public void PickupKey(string keyType)
     {
-        if (keyType == "WaterKey")
-            hasWaterKey = true;
-        else if (keyType == "SchoolKey")
-            hasSchoolKey = true;
-        else if (keyType == "BossKey")
-            hasBossKey = true;
+        if (keyType == "WaterKey") {
+			hasWaterKey = true;
+			info.SetActive(true);
+			changeTextInfo(keyType);
+		} else if (keyType == "SchoolKey") {
+			hasSchoolKey = true;
+			info.SetActive(true);
+			changeTextInfo(keyType);
+		} else if (keyType == "BossKey") {
+			hasBossKey = true;
+			info.SetActive(true);
+			changeTextInfo(keyType);
+		}
         audioSource.clip = pickupSound;
         audioSource.Play();
     }
+	void disableCanvas() {
+		info.SetActive (false);
+	}
 }
