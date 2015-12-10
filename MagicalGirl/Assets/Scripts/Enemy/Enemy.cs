@@ -44,6 +44,7 @@ public class Enemy : Entity
     //attack vars
     public bool playerInRange;
     float attackTimer;
+    FacingDirection prevDirection;
 
     void Awake()
     {
@@ -162,6 +163,7 @@ public class Enemy : Entity
             }
         }
         directionIndicator.SetDirection(direction);
+        Animating();
     }
 
     public void OnChildTriggerEnter(string aName, Collider2D aOther)
@@ -200,6 +202,13 @@ public class Enemy : Entity
         movement.Set(h, v, 0f);
         movement = movement.normalized * walkSpeed * Time.deltaTime;
         enemyRigidbody.MovePosition(this.gameObject.transform.position + movement);
+    }
+
+    void Animating()
+    {
+        if(prevDirection != direction)
+            anim.SetInteger("Direction", (int)direction);
+        prevDirection = direction;
     }
 
     public void Patrol()

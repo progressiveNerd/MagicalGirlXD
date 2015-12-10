@@ -23,7 +23,9 @@ public class Player : Entity
     PlayerAttack playerAttack;
     Rigidbody2D rigidBody;
     Vector3 movement;
-    int animDirection;
+    bool wasMoving;
+    FacingDirection prevDirection;
+
     void Awake()
     {
         currentHealth = startingHealth;
@@ -81,9 +83,15 @@ public class Player : Entity
 
     void Animating(float h, float v)
     {
-        bool walking = h != 0f || v != 0f;
-        //anim.SetBool("IsWalking", walking);
-        anim.SetInteger("Direction", (int)direction);
+        bool isMoving = h != 0f || v != 0f;
+        if(isMoving && !wasMoving)
+            anim.SetBool("IsMoving", true);
+        else if (!isMoving && wasMoving)
+            anim.SetBool("IsMoving", false);
+        if(direction != prevDirection)
+            anim.SetInteger("Direction", (int)direction);
+        wasMoving = isMoving;
+        prevDirection = direction;
     }
 
     public override void TakeDamage(int amount)
