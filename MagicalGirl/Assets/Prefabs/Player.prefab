@@ -1,22 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &120500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 403096}
-  - 212: {fileID: 21284998}
-  - 114: {fileID: 11480484}
-  m_Layer: 1
-  m_Name: MeleeIndicator
-  m_TagString: Indicator
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &152216
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,18 +39,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &403096
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 461796}
-  m_RootOrder: 1
 --- !u!4 &452420
 Transform:
   m_ObjectHideFlags: 1
@@ -91,7 +62,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452420}
-  - {fileID: 403096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5050480
@@ -256,24 +226,13 @@ MonoBehaviour:
   startingHealth: 5
   currentHealth: 0
   hasWaterKey: 0
-  hasSchoolkey: 0
+  hasSchoolKey: 0
   hasBossKey: 0
   hasDied: 0
   healthSlider: {fileID: 0}
   pickupSound: {fileID: 8300000, guid: e22f00e13559d45479ac68700d87db70, type: 3}
   damageSound: {fileID: 8300000, guid: 76345451a3c51974f8ad9a36a4b24012, type: 3}
   deathSound: {fileID: 0}
---- !u!114 &11480484
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe725cccac74814791056f4f9d16e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11491046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,33 +274,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1501903515
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d2975b894879d264ea7f142434273dea, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!212 &21284998
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120500}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d647278ff98b3394e807925a7cf5bc6c, type: 3}
+  m_Sprite: {fileID: 21300024, guid: 0f1201ec50525b74bb4f54aa4ac5144e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

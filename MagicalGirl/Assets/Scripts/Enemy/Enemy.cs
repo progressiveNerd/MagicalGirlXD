@@ -35,7 +35,7 @@ public class Enemy : Entity
     FacingDirection playerDirection;
     PlayerDetection detection;
     CircleCollider2D attackRangeCollider;
-    EnemyIndicator directionIndicator;
+    //EnemyIndicator directionIndicator;
     List<PointOfInterest>.Enumerator currentPOI;
     List<FacingDirection>.Enumerator currentRotation;
     Rigidbody2D enemyRigidbody;
@@ -70,7 +70,7 @@ public class Enemy : Entity
         anim = GetComponent<Animator>();
         levelManager = GetComponent<LevelManager>();
         points = new List<PointOfInterest>();
-        directionIndicator = GetComponentInChildren<EnemyIndicator>();
+        //directionIndicator = GetComponentInChildren<EnemyIndicator>();
     }
 
     void FixedUpdate()
@@ -162,7 +162,7 @@ public class Enemy : Entity
                 else direction = FacingDirection.Right;
             }
         }
-        directionIndicator.SetDirection(direction);
+        //directionIndicator.SetDirection(direction);
         Animating();
     }
 
