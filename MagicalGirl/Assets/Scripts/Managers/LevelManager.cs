@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
 
     public PointOfInterest[] AssignPOIs(string level)
     {
-        CSVReader csv = new CSVReader("Assets/CSVs/" + level + "/poi.csv");
+        CSVReader csv = new CSVReader('p', level);
         List<string[]> level_pois = csv.Read();
 
         poi = new PointOfInterest[level_pois.Count];
@@ -73,7 +73,7 @@ public class LevelManager : MonoBehaviour
 
     public Enemy[] AssignEnemies(string level)
     {
-        CSVReader csv = new CSVReader("Assets/CSVs/" + level + "/enemy.csv");
+        CSVReader csv = new CSVReader('e', level);
         List<string[]> level_enemies = csv.Read();
 
         enemies = new Enemy[level_enemies.Count];

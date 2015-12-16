@@ -118,7 +118,7 @@ public class TextureLoad : MonoBehaviour
         spawnPicked = false;
         tileColors = new Color[levelWidth * levelHeight];
         tileColors = levelTexture.GetPixels();
-
+        bool cameraSet = false;
         int Framecounter = 0;
         int sideCounter = 0;
 
@@ -345,9 +345,13 @@ public class TextureLoad : MonoBehaviour
                             }
                         }
                     }
-                    Vector3 posCam = new Vector3(x, y, -10);
+                    if (spawnPicked && !cameraSet)
+                    {
+                        Vector3 posCam = new Vector3(x, y, -10);
+                        maincam.transform.position = posCam;
+                        cameraSet = true;
+                    }
                     player.transform.position = pos;
-                    maincam.transform.position = posCam;
                 }
 
                 else if (currentColor == enemyColor || currentColor == rangedColor)
