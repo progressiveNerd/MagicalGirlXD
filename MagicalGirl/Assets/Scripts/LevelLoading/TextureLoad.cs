@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class TextureLoad : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class TextureLoad : MonoBehaviour
     //General
     public Transform stonePath;
     public Transform grassTile;
+    public Transform grassTile2;
+    public Transform grassTile3;
     public Transform stairs;
     public Transform door;
     public Transform key;
@@ -128,7 +131,23 @@ public class TextureLoad : MonoBehaviour
             {
                 currentColor = tileColors[x + y * levelWidth];
                 if (currentColor == grassColor)
-                    Instantiate(grassTile, new Vector3(x, y), Quaternion.identity);
+                {
+                    System.Random rng = new System.Random();
+                    int i = rng.Next(15);
+                    Debug.Log("Grass #: " + i);
+                    switch(i)
+                    {
+                        case 1:
+                            Instantiate(grassTile2, new Vector3(x, y), Quaternion.identity);
+                            break;
+                        case 2:
+                            Instantiate(grassTile3, new Vector3(x, y), Quaternion.identity);
+                            break;
+                        default:
+                            Instantiate(grassTile, new Vector3(x, y), Quaternion.identity);
+                            break;
+                    }
+                }
 
                 else if (currentColor == schoolColor)
                     Instantiate(school, new Vector3(x, y), Quaternion.identity);
