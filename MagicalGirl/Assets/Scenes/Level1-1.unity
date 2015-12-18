@@ -751,6 +751,8 @@ MonoBehaviour:
   maincam: {fileID: 1884379683}
   stonePath: {fileID: 493430, guid: 519bc98465f724e34883861d438ba9c1, type: 2}
   grassTile: {fileID: 491504, guid: 80de8ed2b526c40448cf3ed91e8d40a0, type: 2}
+  grassTile2: {fileID: 421358, guid: 56c133109a81c414dace4549bfb8ac14, type: 2}
+  grassTile3: {fileID: 488762, guid: be40ca31b239e204daff822e76cd31fd, type: 2}
   stairs: {fileID: 490184, guid: dad68468634124ab0add3e7b51f71691, type: 2}
   door: {fileID: 494586, guid: 9b41e17c7a9a6456a83a3bdb65ff924e, type: 2}
   key: {fileID: 404224, guid: 01ec76e95866a484094e081d15270a95, type: 2}
@@ -1109,22 +1111,6 @@ Prefab:
     - target: {fileID: 160270, guid: fac7a08b85ef24690a33651d0d7a1a4d, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11410874, guid: fac7a08b85ef24690a33651d0d7a1a4d, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1554764371}
-    - target: {fileID: 11410874, guid: fac7a08b85ef24690a33651d0d7a1a4d, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changeScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 11422138, guid: fac7a08b85ef24690a33651d0d7a1a4d, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1554764371}
-    - target: {fileID: 11422138, guid: fac7a08b85ef24690a33651d0d7a1a4d, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changeScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fac7a08b85ef24690a33651d0d7a1a4d, type: 2}
