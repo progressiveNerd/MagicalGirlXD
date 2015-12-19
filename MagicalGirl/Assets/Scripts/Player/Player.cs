@@ -100,8 +100,8 @@ public class Player : Entity
     {
         currentHealth -= amount;
         healthSlider.value = currentHealth;
-
-        //playerAudio.Play();
+		audioSource.clip = damageSound;
+		audioSource.Play();
         if (currentHealth <= 0)
             Death();
     }

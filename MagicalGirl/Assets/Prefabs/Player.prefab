@@ -103,9 +103,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.00475311279, y: -.224999994}
+  m_Offset: {x: .0126079619, y: -.224999994}
   serializedVersion: 2
-  m_Size: {x: .899999976, y: .449999988}
+  m_Size: {x: .703241169, y: .449999988}
 --- !u!82 &8275104
 AudioSource:
   m_ObjectHideFlags: 1
@@ -204,11 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 486178, guid: 47253e51d06544f45ab757efe99dbd00, type: 2}
-  meleeDamage: 2
   attackSpeed: .25
   shootingRange: 100
-  meleeRange: 1
-  meleeSound: {fileID: 8300000, guid: e948b52424139e042bc9add746621794, type: 3}
   shootSound: {fileID: 8300000, guid: 7f928de4a1b4baa428c9cbec9d9ebc47, type: 3}
 --- !u!114 &11472230
 MonoBehaviour:
@@ -233,6 +230,8 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: e22f00e13559d45479ac68700d87db70, type: 3}
   damageSound: {fileID: 8300000, guid: 76345451a3c51974f8ad9a36a4b24012, type: 3}
   deathSound: {fileID: 0}
+  info: {fileID: 0}
+  info1: {fileID: 0}
 --- !u!114 &11491046
 MonoBehaviour:
   m_ObjectHideFlags: 1
