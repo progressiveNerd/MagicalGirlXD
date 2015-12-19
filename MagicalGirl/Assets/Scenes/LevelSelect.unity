@@ -896,7 +896,7 @@ MonoBehaviour:
   areaSwitch1: {fileID: 497316, guid: a65bd71cb754d4f7f9ac817b372116f0, type: 2}
   brick: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
   schoolSwitch: {fileID: 466896, guid: 85999e0161beb4f35a1c8dd6d5dbb7f2, type: 2}
-  level2Switch: {fileID: 466896, guid: 85999e0161beb4f35a1c8dd6d5dbb7f2, type: 2}
+  level2Switch: {fileID: 469914, guid: c17245f1c9dfd43d7b96e73d55c62c44, type: 2}
   road: {fileID: 416070, guid: 31cb092372d7b4a9da3b50664e8222aa, type: 2}
   roadLines: {fileID: 420864, guid: 61b6fd0a66f7f40adb0f6ffcc2e7d2c5, type: 2}
   roadBlock: {fileID: 430496, guid: b0bc763050189448eb22ef7ff7a2ce76, type: 2}

@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &166870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412030}
+  - 114: {fileID: 11415716}
+  - 114: {fileID: 11440644}
+  - 114: {fileID: 11415258}
+  - 114: {fileID: 11475926}
+  - 114: {fileID: 11473520}
+  - 114: {fileID: 11468774}
+  m_Layer: 0
+  m_Name: LevelManager2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &412030
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 322, y: 172, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11415258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48dd99cba26a5f24fb52d492f88a1021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeEnemyPrefab: {fileID: 468298, guid: 667bfb341dad2f24aa76783831e306bd, type: 2}
+  rangedEnemyPrefab: {fileID: 423976, guid: 28d19e63a3dc82045b878a93b138ad82, type: 2}
+  poiPrefab: {fileID: 452066, guid: a858d594f43d0d84b9965b44087cf0ff, type: 2}
+  enemyTransforms: []
+  poiTransforms: []
+  deathCounter: 0
+  menu: {fileID: 0}
+  plays: {fileID: 0}
+  Info: {fileID: 0}
+  texts: []
+--- !u!114 &11415716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ef6a2f73ffe4147a580251136d4907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  keyy: {fileID: 0}
+  maincam: {fileID: 0}
+  grass: {fileID: 491504, guid: 80de8ed2b526c40448cf3ed91e8d40a0, type: 2}
+  grassblock: {fileID: 483070, guid: 8d02fec0b013b489288a014c8588caad, type: 2}
+  sidewalk: {fileID: 493430, guid: 519bc98465f724e34883861d438ba9c1, type: 2}
+  tree: {fileID: 408952, guid: a7a1ed6dcea0f4bce879adfed1a5793b, type: 2}
+  sidewalkblock: {fileID: 428414, guid: d4da855da6db0482f87a8e33ec45feaf, type: 2}
+  road: {fileID: 416070, guid: 31cb092372d7b4a9da3b50664e8222aa, type: 2}
+  sidewalkSwitch1: {fileID: 493430, guid: 519bc98465f724e34883861d438ba9c1, type: 2}
+  sidewalkSwitch2: {fileID: 493430, guid: 519bc98465f724e34883861d438ba9c1, type: 2}
+  roadLinesHorizontal: {fileID: 459586, guid: d0c9e2fb67fb84b3eae5f427c635d7c6, type: 2}
+  car: {fileID: 416070, guid: 31cb092372d7b4a9da3b50664e8222aa, type: 2}
+  roadBlock: {fileID: 430496, guid: b0bc763050189448eb22ef7ff7a2ce76, type: 2}
+  postOffice: {fileID: 405562, guid: 6e093dd787d134c23b77e678520dbd2d, type: 2}
+  building1: {fileID: 483966, guid: b733a3ad5dd01455aa3035c7a3dcacda, type: 2}
+  building2: {fileID: 474782, guid: c2b513f90e3e94a0c91759d89e947583, type: 2}
+  roadblocks: {fileID: 473540, guid: dc0d1f28602b040b68e64047063d910e, type: 2}
+  counter: {fileID: 491668, guid: 7fdd4f39e612b43f195a4fb290a93e9f, type: 2}
+  floor: {fileID: 408952, guid: a7a1ed6dcea0f4bce879adfed1a5793b, type: 2}
+  stairs: {fileID: 490184, guid: dad68468634124ab0add3e7b51f71691, type: 2}
+  Wall: {fileID: 412130, guid: c5d97b94f5f4541468d810a883f8ea8d, type: 2}
+  grassColor: {r: .0941176489, g: 1, b: 0, a: 1}
+  grassblockColor: {r: .105882354, g: .749019623, b: .0392156877, a: 1}
+  sidewalkColor: {r: 0, g: .921568632, b: 1, a: 1}
+  treeColor: {r: .0862745121, g: .372549027, b: .0627451017, a: 1}
+  sidewalkblockColor: {r: .0117647061, g: .631372571, b: .686274529, a: 1}
+  roadColor: {r: .686274529, g: .686274529, b: .686274529, a: 1}
+  sidewalkSwitch1Color: {r: .270588249, g: .505882382, b: .525490224, a: 1}
+  sidewalkSwitch2Color: {r: .270588249, g: .505882382, b: .525490224, a: 1}
+  roadLinesHorizontalColor: {r: 1, g: .988235295, b: 0, a: 1}
+  carColor: {r: 1, g: .70588237, b: 0, a: 1}
+  roadBlockColor: {r: .592156887, g: .592156887, b: .592156887, a: 1}
+  postOfficeColor: {r: .0313725509, g: .509803951, b: .549019635, a: 1}
+  roadblocksColor: {r: .349019617, g: .349019617, b: .349019617, a: 1}
+  counterColor: {r: 0, g: .0156862754, b: .674509823, a: 1}
+  floorColor: {r: .0431372561, g: .0666666701, b: 1, a: 1}
+  stairsColor: {r: 0, g: .674509823, b: .141176477, a: 1}
+  spawnColor: {r: .894117653, g: 1, b: 0, a: 1}
+  rangedEnemy: {r: .0627451017, g: .298039228, b: 0, a: 1}
+  meleeEnemy: {r: .196078435, g: .839215696, b: .0235294122, a: 1}
+  wallColor: {r: 0, g: 0, b: 0, a: 1}
+  enemycount: 0
+  poicount: 0
+  levelTexture: {fileID: 2800000, guid: 21e150fd042c44fe5aaefe34518b7b35, type: 3}
+--- !u!114 &11440644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcca5d4ae3736ac4d93682b88e000356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  menu: {fileID: 0}
+--- !u!114 &11468774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffce0734c9f594bfe8908695bb021d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
+--- !u!114 &11473520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b32f973701e4d15834d45856f1ce62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11475926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3af8c73e86ee40cfbe77b4cd67b6e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preserved: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 166870}
+  m_IsPrefabParent: 1

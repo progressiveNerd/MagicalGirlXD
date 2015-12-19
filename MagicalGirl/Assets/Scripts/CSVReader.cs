@@ -43,7 +43,7 @@ public class CSVReader
                 t = e2_2;
             else
                 t = p2_2;
-        Debug.Log(t);
+        
         csv = new StringReader(t);
     }
 

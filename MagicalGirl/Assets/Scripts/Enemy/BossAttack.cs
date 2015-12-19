@@ -6,6 +6,7 @@ public class BossAttack : MonoBehaviour
     public float range = 150f;
     public Transform shotPrefab;
     public Boss manager;
+	public Boss2 manager2;
 
     int attackDirection = 1;
 

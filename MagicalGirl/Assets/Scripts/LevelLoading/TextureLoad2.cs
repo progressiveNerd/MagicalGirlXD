@@ -33,6 +33,8 @@ public class TextureLoad2 : MonoBehaviour
 	public Transform floor;
 	public Transform stairs;
 	public Transform Wall;
+	public Transform Boss;
+	public Transform BossPOI;
 
 	private PointOfInterest tempPOI;
 	private Enemy tempEnemy;
@@ -63,7 +65,10 @@ public class TextureLoad2 : MonoBehaviour
 	public Color rangedEnemy;
 	public Color meleeEnemy;
 	public Color wallColor;
-	
+	public Color BossPOIColor;
+
+	public int enemycount; //30
+	public int poicount; //51
 	public Texture2D levelTexture;
 	
 	LevelManager lm;
@@ -73,26 +78,16 @@ public class TextureLoad2 : MonoBehaviour
 		levelWidth = levelTexture.width;
 		levelHeight = levelTexture.height;
 		lm = GetComponent<LevelManager>();
-//		poiList = lm.AssignPOIs(levelTexture.name);
-//		enemyList = lm.AssignEnemies(levelTexture.name);
+		poiList = lm.AssignPOIs(levelTexture.name);
+		enemyList = lm.AssignEnemies(levelTexture.name);
 		enemyCounter = 0;
 		poiCounter = 0;
-		deletePreserve();
+		enemycount = 19;
 		loadLevel();
 		
 	}
 	
-	void deletePreserve()
-	{
-		if (GameObject.FindGameObjectsWithTag("Preserve") != null)
-		{
-			GameObject[] a = GameObject.FindGameObjectsWithTag("Preserve");
-			if (a[0].GetComponent<Preserve>().loaded)
-				for (int i = 0; i < a.Length; i++)
-					if (!a[i].GetComponent<Preserve>().loaded)
-						Destroy(a[i]);
-		}
-	}
+
 	
 	void loadLevel()
 	{
@@ -183,7 +178,6 @@ public class TextureLoad2 : MonoBehaviour
 				else if (currentColor == spawnColor)
 				{
 					Instantiate(sidewalk, new Vector3(x, y), Quaternion.identity);
-					PlayerTempPos = GameObject.FindWithTag("Preserve").GetComponent<Preserve>().pos;
 
 
 					if (!spawnPicked)
@@ -209,15 +203,31 @@ public class TextureLoad2 : MonoBehaviour
 						Instantiate(road, new Vector3(x, y), Quaternion.identity);
 
 
-//					Vector2 pos = new Vector2(x, y);
-//					tempPOI = poiList[poiCounter];
-//					poiCounter++;
-//					tempPOI.transform.position = pos;
-//					tempEnemy = enemyList[enemyCounter];
-//					enemyCounter++;
-//					tempEnemy.transform.position = pos;
+					Vector2 pos = new Vector2(x, y);
+					tempPOI = poiList[poiCounter];
+					poiCounter++;
+					tempPOI.transform.position = pos;
+					if(poiCounter < 10 || poiCounter > 40) {
+						tempEnemy = enemyList[enemyCounter];
+						enemyCounter++;
+						tempEnemy.transform.position = pos;
+					}
+					if((poiCounter >= 10 && poiCounter < 13) || (poiCounter == 18) || (poiCounter >= 25 && poiCounter < 29) || (poiCounter >= 39 && poiCounter < 42)){
+						tempEnemy = enemyList[enemycount];
+						enemycount++;
+						tempEnemy.transform.position = pos;
+					}
+				}
+				else if (currentColor == BossPOIColor) {
+					Instantiate(floor, new Vector3(x, y), Quaternion.identity);
+					Debug.Log("x " + x);
+					Debug.Log("y " + y);
 				}
 			}
+		}
+		if (Application.loadedLevel == 7) {
+			Vector2 pos1 = new Vector2 (19, 28);
+			Boss.transform.position = pos1;
 		}
 	}
 }
