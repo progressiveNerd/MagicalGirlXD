@@ -250,92 +250,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d97a959eb68cff4ebcaf2c68e917106, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &646714740
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432118, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &646714741 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 129532, guid: 8c5207808a9624945aaf196168f58f9f, type: 2}
-  m_PrefabInternal: {fileID: 646714740}
 --- !u!1 &849560617 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198338, guid: 1830ba313aa0b1b4cbea55eb82048353, type: 2}
@@ -518,7 +432,7 @@ Prefab:
     - target: {fileID: 11468774, guid: bce94ac2dc0ff46b08053b6efe2d7972, type: 2}
       propertyPath: menu
       value: 
-      objectReference: {fileID: 646714741}
+      objectReference: {fileID: 0}
     - target: {fileID: 11415716, guid: bce94ac2dc0ff46b08053b6efe2d7972, type: 2}
       propertyPath: grassColor.r
       value: .0705882385

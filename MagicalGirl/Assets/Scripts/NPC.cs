@@ -103,9 +103,17 @@ public class NPC : MonoBehaviour
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().enabled = true;
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerAttack> ().enabled = true;
 			if(counter == 0)
-				text.text = "Hi! This area is currently off limits.";
+				text.text = "Hey!! The Mailman is attacking the city!";
 			if(counter == 1)
-				text.text = "It will be released as DLC for $1,000,000 in a few days!";
+				text.text = "Check the post office out and take him down!";
+			if(counter == 2)
+				text.text = "The post office is the white building! It should be unlocked!";
+			if(counter == 3)
+				text.text = "Be careful! The parking lot is swarmed with enemies!";
+			else if (counter == 4)
+			{
+				canvas.enabled = false;
+			}
 
 		}
     }

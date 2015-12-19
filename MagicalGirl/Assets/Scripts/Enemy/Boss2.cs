@@ -39,10 +39,10 @@ public class Boss2 : Entity
 	//Second - 23, 16
 	//First - 15,25
 	//Third - 30, 25
-	private Vector2 firstBase = new Vector2(15, 25);
-	private Vector2 secondBase = new Vector2(23, 16);
-	private Vector2 thirdBase = new Vector2(30, 25);
-	private Vector2 homeBase = new Vector2(23, 33);
+	private Vector2 firstBase = new Vector2(11, 28);
+	private Vector2 secondBase = new Vector2(11, 12);
+	private Vector2 thirdBase = new Vector2(27, 12);
+	private Vector2 homeBase = new Vector2(27, 28);
 	Vector3 movement;
 	
 	Rigidbody2D bossRigidBody;
@@ -91,7 +91,7 @@ public class Boss2 : Entity
 		attacked = false;
 		if (phase == 2)
 		{
-			if (transform.position.x < 23 && transform.position.y > 16 && baseReached != true)
+			if (transform.position.x <= 11 && transform.position.y >= 12 && baseReached != true)
 				Move(secondBase.x - transform.position.x, secondBase.y - transform.position.y, speed);
 			else
 			{
@@ -103,7 +103,7 @@ public class Boss2 : Entity
 		
 		else if (phase == 3)
 		{
-			if (transform.position.x < 30 && transform.position.y < 25 && baseReached != true)
+			if (transform.position.x <= 27 && transform.position.y <= 12 && baseReached != true)
 				Move(thirdBase.x - transform.position.x, thirdBase.y - transform.position.y, speed);
 			else
 			{
@@ -114,7 +114,7 @@ public class Boss2 : Entity
 		
 		else if (phase == 4)
 		{
-			if (transform.position.x > 23 && transform.position.y < 33 && baseReached != true)
+			if (transform.position.x >= 27 && transform.position.y <= 28 && baseReached != true)
 				Move(homeBase.x - transform.position.x, homeBase.y - transform.position.y, speed);
 			else
 			{
@@ -125,7 +125,7 @@ public class Boss2 : Entity
 		
 		else if (phase == 1)
 		{
-			if (transform.position.x > 15 && transform.position.y > 25 && baseReached != true)
+			if (transform.position.x >= 11 && baseReached != true)
 				Move(firstBase.x - transform.position.x, firstBase.y - transform.position.y, speed);
 			else
 			{
