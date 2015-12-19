@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 02569f9a3d0b2e4489f5f37ba947c1ea
-timeCreated: 1449725104
+timeCreated: 1450478483
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Red Blob Enemy Back Sprite Sheet_0
+    21300002: Red Blob Enemy Back Sprite Sheet_1
+    21300004: Red Blob Enemy Back Sprite Sheet_2
+    21300006: Red Blob Enemy Back Sprite Sheet_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +41,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0

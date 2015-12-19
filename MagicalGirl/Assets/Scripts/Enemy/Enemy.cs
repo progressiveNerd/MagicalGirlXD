@@ -14,6 +14,7 @@ public class Enemy : Entity
     public int startingHealth = 2;
 
     bool isDead;
+    bool damageTaken;
     int currentHealth;
     Animator anim;
     EnemyAttack attackScript;
@@ -54,6 +55,7 @@ public class Enemy : Entity
         destinationReached = false;
         alerted = false;
         playerInRange = false;
+        damageTaken = false;
         direction = FacingDirection.Front;
 
         player = GameObject.FindWithTag("Player");
@@ -68,7 +70,6 @@ public class Enemy : Entity
         attackRangeCollider.radius = attackScript.GetRange();
         anim = GetComponent<Animator>();
         points = new List<PointOfInterest>();
-        //directionIndicator = GetComponentInChildren<EnemyIndicator>();
     }
 
     void FixedUpdate()
@@ -137,12 +138,12 @@ public class Enemy : Entity
                     Patrol();
                 }
             }
-            else //or travelling to a new POI
+            else // or travelling to a new POI
                 Patrol();
         }
         else
         {
-            if (!ranged && direction == playerDirection) //chase player
+            if (!ranged && direction == playerDirection) // chase player
                 Move(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
 
             Vector3 facing = player.transform.position - transform.position;
@@ -160,7 +161,6 @@ public class Enemy : Entity
                 else direction = FacingDirection.Right;
             }
         }
-        //directionIndicator.SetDirection(direction);
         Animating();
     }
 
@@ -204,9 +204,11 @@ public class Enemy : Entity
 
     void Animating()
     {
-        if(prevDirection != direction)
+        if (prevDirection != direction)
+        {
             anim.SetInteger("Direction", (int)direction);
-        prevDirection = direction;
+            prevDirection = direction;
+        }
     }
 
     public void Patrol()
@@ -247,6 +249,8 @@ public class Enemy : Entity
     {
         if (isDead)
             return;
+        Debug.Log("Taking damage");
+        anim.SetTrigger("Damaged");
         currentHealth -= amount;
         if (currentHealth <= 0)
             Death();

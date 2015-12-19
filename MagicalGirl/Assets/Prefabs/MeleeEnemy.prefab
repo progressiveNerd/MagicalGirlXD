@@ -44,10 +44,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 468298}
   - 212: {fileID: 21247216}
+  - 95: {fileID: 9548912}
   - 50: {fileID: 5043268}
   - 61: {fileID: 6100106}
   - 114: {fileID: 11417102}
-  - 95: {fileID: 9548912}
   m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Enemy

@@ -168,6 +168,8 @@ MonoBehaviour:
   maincam: {fileID: 1439685860}
   stonePath: {fileID: 0}
   grassTile: {fileID: 483070, guid: 8d02fec0b013b489288a014c8588caad, type: 2}
+  grassTile2: {fileID: 421358, guid: 56c133109a81c414dace4549bfb8ac14, type: 2}
+  grassTile3: {fileID: 488762, guid: be40ca31b239e204daff822e76cd31fd, type: 2}
   stairs: {fileID: 490184, guid: dad68468634124ab0add3e7b51f71691, type: 2}
   door: {fileID: 0}
   key: {fileID: 0}
