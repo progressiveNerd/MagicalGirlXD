@@ -84,19 +84,27 @@ public class NPC : MonoBehaviour
 			}
 			else if (counter == 7) {
 				text.text = "Check that out first!";
-			}else if (counter == 8) {
-				cutsceneCount = true;
-				GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().enabled = true;
-				GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerAttack> ().enabled = true;
+			}
+            else if (counter == 8) {
+                //cutsceneCount = true;
+                //GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().enabled = true;
+                //GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerAttack> ().enabled = true;
 				text.text = "Good luck!! Show that Gym Teacher who's boss!";
 			}
+            else if (counter == 9)
+            {
+                cutsceneCount = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().enabled = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>().enabled = true;
+                canvas.enabled = false;
+            }
 		} 
 		else {
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().enabled = true;
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerAttack> ().enabled = true;
 			if(counter == 0)
 				text.text = "Hi! This area is currently off limits.";
-			if(counter ==1)
+			if(counter == 1)
 				text.text = "It will be released as DLC for $1,000,000 in a few days!";
 
 		}
